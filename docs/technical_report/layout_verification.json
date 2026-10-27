@@ -1,0 +1,15 @@
+{
+  "pdf_pages": 59,
+  "extracted_words": 19718,
+  "compilation_passes": 3,
+  "compile_exit_codes": [
+    0,
+    0,
+    0
+  ],
+  "unresolved_references": 0,
+  "missing_characters": 0,
+  "overfull_boxes": 0,
+  "visual_review": "All 59 pages rendered and reviewed using five contact sheets; final maps, formulas, tables, references and cover checked.",
+  "pdf_sha256": "de5f9cb50e9e71e8f9deacbab0d0db6b89eb59e1cfbc40eb2f3afaee3ab13d3d"
+}

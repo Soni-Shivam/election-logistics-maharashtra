@@ -1,0 +1,17 @@
+District,policy,stations_with_failure,mean_downtime_min_if_failed,voter_mean_wait_min,share_voters_wait_over_30,balked_share
+Sangli,No failures,0.0,0.0,14.02,0.1639,0.0626
+Sangli,10% spares,0.1007,32.1,14.28,0.1695,0.0654
+Sangli,30% spares,0.1007,27.8,14.26,0.1693,0.0649
+Sangli,20% spares,0.1007,28.5,14.26,0.1693,0.065
+Satara,No failures,0.0,0.0,11.58,0.1411,0.0529
+Satara,10% spares,0.1019,35.4,11.84,0.1462,0.0556
+Satara,30% spares,0.1019,30.7,11.82,0.1459,0.0551
+Satara,20% spares,0.1019,31.6,11.83,0.1459,0.0552
+Nashik,No failures,0.0,0.0,11.1,0.1097,0.0434
+Nashik,10% spares,0.1007,32.6,11.37,0.1147,0.046
+Nashik,30% spares,0.1007,28.6,11.35,0.1144,0.0455
+Nashik,20% spares,0.1007,29.3,11.36,0.1145,0.0456
+Pune,No failures,0.0,0.0,8.19,0.0565,0.0242
+Pune,10% spares,0.1009,30.3,8.46,0.0602,0.0261
+Pune,30% spares,0.1009,27.0,8.45,0.06,0.0258
+Pune,20% spares,0.1009,27.6,8.45,0.06,0.0259

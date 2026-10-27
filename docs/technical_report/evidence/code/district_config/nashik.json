@@ -1,0 +1,25 @@
+{
+  "name": "Nashik",
+  "pc11_state_id": "27",
+  "pc11_district_id": "516",
+  "seats": 15,
+  "sources": "Sources: Census 2011 PCA, SHRUG PC11 polygons, WorldPop 2011 1 km population grid (city cells). Research map only.",
+  "towns": {
+    "04152-802776": {
+      "name": "Nashik",
+      "ward_method": "raster_cells",
+      "raster": "../../data_raw/worldpop/ind_ppp_2011_1km_Aggregated_UNadj.tif",
+      "id_prefix": "NSK-C",
+      "absorb": [
+        "04152-802777"
+      ]
+    },
+    "04146-802772": {
+      "name": "Malegaon",
+      "ward_method": "raster_cells",
+      "raster": "../../data_raw/worldpop/ind_ppp_2011_1km_Aggregated_UNadj.tif",
+      "id_prefix": "MLG-C"
+    }
+  },
+  "merge_gap_units": true
+}

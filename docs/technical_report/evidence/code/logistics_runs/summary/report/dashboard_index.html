@@ -1,0 +1,457 @@
+<style>
+.el { display: flex; flex-direction: column; gap: var(--cds-gap-xl); font-family: var(--font-anthropic-sans); color: var(--color-fg); }
+.el h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); line-height: 1.2; margin: 0; text-wrap: balance; }
+.el h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; text-wrap: balance; }
+.el h3 { font-size: var(--cds-font-size-body); font-weight: var(--cds-font-weight-medium); margin: 0; }
+.el p { margin: 0; line-height: 1.5; }
+.el-lede { max-width: 74ch; margin-top: var(--cds-gap-sm); }
+.el-muted { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.el-section { display: flex; flex-direction: column; gap: var(--cds-gap-md); }
+.el-section > header { display: flex; flex-direction: column; gap: var(--cds-gap-xs); max-width: 82ch; }
+.el-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: var(--cds-gap-md); }
+.el-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: var(--cds-gap-md); }
+.el-wide { grid-column: 1 / -1; }
+.el-card, .el-tile { position: relative; background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; display: flex; flex-direction: column; gap: var(--cds-gap-sm); }
+.el-tile { gap: var(--cds-gap-xs); }
+.el-big { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: calc(var(--cds-font-size-title) * 1.3); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.el-big .unit { font-size: var(--cds-font-size-heading); color: var(--color-fg-muted); }
+.el b, .el .num { font-weight: var(--cds-font-weight-medium); font-variant-numeric: tabular-nums; }
+.el-chart { width: 100%; min-height: 240px; }
+.el-chart svg { display: block; overflow: visible; }
+.el-chart text { fill: var(--color-fg-muted); font-size: var(--cds-font-size-caption); font-family: var(--font-anthropic-sans); }
+.el-chart .strong { fill: var(--color-fg); }
+.el-chart .grid line { stroke: var(--cds-chart-grid); }
+.el-legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm) var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.el-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.el-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; }
+.el-legend i.line { height: 2px; width: 14px; border-radius: 1px; }
+.el-legend i.dash { height: 0; width: 14px; border-top: 2px dashed var(--cds-chart-reference); border-radius: 0; }
+.el-controls { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm); align-items: center; }
+.el-seg { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); overflow: hidden; }
+.el-seg button { font: inherit; font-size: var(--cds-font-size-caption); padding: var(--cds-pad-xs) var(--cds-pad-sm); background: transparent; color: var(--color-fg-muted); border: 0; border-right: 1px solid var(--color-border-line); cursor: pointer; }
+.el-seg button:last-child { border-right: 0; }
+.el-seg button[aria-pressed="true"] { background: var(--color-bg); color: var(--color-fg); font-weight: var(--cds-font-weight-medium); }
+.el-seg button:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 1px; }
+.el-tablebox { overflow: auto; max-height: 30rem; }
+.el table { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+.el th, .el td { padding: 6px 10px; text-align: right; border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+.el th:first-child, .el td:first-child, .el th.l, .el td.l { text-align: left; }
+.el th { position: sticky; top: 0; background: var(--color-panel); color: var(--color-fg-muted); font-weight: var(--cds-font-weight-medium); }
+.el tr.hl td { color: var(--color-fg); font-weight: var(--cds-font-weight-medium); }
+.el td.good { color: var(--color-ok); }
+.el td.bad { color: var(--color-bad); }
+.el-tip { position: absolute; z-index: 5; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); min-width: 10rem; max-width: 17rem; }
+.el-tip .h { color: var(--cds-text-secondary); margin-bottom: 2px; }
+.el-tip .r { display: flex; align-items: center; gap: 6px; }
+.el-tip .r b { margin-left: auto; }
+.el-tip .sw { width: 8px; height: 8px; border-radius: 2px; flex: none; }
+.el-fail { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: inherit; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.el-fail .dot { width: 0.375rem; height: 0.375rem; border-radius: 50%; background: var(--color-bad); }
+.el-notes { display: grid; gap: var(--cds-gap-sm); padding-left: 1.1em; margin: 0; max-width: 88ch; line-height: 1.5; }
+.el [data-dash-source-state=empty] { color: transparent; }
+.el [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+</style>
+
+<div class="el">
+  <header class="el-section" id="top">
+    <h1>Maharashtra election logistics</h1>
+    <p class="el-lede">The model puts Pune's 2024 polling stations within
+      <b data-source="validation" data-field="error_pct" data-where="check=polling stations&amp;scope=Pune district">—</b>% of the real count.
+      Holding stations to 1,200 electors costs about ₹<b data-source="cap_range" data-field="cost_lo" data-row="0">—</b>–<b data-source="cap_range" data-field="cost_hi" data-row="0">—</b> per elector,
+      and cuts the average wait from <b data-source="cap_range" data-field="w15_lo" data-row="0">—</b>–<b data-source="cap_range" data-field="w15_hi" data-row="0">—</b> minutes to
+      <b data-source="cap_range" data-field="w12_lo" data-row="0">—</b>–<b data-source="cap_range" data-field="w12_hi" data-row="0">—</b>.
+      Choosing the dispatch centre well saves <b data-source="depot_range" data-field="lo" data-row="0">—</b>–<b data-source="depot_range" data-field="hi" data-row="0">—</b>% of vehicle-km over the usual largest-town choice.</p>
+  </header>
+
+  <div class="el-tiles">
+    <div class="el-tile">
+      <span class="el-muted">Pune polling stations, model vs real 2024</span>
+      <span class="el-big"><span class="dash-skeleton" data-source="validation" data-field="model_2024_rolls" data-where="check=polling stations&amp;scope=Pune district">—</span></span>
+      <span class="el-muted">Real: <span class="num" data-source="validation" data-field="actual_2024" data-where="check=polling stations&amp;scope=Pune district">—</span> · planning on Census 2011 gives <span class="num" data-source="validation" data-field="model_census_2011" data-where="check=polling stations&amp;scope=Pune district">—</span></span>
+    </div>
+    <div class="el-tile">
+      <span class="el-muted">Average wait, 1,500 cap → 1,200 cap</span>
+      <span class="el-big"><span class="dash-skeleton" data-source="cap_range" data-field="w15_hi" data-row="0">—</span><span class="unit"> → </span><span data-source="cap_range" data-field="w12_hi" data-row="0">—</span><span class="unit"> min</span></span>
+      <span class="el-muted">Worst district shown · 40 s per voter, calibrated to 2024</span>
+    </div>
+    <div class="el-tile">
+      <span class="el-muted">Cost of the 1,200 cap per voter-hour of waiting saved</span>
+      <span class="el-big"><span class="unit">₹</span><span class="dash-skeleton" data-source="cap_range" data-field="rs_lo" data-row="0">—</span><span class="unit">–</span><span data-source="cap_range" data-field="rs_hi" data-row="0">—</span></span>
+      <span class="el-muted">Below a ₹50/hour value of voters' time in every district</span>
+    </div>
+    <div class="el-tile">
+      <span class="el-muted">Electors walking over 2 km, village rule vs optimised</span>
+      <span class="el-big"><span class="dash-skeleton" data-source="access_range" data-field="village_hi" data-row="0">—</span><span class="unit">% → </span><span data-source="access_range" data-field="opt_hi" data-row="0">—</span><span class="unit">%</span></span>
+      <span class="el-muted">Worst district · walk measured from homes, not village centres</span>
+    </div>
+  </div>
+
+  <section class="el-section" id="validation">
+    <header>
+      <h2>Does the model match the 2024 election?</h2>
+      <p class="el-muted">Every model output we could find a public 2024 figure for. Seat-level gaps in Pune and Nashik come from city seats, where our rebuild of the official boundaries is approximate.</p>
+    </header>
+    <div class="el-grid">
+      <div class="el-card" id="card-curve">
+        <div class="el-controls"><h3 style="margin-right:auto">Votes cast through the day</h3><div class="el-seg" id="seg-curve" role="group" aria-label="District"></div></div>
+        <p class="el-muted">Share of the day's votes cast by each hour: simulated stations vs Maharashtra's reported 2024 turnout.</p>
+        <div class="el-legend"><span><i class="dash"></i>Reported 2024</span><span><i class="line" style="background: var(--el-c0)"></i>Simulated, 40 s per voter</span><span><i class="line" style="background: var(--el-c1)"></i>Simulated, 50 s per voter</span></div>
+        <div class="el-chart dash-skeleton" id="ch-curve" data-source="turnout_curve"></div>
+      </div>
+      <div class="el-card">
+        <h3>Model vs real 2024</h3>
+        <div class="el-tablebox">
+          <table id="tb-val" data-source="validation" data-row-key="check,scope">
+            <thead><tr><th data-field="check">Check</th><th class="l" data-field="scope">Where</th><th data-field="actual_2024">Real</th><th data-field="model_2024_rolls">Model</th><th data-field="error_pct">Error %</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="el-section" id="cap">
+    <header>
+      <h2>The 1,200-elector cap: what it costs and what it buys</h2>
+      <p class="el-muted">Same districts, same rules, stations capped at 1,200 (ECI 2025) or 1,500 (2009–2024). Waits assume nobody leaves the queue, at the calibrated 40 seconds per voter.</p>
+    </header>
+    <div class="el-grid">
+      <div class="el-card" id="card-wait">
+        <h3>Average wait at the polling station</h3>
+        <div class="el-legend"><span><i style="background: var(--el-c0)"></i>1,200 cap</span><span><i style="background: var(--el-c1)"></i>1,500 cap</span></div>
+        <div class="el-chart dash-skeleton" id="ch-wait" data-source="queues"></div>
+      </div>
+      <div class="el-card">
+        <h3>Cost and benefit by district</h3>
+        <p class="el-muted">Extra cost covers stations, premises, walking and routed transport. Voter-hours saved use each district's 2024 votes.</p>
+        <div class="el-tablebox">
+          <table id="tb-cap" data-source="cap_value" data-row-key="District">
+            <thead><tr><th data-field="District">District</th><th data-field="stations_1500">Stations at 1,500</th><th data-field="stations_1200">At 1,200</th><th data-field="extra_cost_per_elector">₹ per elector</th><th data-field="wait_1500_min">Wait, 1,500</th><th data-field="wait_1200_min">Wait, 1,200</th><th data-field="voter_hours_saved">Voter-hours saved</th><th data-field="rs_per_voter_hour_saved">₹ per hour saved</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="el-section" id="siting">
+    <header>
+      <h2>Where stations and dispatch centres go</h2>
+      <p class="el-muted">Each scenario changes one rule from the optimised plan (2024 rolls, 1,200 cap, 2 km walk, dispatch centre chosen by the model).</p>
+    </header>
+    <div class="el-controls"><span class="el-muted">District</span><div class="el-seg" id="seg-scen" role="group" aria-label="District"></div></div>
+    <div class="el-grid">
+      <div class="el-card" id="card-access">
+        <h3>Electors walking more than 2 km</h3>
+        <p class="el-muted">Measured from where people live: the walk inside the village plus the path to the station.</p>
+        <div class="el-chart dash-skeleton" id="ch-access" data-source="scenarios"></div>
+      </div>
+      <div class="el-card" id="card-km">
+        <h3>Vehicle-km to move polling parties and EVMs</h3>
+        <p class="el-muted">Routed buses and jeeps, out on the eve of the poll and back after it.</p>
+        <div class="el-chart dash-skeleton" id="ch-km" data-source="scenarios"></div>
+      </div>
+      <div class="el-card el-wide">
+        <h3>All scenarios</h3>
+        <div class="el-tablebox">
+          <table id="tb-scen" data-source="scenarios" data-row-key="district,scenario">
+            <thead><tr><th data-field="scenario">Scenario</th><th data-field="stations">Stations</th><th data-field="premises">Premises</th><th data-field="electors_per_station">Electors per station</th><th data-field="mean_walk_km">Mean walk km</th><th data-field="pct_over_2km">% over 2 km</th><th data-field="buses">Buses</th><th data-field="jeeps">Jeeps</th><th data-field="vehicle_km">Vehicle-km</th><th data-field="latest_arrival">Last arrival</th><th data-field="rs_per_elector">₹ per elector</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="el-section" id="failures">
+    <header>
+      <h2>EVM failures and spare machines</h2>
+      <p class="el-muted">About one station in ten replaces a ballot unit, control unit or VVPAT (2024 replacement rates). The sector officer brings a spare; without one it comes from the dispatch centre.</p>
+    </header>
+    <div class="el-card">
+      <div class="el-tablebox">
+        <table id="tb-res" data-source="reserves" data-row-key="District,policy">
+          <thead><tr><th data-field="District">District</th><th class="l" data-field="policy">Policy</th><th data-field="stations_with_failure">Stations with a failure</th><th data-field="mean_downtime_min_if_failed">Downtime if failed, min</th><th data-field="voter_mean_wait_min">Average wait, min</th><th data-field="share_voters_wait_over_30">Waiting over 30 min</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="el-section" id="loksabha">
+    <header>
+      <h2>Lok Sabha seats on 2024 rolls</h2>
+      <p class="el-muted">The 48 official seats, and the best regrouping of the same 288 Assembly seats into contiguous groups of six. Reserved seats follow the Delimitation Act's share rule.</p>
+    </header>
+    <div class="el-card">
+      <div class="el-tablebox">
+        <table id="tb-ls" data-source="lok_sabha" data-row-key="plan">
+          <thead><tr><th data-field="plan">Plan</th><th data-field="largest_2024">Largest seat</th><th data-field="smallest_2024">Smallest seat</th><th data-field="size_ratio_2024">Largest ÷ smallest</th><th data-field="outside_10pct_2024">Seats off ±10%</th><th data-field="mean_abs_dev_pct_2024">Mean deviation %</th><th data-field="sc_reserved_mean_sc_pct">SC share, SC seats %</th><th data-field="st_reserved_mean_st_pct">ST share, ST seats %</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="el-section" id="method">
+    <header><h2>Method and caveats</h2></header>
+    <ul class="el-notes">
+      <li>Demand: Census 2011 villages scaled to each seat's 2024 electors; people placed on WorldPop's 100 m grid with a settlement mask, so the walk inside a village counts.</li>
+      <li>Stations and dispatch centre: one Gurobi model per seat, solved within 0.5% of optimal. Transport: OR-Tools routing of buses (6 parties) and jeeps, all parties in place by 18:00.</li>
+      <li>Polling day: Monte Carlo queue simulation, 30 runs, arrivals following the 2024 hourly turnout; everyone in line at 18:00 votes.</li>
+      <li>City seats in Pune and Nashik are rebuilt approximately, so seat-level counts there are less reliable than district totals.</li>
+      <li>Costs are planning estimates: ₹25,000 per station, ₹5,000 per premises, ₹50 per voter-hour, bus and jeep hire plus per-km rates.</li>
+    </ul>
+  </section>
+</div>
+
+<script>
+(function () {
+  const root = document.querySelector('.el');
+  const C = dash.colors;
+  root.style.setProperty('--el-c0', C[0]);
+  root.style.setProperty('--el-c1', C[1]);
+  const fmt = d3.format(',');
+  const num = (v) => (v === '' || v == null ? NaN : Number(v));
+  const LABEL = { base: 'Optimised plan', cap1500: '1,500 cap', walk3: '3 km walk limit', depot_hq: 'Centre at largest town',
+    depot_median: 'Centre at 1-median', village_rule: 'One centre per village', no_intra: 'Old model (0 km in village)',
+    census2011: 'Planned on Census 2011', best_map: 'Our redrawn seats', ac_calibrated: 'Seat-calibrated rolls' };
+  let distCurve = 'Pune';
+  let distScen = 'Pune';
+
+  dash.calc('cap_range', {
+    inputs: ['cap_value'], title: 'Cap cost and waits, range over districts',
+    description: 'Smallest and largest cost per elector, waits and cost per voter-hour saved across the four districts.',
+    fn: (cap_value) => {
+      const col = (k) => cap_value.map((r) => Number(r[k]));
+      const lo = (k) => Math.min(...col(k)), hi = (k) => Math.max(...col(k));
+      return [{ cost_lo: lo('extra_cost_per_elector'), cost_hi: hi('extra_cost_per_elector'),
+        w12_lo: Math.round(lo('wait_1200_min') * 10) / 10, w12_hi: Math.round(hi('wait_1200_min') * 10) / 10,
+        w15_lo: Math.round(lo('wait_1500_min')), w15_hi: Math.round(hi('wait_1500_min')),
+        rs_lo: Math.round(lo('rs_per_voter_hour_saved')), rs_hi: Math.round(hi('rs_per_voter_hour_saved')) }];
+    },
+  });
+  dash.calc('depot_range', {
+    inputs: ['scenarios'], title: 'Vehicle-km saved by choosing the dispatch centre',
+    description: 'Vehicle-km with the centre at the largest town over the optimised plan, minus one, as a percentage; range over districts.',
+    fn: (scenarios) => {
+      const ds = [...new Set(scenarios.map((r) => r.district))];
+      const pct = ds.map((d) => {
+        const b = scenarios.find((r) => r.district === d && r.scenario === 'base');
+        const h = scenarios.find((r) => r.district === d && r.scenario === 'depot_hq');
+        return b && h ? 100 * (Number(h.vehicle_km) / Number(b.vehicle_km) - 1) : NaN;
+      }).filter((x) => !Number.isNaN(x));
+      return [{ lo: Math.round(Math.min(...pct)), hi: Math.round(Math.max(...pct)) }];
+    },
+  });
+  dash.calc('access_range', {
+    inputs: ['scenarios'], title: 'Electors over 2 km, village rule vs optimised',
+    description: 'Highest share of electors walking over 2 km in any district, under the village rule and under the optimised plan.',
+    fn: (scenarios) => {
+      const v = scenarios.filter((r) => r.scenario === 'village_rule').map((r) => Number(r.pct_over_2km));
+      const o = scenarios.filter((r) => r.scenario === 'base').map((r) => Number(r.pct_over_2km));
+      return [{ village_hi: Math.round(Math.max(...v) * 10) / 10, opt_hi: Math.round(Math.max(...o) * 100) / 100 }];
+    },
+  });
+
+  function ready(el, ids) {
+    const st = ids.map((id) => dash.data(id).status);
+    if (st.every((s) => s === 'ok')) { el.classList.remove('dash-skeleton'); return true; }
+    el.replaceChildren();
+    if (st.some((s) => s === 'error')) {
+      el.classList.remove('dash-skeleton');
+      const f = document.createElement('div'); f.className = 'el-fail';
+      const d = document.createElement('span'); d.className = 'dot'; f.append(d, 'Failed to load'); el.appendChild(f);
+    } else el.classList.add('dash-skeleton');
+    return false;
+  }
+  const rows = (id) => dash.data(id).data || [];
+
+  function fillMarks() {
+    root.querySelectorAll('[data-source][data-field]').forEach((el) => {
+      if (el.closest('table')) return;
+      const d = dash.data(el.getAttribute('data-source'));
+      if (d.status !== 'ok') { if (d.status === 'error') el.classList.remove('dash-skeleton'); return; }
+      const data = d.data || [];
+      let row;
+      if (el.hasAttribute('data-row')) row = data[Number(el.getAttribute('data-row'))];
+      else { const w = new URLSearchParams(el.getAttribute('data-where') || ''); row = data.find((r) => [...w].every(([k, v]) => String(r[k]) === v)); }
+      el.classList.remove('dash-skeleton');
+      if (!row) { el.textContent = '—'; return; }
+      const v = row[el.getAttribute('data-field')], n = Number(v);
+      el.textContent = v === '' || v == null ? '—' : (Number.isFinite(n) ? (Number.isInteger(n) ? fmt(n) : String(+n.toFixed(2))) : String(v));
+    });
+  }
+
+  function svgFor(el, w, h) { el.replaceChildren(); el.style.minHeight = h + 'px'; return d3.select(el).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${w} ${h}`).attr('role', 'img'); }
+  function textWidth(svg, strs) { const t = svg.append('text').attr('visibility', 'hidden'); let m = 0; for (const s of strs) { t.text(s); m = Math.max(m, t.node().getComputedTextLength()); } t.remove(); return m; }
+  function showTip(box, ev, head, lines) {
+    let t = box.querySelector(':scope > .el-tip'); if (!t) { t = document.createElement('div'); t.className = 'el-tip'; box.appendChild(t); }
+    t.replaceChildren(); const h = document.createElement('div'); h.className = 'h'; h.textContent = head; t.appendChild(h);
+    for (const [c, l, v] of lines) { const r = document.createElement('div'); r.className = 'r'; if (c) { const s = document.createElement('span'); s.className = 'sw'; s.style.background = c; r.appendChild(s); } const a = document.createElement('span'); a.textContent = l; const b = document.createElement('b'); b.textContent = v; r.append(a, b); t.appendChild(r); }
+    t.hidden = false; const bb = box.getBoundingClientRect(); let x = ev.clientX - bb.left + 14, y = ev.clientY - bb.top + 14;
+    if (x + t.offsetWidth > bb.width) x = ev.clientX - bb.left - t.offsetWidth - 14; if (y + t.offsetHeight > bb.height) y = ev.clientY - bb.top - t.offsetHeight - 14;
+    t.style.left = Math.max(4, x) + 'px'; t.style.top = Math.max(4, y) + 'px';
+  }
+  function hideTip(box) { const t = box.querySelector(':scope > .el-tip'); if (t) t.hidden = true; }
+
+  function seg(id, names, get, set, redraw) {
+    const el = document.getElementById(id);
+    if (el.childElementCount) return;
+    for (const n of names) {
+      const b = document.createElement('button'); b.type = 'button'; b.textContent = n; b.id = `${id}-${n.toLowerCase()}`;
+      b.setAttribute('aria-pressed', String(n === get()));
+      b.addEventListener('click', () => { set(n); el.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x.textContent === n))); redraw(); });
+      el.appendChild(b);
+    }
+  }
+
+  // ---- votes through the day ----
+  function drawCurve() {
+    const el = document.getElementById('ch-curve'), box = document.getElementById('card-curve');
+    if (!ready(el, ['turnout_curve'])) return;
+    const all = rows('turnout_curve');
+    seg('seg-curve', [...new Set(all.map((r) => r.District))], () => distCurve, (n) => { distCurve = n; }, drawCurve);
+    const data = all.filter((r) => r.District === distCurve);
+    const hours = [...new Set(data.map((r) => r.hour))];
+    const w = Math.max(280, el.clientWidth), h = 250;
+    const svg = svgFor(el, w, h);
+    const y = d3.scaleLinear([0, 100], [h - 24, 10]);
+    const lw = textWidth(svg, ['100%']) + 10;
+    const x = d3.scalePoint(hours, [lw + 10, w - 12]);
+    svg.append('g').attr('class', 'grid').selectAll('line').data(y.ticks(5)).join('line').attr('x1', lw).attr('x2', w - 12).attr('y1', (d) => y(d)).attr('y2', (d) => y(d));
+    svg.append('g').selectAll('text').data(y.ticks(5)).join('text').attr('x', lw - 6).attr('y', (d) => y(d)).attr('dy', '0.32em').attr('text-anchor', 'end').text((d) => d + '%');
+    svg.append('g').selectAll('text').data(hours).join('text').attr('x', (d) => x(d)).attr('y', h - 6).attr('text-anchor', 'middle').text((d) => d);
+    const rep = hours.map((hh) => ({ hour: hh, v: num(data.find((r) => r.hour === hh).reported_pct) }));
+    const line = d3.line().x((p) => x(p.hour)).y((p) => y(p.v));
+    svg.append('path').attr('d', line(rep)).attr('fill', 'none').attr('stroke', 'var(--cds-chart-reference)').attr('stroke-width', 2).attr('stroke-dasharray', '5 4');
+    const series = [40, 50].map((s, i) => ({ s, color: C[i], pts: hours.map((hh) => ({ hour: hh, v: num((data.find((r) => r.hour === hh && Number(r.service_s) === s) || {}).simulated_pct) })) }));
+    for (const s of series) {
+      svg.append('path').attr('d', line(s.pts)).attr('fill', 'none').attr('stroke', s.color).attr('stroke-width', 2).attr('stroke-linejoin', 'round').attr('stroke-linecap', 'round');
+      svg.append('g').selectAll('circle').data(s.pts).join('circle').attr('cx', (p) => x(p.hour)).attr('cy', (p) => y(p.v)).attr('r', 4).attr('fill', s.color).attr('stroke', 'var(--color-panel)').attr('stroke-width', 2);
+    }
+    svg.append('g').selectAll('rect').data(hours).join('rect').attr('x', (d) => x(d) - (x.step() / 2)).attr('width', x.step()).attr('y', 0).attr('height', h - 24).attr('fill', 'transparent')
+      .on('mousemove', (ev, hh) => showTip(box, ev, `By ${hh}`, [[null, 'Reported 2024', rep.find((p) => p.hour === hh).v.toFixed(1) + '%'], ...series.map((s) => [s.color, `Simulated, ${s.s} s`, s.pts.find((p) => p.hour === hh).v.toFixed(1) + '%'])]))
+      .on('mouseleave', () => hideTip(box));
+  }
+
+  // ---- grouped bars helper ----
+  function groupedBars(el, box, groups, keys, colors, names, fmtv, unit) {
+    const w = Math.max(280, el.clientWidth), h = 250;
+    const svg = svgFor(el, w, h);
+    const vmax = d3.max(groups, (g) => d3.max(keys, (k) => g[k]));
+    const y = d3.scaleLinear([0, vmax * 1.15], [h - 24, 16]).nice();
+    const lw = textWidth(svg, y.ticks(4).map((t) => fmtv(t))) + 10;
+    const x0 = d3.scaleBand(groups.map((g) => g.name), [lw, w - 6]).paddingInner(0.28).paddingOuter(0.1);
+    const x1 = d3.scaleBand(keys, [0, x0.bandwidth()]).padding(0.08);
+    const bw = Math.min(32, x1.bandwidth());
+    svg.append('g').attr('class', 'grid').selectAll('line').data(y.ticks(4)).join('line').attr('x1', lw).attr('x2', w - 6).attr('y1', (d) => y(d)).attr('y2', (d) => y(d));
+    svg.append('g').selectAll('text').data(y.ticks(4)).join('text').attr('x', lw - 6).attr('y', (d) => y(d)).attr('dy', '0.32em').attr('text-anchor', 'end').text((d) => fmtv(d));
+    svg.append('g').selectAll('text').data(groups).join('text').attr('x', (g) => x0(g.name) + x0.bandwidth() / 2).attr('y', h - 6).attr('text-anchor', 'middle').text((g) => g.name);
+    const gg = svg.append('g').selectAll('g').data(groups).join('g').attr('transform', (g) => `translate(${x0(g.name)},0)`);
+    keys.forEach((k, i) => {
+      const cx = x1(k) + (x1.bandwidth() - bw) / 2;
+      gg.append('rect').attr('x', cx).attr('width', bw).attr('y', (g) => y(g[k])).attr('height', (g) => y(0) - y(g[k])).attr('rx', 4).attr('fill', colors[i]);
+      if (groups.length * keys.length <= 10) gg.append('text').attr('class', 'strong').attr('x', cx + bw / 2).attr('y', (g) => y(g[k]) - 5).attr('text-anchor', 'middle').text((g) => fmtv(g[k]));
+    });
+    gg.append('rect').attr('x', 0).attr('y', 0).attr('width', x0.bandwidth()).attr('height', h - 24).attr('fill', 'transparent')
+      .on('mousemove', (ev, g) => showTip(box, ev, g.name, keys.map((k, i) => [colors[i], names[i], fmtv(g[k]) + unit])))
+      .on('mouseleave', () => hideTip(box));
+  }
+
+  function drawWait() {
+    const el = document.getElementById('ch-wait'), box = document.getElementById('card-wait');
+    if (!ready(el, ['queues'])) return;
+    const q = rows('queues').filter((r) => Number(r.service_s) === 40 && String(r.voters_leave) === 'False');
+    const ds = [...new Set(q.map((r) => r.District))];
+    const groups = ds.map((d) => ({ name: d,
+      a: num((q.find((r) => r.District === d && Number(r.cap) === 1200) || {}).voter_mean_wait_min),
+      b: num((q.find((r) => r.District === d && Number(r.cap) === 1500) || {}).voter_mean_wait_min) }));
+    groupedBars(el, box, groups, ['a', 'b'], [C[0], C[1]], ['1,200 cap', '1,500 cap'], (v) => (+v).toFixed(v < 10 ? 1 : 0), ' min');
+  }
+
+  function scenRows() { return rows('scenarios').filter((r) => r.District === distScen); }
+  function drawAccess() {
+    const el = document.getElementById('ch-access'), box = document.getElementById('card-access');
+    if (!ready(el, ['scenarios'])) return;
+    const order = ['village_rule', 'no_intra', 'walk3', 'cap1500', 'base'];
+    const r = scenRows();
+    const data = order.map((s) => ({ s, v: num((r.find((x) => x.scenario === s) || {}).pct_over_2km) })).filter((d) => !Number.isNaN(d.v));
+    const w = Math.max(280, el.clientWidth), rowH = 34, h = data.length * rowH + 28;
+    const svg = svgFor(el, w, h);
+    const lw = textWidth(svg, data.map((d) => LABEL[d.s])) + 12;
+    const x = d3.scaleLinear([0, d3.max(data, (d) => d.v) * 1.15 || 1], [lw, w - 40]).nice();
+    const y = d3.scaleBand(data.map((d) => d.s), [4, h - 24]).padding(0.25);
+    svg.append('g').attr('class', 'grid').selectAll('line').data(x.ticks(4)).join('line').attr('x1', (d) => x(d)).attr('x2', (d) => x(d)).attr('y1', 0).attr('y2', h - 24);
+    svg.append('g').selectAll('text').data(x.ticks(4)).join('text').attr('x', (d) => x(d)).attr('y', h - 8).attr('text-anchor', 'middle').text((d) => d + '%');
+    svg.append('g').selectAll('text').data(data).join('text').attr('class', (d) => (d.s === 'base' ? 'strong' : null)).attr('x', lw - 8).attr('y', (d) => y(d.s) + y.bandwidth() / 2).attr('dy', '0.32em').attr('text-anchor', 'end').text((d) => LABEL[d.s]);
+    const bh = Math.min(24, y.bandwidth());
+    svg.append('g').selectAll('rect').data(data).join('rect').attr('x', lw).attr('y', (d) => y(d.s) + (y.bandwidth() - bh) / 2).attr('height', bh).attr('width', (d) => Math.max(2, x(d.v) - lw)).attr('rx', 4)
+      .attr('fill', (d) => (d.s === 'base' ? C[0] : 'var(--cds-chart-muted)'))
+      .on('mousemove', (ev, d) => showTip(box, ev, LABEL[d.s], [[null, 'Electors over 2 km', d.v.toFixed(2) + '%']])).on('mouseleave', () => hideTip(box));
+    svg.append('g').selectAll('text.v').data(data).join('text').attr('class', 'strong').attr('x', (d) => Math.max(lw + 2, x(d.v)) + 6).attr('y', (d) => y(d.s) + y.bandwidth() / 2).attr('dy', '0.32em').text((d) => d.v.toFixed(d.v < 1 ? 2 : 1) + '%');
+  }
+
+  function drawKm() {
+    const el = document.getElementById('ch-km'), box = document.getElementById('card-km');
+    if (!ready(el, ['scenarios'])) return;
+    const order = ['depot_hq', 'depot_median', 'base'];
+    const r = scenRows();
+    const data = order.map((s) => ({ s, v: num((r.find((x) => x.scenario === s) || {}).vehicle_km) })).filter((d) => !Number.isNaN(d.v));
+    const w = Math.max(280, el.clientWidth), rowH = 40, h = data.length * rowH + 28;
+    const svg = svgFor(el, w, h);
+    const lw = textWidth(svg, data.map((d) => LABEL[d.s])) + 12;
+    const x = d3.scaleLinear([0, d3.max(data, (d) => d.v) * 1.12 || 1], [lw, w - 56]).nice();
+    const y = d3.scaleBand(data.map((d) => d.s), [4, h - 24]).padding(0.25);
+    svg.append('g').attr('class', 'grid').selectAll('line').data(x.ticks(4)).join('line').attr('x1', (d) => x(d)).attr('x2', (d) => x(d)).attr('y1', 0).attr('y2', h - 24);
+    svg.append('g').selectAll('text').data(x.ticks(4)).join('text').attr('x', (d) => x(d)).attr('y', h - 8).attr('text-anchor', 'middle').text((d) => d3.format('~s')(d));
+    svg.append('g').selectAll('text').data(data).join('text').attr('class', (d) => (d.s === 'base' ? 'strong' : null)).attr('x', lw - 8).attr('y', (d) => y(d.s) + y.bandwidth() / 2).attr('dy', '0.32em').attr('text-anchor', 'end').text((d) => LABEL[d.s]);
+    const bh = Math.min(24, y.bandwidth());
+    svg.append('g').selectAll('rect').data(data).join('rect').attr('x', lw).attr('y', (d) => y(d.s) + (y.bandwidth() - bh) / 2).attr('height', bh).attr('width', (d) => x(d.v) - lw).attr('rx', 4)
+      .attr('fill', (d) => (d.s === 'base' ? C[0] : 'var(--cds-chart-muted)'))
+      .on('mousemove', (ev, d) => showTip(box, ev, LABEL[d.s], [[null, 'Vehicle-km', fmt(Math.round(d.v))]])).on('mouseleave', () => hideTip(box));
+    svg.append('g').selectAll('text.v').data(data).join('text').attr('class', 'strong').attr('x', (d) => x(d.v) + 6).attr('y', (d) => y(d.s) + y.bandwidth() / 2).attr('dy', '0.32em').text((d) => fmt(Math.round(d.v)));
+  }
+
+  function table(id, src, keyCols, cols, filter, rowClass) {
+    const tb = document.querySelector(`#${id} tbody`);
+    if (dash.data(src).status !== 'ok') { tb.replaceChildren(); return; }
+    const data = rows(src).filter(filter || (() => true));
+    tb.replaceChildren(...data.map((r) => {
+      const tr = document.createElement('tr');
+      tr.setAttribute('data-key', keyCols.map((k) => encodeURIComponent(r[k])).join(','));
+      if (rowClass) { const c = rowClass(r); if (c) tr.className = c; }
+      for (const [f, kind] of cols) {
+        const td = document.createElement('td'); const v = r[f]; const n = num(v);
+        if (kind === 'l') { td.className = 'l'; td.textContent = v ?? ''; }
+        else if (kind === 'raw') td.textContent = v ?? '';
+        else if (kind === 'pct1') td.textContent = Number.isNaN(n) ? '' : (100 * n).toFixed(1) + '%';
+        else if (kind === 'int') td.textContent = Number.isNaN(n) ? '' : fmt(Math.round(n));
+        else if (typeof kind === 'number') td.textContent = Number.isNaN(n) ? '' : n.toFixed(kind);
+        else td.textContent = v ?? '';
+        tr.appendChild(td);
+      }
+      return tr;
+    }));
+  }
+
+  function drawTables() {
+    table('tb-val', 'validation', ['check', 'scope'], [['check', 'raw'], ['scope', 'l'], ['actual_2024', 1], ['model_2024_rolls', 1], ['error_pct', 1]]);
+    table('tb-cap', 'cap_value', ['District'], [['District', 'raw'], ['stations_1500', 'int'], ['stations_1200', 'int'], ['extra_cost_per_elector', 2], ['wait_1500_min', 1], ['wait_1200_min', 1], ['voter_hours_saved', 'int'], ['rs_per_voter_hour_saved', 1]]);
+    table('tb-scen', 'scenarios', ['district', 'scenario'], [['scenario', 'raw'], ['stations', 'int'], ['premises', 'int'], ['electors_per_station', 'int'], ['mean_walk_km', 2], ['pct_over_2km', 2], ['buses', 'int'], ['jeeps', 'int'], ['vehicle_km', 'int'], ['latest_arrival', 'raw'], ['rs_per_elector', 2]],
+      (r) => r.District === distScen, (r) => (r.scenario === 'base' ? 'hl' : ''));
+    table('tb-res', 'reserves', ['District', 'policy'], [['District', 'raw'], ['policy', 'l'], ['stations_with_failure', 'pct1'], ['mean_downtime_min_if_failed', 1], ['voter_mean_wait_min', 1], ['share_voters_wait_over_30', 'pct1']]);
+    table('tb-ls', 'lok_sabha', ['plan'], [['plan', 'raw'], ['largest_2024', 'int'], ['smallest_2024', 'int'], ['size_ratio_2024', 2], ['outside_10pct_2024', 'int'], ['mean_abs_dev_pct_2024', 1], ['sc_reserved_mean_sc_pct', 1], ['st_reserved_mean_st_pct', 1]]);
+  }
+
+  function redrawScen() { drawAccess(); drawKm(); drawTables(); }
+
+  dash.onData(() => {
+    fillMarks();
+    drawCurve();
+    drawWait();
+    if (dash.data('scenarios').status === 'ok') seg('seg-scen', [...new Set(rows('scenarios').map((r) => r.District))], () => distScen, (n) => { distScen = n; }, redrawScen);
+    redrawScen();
+  });
+})();
+</script>

@@ -1,0 +1,5 @@
+district,seats,official_size_ratio,optimized_size_ratio_range,official_outside_10pct,optimized_outside_10pct,official_mean_abs_dev_pct,best_mean_abs_dev_pct,official_talukas_split,optimized_talukas_split_range,official_taluka_excess,optimized_taluka_excess_range,official_polsby_popper,best_polsby_popper,official_km_to_centre,best_km_to_centre,official_common_score,best_map,best_common_score,official_not_contiguous_on_units
+Sangli,8,1.266,1.03-1.08,2,0,6.96,0.72,5,6-7,5,7-12,0.303,0.253,15.88,16.41,0.7113,taluka_s303,0.5584,0
+Pune,21,3.021,1.11-1.18,15,0,21.45,1.88,3,12-14,18,29-38,0.324,0.286,11.28,11.56,1.4713,balanced_s714,1.0965,0
+Nashik,15,1.809,1.07-1.18,7,0,11.84,1.46,8,13-15,11,22-28,0.295,0.188,15.45,16.24,1.027,taluka_s714,0.9665,5
+Satara,8,1.187,1.02-1.09,2,0,5.69,0.97,6,9-11,13,14-19,0.277,0.28,17.92,18.45,0.9012,taluka_s303,0.7686,0

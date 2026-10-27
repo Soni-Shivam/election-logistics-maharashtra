@@ -1,0 +1,111 @@
+{
+  "score": 0.7417403030685867,
+  "terms": {
+    "population": 0.06745494469982571,
+    "distance": 0.6341288791180283,
+    "taluka_fragmentation": 1.375,
+    "shape": 0.7561869589002232
+  },
+  "raw": {
+    "population_target": 352767.875,
+    "population_bounds": [
+      317492,
+      388044
+    ],
+    "population_weighted_mean_distance_km": 12.682577582360565,
+    "taluka_excess_fragments": 11,
+    "taluka_fragments": {
+      "Atpadi": 1,
+      "Jat": 1,
+      "Kadegaon": 3,
+      "Kavathemahankal": 3,
+      "Khanapur (Vita)": 2,
+      "Miraj": 4,
+      "Palus": 3,
+      "Shirala": 1,
+      "Tasgaon": 3,
+      "Walwa": 3
+    },
+    "units_using_polygon_interior_for_distance": 0
+  },
+  "seats": [
+    {
+      "population": 352431,
+      "mean_distance_km": 14.35016631481669,
+      "centre_unit_id": "04302-568718",
+      "compactness_loss": 0.7085264080651876,
+      "area_km2": 1130.930605555502
+    },
+    {
+      "population": 354347,
+      "mean_distance_km": 3.88353807788814,
+      "centre_unit_id": "SMKC-W10",
+      "compactness_loss": 0.811806715817718,
+      "area_km2": 182.58545308978583
+    },
+    {
+      "population": 357147,
+      "mean_distance_km": 21.415837107615047,
+      "centre_unit_id": "04304-568926",
+      "compactness_loss": 0.7077098506980456,
+      "area_km2": 2493.3377335104183
+    },
+    {
+      "population": 349478,
+      "mean_distance_km": 19.23620740208746,
+      "centre_unit_id": "04299-568543",
+      "compactness_loss": 0.8286016090719093,
+      "area_km2": 1961.7005882906499
+    },
+    {
+      "population": 350341,
+      "mean_distance_km": 14.229219376178433,
+      "centre_unit_id": "04299-568531",
+      "compactness_loss": 0.8051285845851575,
+      "area_km2": 980.7824640087093
+    },
+    {
+      "population": 356328,
+      "mean_distance_km": 5.641175363750544,
+      "centre_unit_id": "SMKC-W06",
+      "compactness_loss": 0.6534049964299344,
+      "area_km2": 314.45653855038154
+    },
+    {
+      "population": 350901,
+      "mean_distance_km": 9.938117241897695,
+      "centre_unit_id": "04296-568387",
+      "compactness_loss": 0.703990414044839,
+      "area_km2": 593.6705090997744
+    },
+    {
+      "population": 351170,
+      "mean_distance_km": 12.827883331462571,
+      "centre_unit_id": "04295-568292",
+      "compactness_loss": 0.8303270924889949,
+      "area_km2": 907.9067952184245
+    }
+  ],
+  "search": {
+    "seed": 303,
+    "steps_per_restart": 300,
+    "restarts": 1,
+    "successful_starts": 1,
+    "initial_search_budget_per_start": 300,
+    "proposals": 300,
+    "accepted": 165
+  },
+  "settings": {
+    "seats": 8,
+    "balance": 0.1,
+    "split_share": 0.25,
+    "min_neck_km": 0.5,
+    "neck_lobe_fraction": 0.1,
+    "weight_population": 0.3,
+    "weight_distance": 0.2,
+    "weight_taluka": 0.35,
+    "weight_shape": 0.15,
+    "distance_reference_km": 20.0,
+    "taluka_reference_fragments": 8.0
+  }
+}

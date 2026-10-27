@@ -1,0 +1,11 @@
+{
+  "source_hashes_verified": 267,
+  "scenario_aggregates_verified": 36,
+  "simulation_summaries_verified": 48,
+  "base_seats": 52,
+  "base_dropped_stops": 82,
+  "missing_detailed_files_in_original_workspace": 72,
+  "pc_ac_coverage": 288,
+  "pcs": 48,
+  "pc_connectivity_and_bounds_verified": true
+}

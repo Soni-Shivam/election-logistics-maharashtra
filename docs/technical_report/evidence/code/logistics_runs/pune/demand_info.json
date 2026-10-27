@@ -1,0 +1,16 @@
+{
+  "dense_share": 0.4,
+  "district": "pune",
+  "grid": "/home/shivam/Downloads/ie 301/data_raw/worldpop/ind_ppp_2011_UNadj.tif",
+  "cell_km": 0.088,
+  "units_populated": 2530,
+  "demand_points": 8814,
+  "electors_2024": 8855195,
+  "electors_2011_census_x0.70": 6600586,
+  "intra_km_weighted_mean": 0.352,
+  "intra_km_p90": 0.86,
+  "points_per_unit_max": 75,
+  "units_without_grid_cells": 0,
+  "settlements_per_village_median": 1.0,
+  "intra_km_village_median": 0.448
+}

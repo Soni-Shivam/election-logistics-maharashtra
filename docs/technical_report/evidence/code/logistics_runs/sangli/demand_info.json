@@ -1,0 +1,16 @@
+{
+  "dense_share": 0.4,
+  "district": "sangli",
+  "grid": "/home/shivam/Downloads/ie 301/data_raw/worldpop/ind_ppp_2011_UNadj.tif",
+  "cell_km": 0.089,
+  "units_populated": 751,
+  "demand_points": 2650,
+  "electors_2024": 2543592,
+  "electors_2011_census_x0.70": 1975500,
+  "intra_km_weighted_mean": 0.423,
+  "intra_km_p90": 0.782,
+  "points_per_unit_max": 51,
+  "units_without_grid_cells": 0,
+  "settlements_per_village_median": 2.0,
+  "intra_km_village_median": 0.339
+}

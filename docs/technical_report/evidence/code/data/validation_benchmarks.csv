@@ -1,0 +1,24 @@
+metric,scope,value,year,source,url
+polling_stations,Pune district,8462,2024,Deccan Herald (district arrangements),https://www.deccanherald.com/amp/story/elections%2Fmaharashtra%2Fmaharashtra-assembly-elections-2024arrangements-made-across-all-21-assembly-seats-in-pune-district-for-state-polls-officials-3282564
+polling_stations,Pune district (alt figure),8443,2024,Punekar News,https://www.punekarnews.in/over-2100-staff-appointed-for-vote-counting-across-21-pune-district-constituencies/
+polling_stations,Nashik district,4922,2024,PTI via The Week,https://www.theweek.in/wire-updates/national/2024/11/18/bes19-mh-polls-nashik-security.html
+critical_polling_stations,Nashik district,136,2024,PTI via The Week,https://www.theweek.in/wire-updates/national/2024/11/18/bes19-mh-polls-nashik-security.html
+polling_stations,Nashik East AC,331,2024,Deccan Herald citing state CEO,https://www.deccanherald.com/amp/story/elections/maharashtra/maharashtra-assembly-elections-2024-nashik-east-constituency-results-3255293
+polling_stations,Hadapsar AC (roll parts),525,recent roll,voterlist.co.in,https://voterlist.co.in/hadapsar/
+polling_stations,Maharashtra,100186,2024,Maharashtra CEO briefing via Deccan Herald,https://www.deccanherald.com/amp/story/elections%2Fmaharashtra%2Fmaharashtra-assembly-elections-2024-evms-used-in-mumbai-kept-in-36-strong-rooms-10000-security-personnel-to-guard-counting-centres-3286457
+polling_staff,Maharashtra,500000,2024,Maharashtra CEO via Deccan Herald,https://www.deccanherald.com/amp/story/elections%2Fmaharashtra%2Fmaharashtra-assembly-elections-2024-evms-used-in-mumbai-kept-in-36-strong-rooms-10000-security-personnel-to-guard-counting-centres-3286457
+ballot_units,Maharashtra,221600,2024,Maharashtra CEO via Deccan Herald,https://www.deccanherald.com/amp/story/elections%2Fmaharashtra%2Fmaharashtra-assembly-elections-2024-evms-used-in-mumbai-kept-in-36-strong-rooms-10000-security-personnel-to-guard-counting-centres-3286457
+control_units,Maharashtra,121886,2024,Maharashtra CEO via Deccan Herald,https://www.deccanherald.com/amp/story/elections%2Fmaharashtra%2Fmaharashtra-assembly-elections-2024-evms-used-in-mumbai-kept-in-36-strong-rooms-10000-security-personnel-to-guard-counting-centres-3286457
+vvpats,Maharashtra,132094,2024,Maharashtra CEO via Deccan Herald,https://www.deccanherald.com/amp/story/elections%2Fmaharashtra%2Fmaharashtra-assembly-elections-2024-evms-used-in-mumbai-kept-in-36-strong-rooms-10000-security-personnel-to-guard-counting-centres-3286457
+buses_lent,PMPML for 11 urban Pune ACs,968,2024,Punekar News,https://www.punekarnews.in/?p=190053
+turnout_cum_pct_11am,Maharashtra,18.14,2024,Deccan Herald,https://www.deccanherald.com/amp/story/elections%2Fmaharashtra%2Fmaharashtra-assembly-elections-2024-big-variation-in-final-voter-turnout-data-worrying-ex-chief-election-commissioner-3296747
+turnout_cum_pct_1pm,Maharashtra,32.18,2024,Deccan Herald,https://www.deccanherald.com/amp/story/elections%2Fmaharashtra%2Fmaharashtra-assembly-elections-2024-big-variation-in-final-voter-turnout-data-worrying-ex-chief-election-commissioner-3296747
+turnout_cum_pct_3pm,Maharashtra,45.53,2024,Deccan Herald,https://www.deccanherald.com/amp/story/elections%2Fmaharashtra%2Fmaharashtra-assembly-elections-2024-no-surge-in-last-hour-of-polling-in-the-state-says-top-election-official-3303057
+turnout_cum_pct_5pm,Maharashtra,58.22,2024,The Wire,https://thewire.in/politics/assembly-elections-2024-maharashtra-sees-58-22-voting-jharkhand-records-67-59
+turnout_final_pct,Maharashtra,66.05,2024,Maharashtra CEO via Deccan Herald,https://www.deccanherald.com/amp/story/elections%2Fmaharashtra%2Fmaharashtra-assembly-elections-2024-big-variation-in-final-voter-turnout-data-worrying-ex-chief-election-commissioner-3296747
+replacement_rate_vvpat,Assam LS phase 1,0.055,2024,ETV Bharat,https://www.etvbharat.com/en/!state/over-1000-components-of-evm-sets-replaced-in-assam-official-enn24041908595
+replacement_rate_cu,Assam LS phase 1,0.033,2024,ETV Bharat,https://www.etvbharat.com/en/!state/over-1000-components-of-evm-sets-replaced-in-assam-official-enn24041908595
+replacement_rate_bu,Assam LS phase 1,0.016,2024,ETV Bharat,https://www.etvbharat.com/en/!state/over-1000-components-of-evm-sets-replaced-in-assam-official-enn24041908595
+reserve_share_bu_cu,Jalandhar district (one report),0.20,2024,Tribune,https://www.tribuneindia.com/news/jalandhar/evms-vvpats-randomised-in-presence-of-reps-of-political-parties-617425/amp
+reserve_share_vvpat,Jalandhar district (one report),0.30,2024,Tribune,https://www.tribuneindia.com/news/jalandhar/evms-vvpats-randomised-in-presence-of-reps-of-political-parties-617425/amp
+stations_per_sector_officer,ECI handbook,10-12,2023,ECI Handbook for Sector Officer (via GHMC),https://elections.ghmc.gov.in/ghmcelections/Files/NewsAndUpdates/NEWS_02102023050606Handbook for Sector Officer.pdf

@@ -1,0 +1,289 @@
+ac_key,district,ac,ac_population,pc,pc_population,pc_deviation_pct,pc_districts
+Ahmednagar-216,Ahmednagar,216,268040,1,2173934,7.420,Ahmednagar;Pune
+Ahmednagar-217,Ahmednagar,217,289934,1,2173934,7.420,Ahmednagar;Pune
+Ahmednagar-218,Ahmednagar,218,293252,1,2173934,7.420,Ahmednagar;Pune
+Ahmednagar-224,Ahmednagar,224,352291,1,2173934,7.420,Ahmednagar;Pune
+Pune-198,Pune,198,466444,1,2173934,7.420,Ahmednagar;Pune
+Pune-208,Pune,208,503973,1,2173934,7.420,Ahmednagar;Pune
+Ahmednagar-219,Ahmednagar,219,289962,2,2031536,0.383,Ahmednagar;Beed
+Ahmednagar-220,Ahmednagar,220,309518,2,2031536,0.383,Ahmednagar;Beed
+Ahmednagar-221,Ahmednagar,221,283489,2,2031536,0.383,Ahmednagar;Beed
+Ahmednagar-222,Ahmednagar,222,375466,2,2031536,0.383,Ahmednagar;Beed
+Beed-230,Beed,230,384885,2,2031536,0.383,Ahmednagar;Beed
+Beed-231,Beed,231,388216,2,2031536,0.383,Ahmednagar;Beed
+Ahmednagar-223,Ahmednagar,223,325166,3,2032376,0.425,Ahmednagar;Pune
+Ahmednagar-225,Ahmednagar,225,317397,3,2032376,0.425,Ahmednagar;Pune
+Ahmednagar-226,Ahmednagar,226,341040,3,2032376,0.425,Ahmednagar;Pune
+Ahmednagar-227,Ahmednagar,227,348007,3,2032376,0.425,Ahmednagar;Pune
+Pune-199,Pune,199,319609,3,2032376,0.425,Ahmednagar;Pune
+Pune-201,Pune,201,381157,3,2032376,0.425,Ahmednagar;Pune
+Akola-28,Akola,28,311972,4,2032178,0.415,Akola;Amravati;Parbhani;Washim
+Akola-29,Akola,29,311167,4,2032178,0.415,Akola;Amravati;Parbhani;Washim
+Amravati-41,Amravati,41,302341,4,2032178,0.415,Akola;Amravati;Parbhani;Washim
+Parbhani-95,Parbhani,95,388388,4,2032178,0.415,Akola;Amravati;Parbhani;Washim
+Parbhani-98,Parbhani,98,393392,4,2032178,0.415,Akola;Amravati;Parbhani;Washim
+Washim-33,Washim,33,324918,4,2032178,0.415,Akola;Amravati;Parbhani;Washim
+Akola-30,Akola,30,351092,5,1876641,-7.270,Akola;Amravati;Wardha
+Akola-31,Akola,31,355797,5,1876641,-7.270,Akola;Amravati;Wardha
+Akola-32,Akola,32,311175,5,1876641,-7.270,Akola;Amravati;Wardha
+Amravati-36,Amravati,36,318103,5,1876641,-7.270,Akola;Amravati;Wardha
+Wardha-44,Wardha,44,265641,5,1876641,-7.270,Akola;Amravati;Wardha
+Wardha-45,Wardha,45,274833,5,1876641,-7.270,Akola;Amravati;Wardha
+Amravati-37,Amravati,37,364110,6,1929293,-4.669,Amravati
+Amravati-38,Amravati,38,374727,6,1929293,-4.669,Amravati
+Amravati-39,Amravati,39,296916,6,1929293,-4.669,Amravati
+Amravati-40,Amravati,40,309345,6,1929293,-4.669,Amravati
+Amravati-42,Amravati,42,292703,6,1929293,-4.669,Amravati
+Amravati-43,Amravati,43,291492,6,1929293,-4.669,Amravati
+Aurangabad-104,Aurangabad,104,358550,7,2018385,-0.266,Aurangabad;Buldhana;Jalna
+Aurangabad-106,Aurangabad,106,371047,7,2018385,-0.266,Aurangabad;Buldhana;Jalna
+Aurangabad-107,Aurangabad,107,369066,7,2018385,-0.266,Aurangabad;Buldhana;Jalna
+Buldhana-21,Buldhana,21,288792,7,2018385,-0.266,Aurangabad;Buldhana;Jalna
+Buldhana-22,Buldhana,22,308194,7,2018385,-0.266,Aurangabad;Buldhana;Jalna
+Jalna-103,Jalna,103,322736,7,2018385,-0.266,Aurangabad;Buldhana;Jalna
+Aurangabad-105,Aurangabad,105,333280,8,2106596,4.092,Aurangabad
+Aurangabad-108,Aurangabad,108,407238,8,2106596,4.092,Aurangabad
+Aurangabad-109,Aurangabad,109,354686,8,2106596,4.092,Aurangabad
+Aurangabad-110,Aurangabad,110,325485,8,2106596,4.092,Aurangabad
+Aurangabad-111,Aurangabad,111,365051,8,2106596,4.092,Aurangabad
+Aurangabad-112,Aurangabad,112,320856,8,2106596,4.092,Aurangabad
+Beed-228,Beed,228,380109,9,2018764,-0.248,Beed;Buldhana;Jalna
+Buldhana-23,Buldhana,23,306506,9,2018764,-0.248,Beed;Buldhana;Jalna
+Buldhana-24,Buldhana,24,324075,9,2018764,-0.248,Beed;Buldhana;Jalna
+Jalna-100,Jalna,100,330425,9,2018764,-0.248,Beed;Buldhana;Jalna
+Jalna-101,Jalna,101,344367,9,2018764,-0.248,Beed;Buldhana;Jalna
+Jalna-102,Jalna,102,333282,9,2018764,-0.248,Beed;Buldhana;Jalna
+Beed-229,Beed,229,352698,10,2044179,1.008,Beed;Buldhana;Jalna;Osmanabad
+Beed-232,Beed,232,387944,10,2044179,1.008,Beed;Buldhana;Jalna;Osmanabad
+Buldhana-25,Buldhana,25,306583,10,2044179,1.008,Beed;Buldhana;Jalna;Osmanabad
+Buldhana-26,Buldhana,26,298332,10,2044179,1.008,Beed;Buldhana;Jalna;Osmanabad
+Jalna-99,Jalna,99,323263,10,2044179,1.008,Beed;Buldhana;Jalna;Osmanabad
+Osmanabad-242,Osmanabad,242,375359,10,2044179,1.008,Beed;Buldhana;Jalna;Osmanabad
+Beed-233,Beed,233,338441,11,2033926,0.501,Beed;Nanded;Parbhani
+Nanded-88,Nanded,88,302580,11,2033926,0.501,Beed;Nanded;Parbhani
+Nanded-90,Nanded,90,312425,11,2033926,0.501,Beed;Nanded;Parbhani
+Nanded-91,Nanded,91,307713,11,2033926,0.501,Beed;Nanded;Parbhani
+Parbhani-96,Parbhani,96,350721,11,2033926,0.501,Beed;Nanded;Parbhani
+Parbhani-97,Parbhani,97,422046,11,2033926,0.501,Beed;Nanded;Parbhani
+Bhandara-60,Bhandara,60,310471,12,1939642,-4.157,Bhandara;Gondia;Nagpur
+Gondia-63,Gondia,63,259324,12,1939642,-4.157,Bhandara;Gondia;Nagpur
+Gondia-64,Gondia,64,271696,12,1939642,-4.157,Bhandara;Gondia;Nagpur
+Gondia-65,Gondia,65,326038,12,1939642,-4.157,Bhandara;Gondia;Nagpur
+Gondia-66,Gondia,66,270014,12,1939642,-4.157,Bhandara;Gondia;Nagpur
+Nagpur-58,Nagpur,58,502099,12,1939642,-4.157,Bhandara;Gondia;Nagpur
+Bhandara-61,Bhandara,61,379252,13,1831219,-9.515,Bhandara;Gadchiroli;Nagpur
+Bhandara-62,Bhandara,62,328909,13,1831219,-9.515,Bhandara;Gadchiroli;Nagpur
+Gadchiroli-67,Gadchiroli,67,262977,13,1831219,-9.515,Bhandara;Gadchiroli;Nagpur
+Gadchiroli-68,Gadchiroli,68,307464,13,1831219,-9.515,Bhandara;Gadchiroli;Nagpur
+Gadchiroli-69,Gadchiroli,69,251537,13,1831219,-9.515,Bhandara;Gadchiroli;Nagpur
+Nagpur-51,Nagpur,51,301080,13,1831219,-9.515,Bhandara;Gadchiroli;Nagpur
+Buldhana-27,Buldhana,27,306785,14,2003622,-0.996,Buldhana;Jalgaon;Nashik
+Jalgaon-17,Jalgaon,17,376664,14,2003622,-0.996,Buldhana;Jalgaon;Nashik
+Jalgaon-18,Jalgaon,18,335848,14,2003622,-0.996,Buldhana;Jalgaon;Nashik
+Jalgaon-19,Jalgaon,19,335669,14,2003622,-0.996,Buldhana;Jalgaon;Nashik
+Jalgaon-20,Jalgaon,20,304220,14,2003622,-0.996,Buldhana;Jalgaon;Nashik
+Nashik-113,Nashik,113,344436,14,2003622,-0.996,Buldhana;Jalgaon;Nashik
+Chandrapur-70,Chandrapur,70,325512,15,1851990,-8.488,Chandrapur
+Chandrapur-71,Chandrapur,71,374360,15,1851990,-8.488,Chandrapur
+Chandrapur-72,Chandrapur,72,312705,15,1851990,-8.488,Chandrapur
+Chandrapur-73,Chandrapur,73,275922,15,1851990,-8.488,Chandrapur
+Chandrapur-74,Chandrapur,74,281018,15,1851990,-8.488,Chandrapur
+Chandrapur-75,Chandrapur,75,282473,15,1851990,-8.488,Chandrapur
+Dhule-5,Dhule,5,365748,16,2038704,0.738,Dhule;Nandurbar;Nashik
+Dhule-6,Dhule,6,410522,16,2038704,0.738,Dhule;Nandurbar;Nashik
+Dhule-7,Dhule,7,364771,16,2038704,0.738,Dhule;Nandurbar;Nashik
+Nandurbar-4,Nandurbar,4,295851,16,2038704,0.738,Dhule;Nandurbar;Nashik
+Nashik-116,Nashik,116,299634,16,2038704,0.738,Dhule;Nandurbar;Nashik
+Nashik-117,Nashik,117,302178,16,2038704,0.738,Dhule;Nandurbar;Nashik
+Dhule-8,Dhule,8,341535,17,2028226,0.220,Dhule;Jalgaon;Nandurbar
+Dhule-9,Dhule,9,351226,17,2028226,0.220,Dhule;Jalgaon;Nandurbar
+Jalgaon-15,Jalgaon,15,309256,17,2028226,0.220,Dhule;Jalgaon;Nandurbar
+Nandurbar-1,Nandurbar,1,319481,17,2028226,0.220,Dhule;Jalgaon;Nandurbar
+Nandurbar-2,Nandurbar,2,352775,17,2028226,0.220,Dhule;Jalgaon;Nandurbar
+Nandurbar-3,Nandurbar,3,353953,17,2028226,0.220,Dhule;Jalgaon;Nandurbar
+Hingoli-92,Hingoli,92,321014,18,1993141,-1.514,Hingoli;Washim;Yavatmal
+Hingoli-93,Hingoli,93,330941,18,1993141,-1.514,Hingoli;Washim;Yavatmal
+Hingoli-94,Hingoli,94,333588,18,1993141,-1.514,Hingoli;Washim;Yavatmal
+Washim-34,Washim,34,369051,18,1993141,-1.514,Hingoli;Washim;Yavatmal
+Washim-35,Washim,35,316493,18,1993141,-1.514,Hingoli;Washim;Yavatmal
+Yavatmal-81,Yavatmal,81,322054,18,1993141,-1.514,Hingoli;Washim;Yavatmal
+Jalgaon-10,Jalgaon,10,331891,19,2024363,0.029,Jalgaon
+Jalgaon-11,Jalgaon,11,309790,19,2024363,0.029,Jalgaon
+Jalgaon-12,Jalgaon,12,316631,19,2024363,0.029,Jalgaon
+Jalgaon-13,Jalgaon,13,433725,19,2024363,0.029,Jalgaon
+Jalgaon-14,Jalgaon,14,337865,19,2024363,0.029,Jalgaon
+Jalgaon-16,Jalgaon,16,294461,19,2024363,0.029,Jalgaon
+Kolhapur-271,Kolhapur,271,329791,20,1680836,-16.946,Kolhapur;Sindhudurg
+Kolhapur-272,Kolhapur,272,345530,20,1680836,-16.946,Kolhapur;Sindhudurg
+Kolhapur-275,Kolhapur,275,325842,20,1680836,-16.946,Kolhapur;Sindhudurg
+Sindhudurg-268,Sindhudurg,268,231788,20,1680836,-16.946,Kolhapur;Sindhudurg
+Sindhudurg-269,Sindhudurg,269,217340,20,1680836,-16.946,Kolhapur;Sindhudurg
+Sindhudurg-270,Sindhudurg,270,230545,20,1680836,-16.946,Kolhapur;Sindhudurg
+Kolhapur-273,Kolhapur,273,345397,21,1982832,-2.023,Kolhapur
+Kolhapur-274,Kolhapur,274,373192,21,1982832,-2.023,Kolhapur
+Kolhapur-276,Kolhapur,276,301838,21,1982832,-2.023,Kolhapur
+Kolhapur-277,Kolhapur,277,307491,21,1982832,-2.023,Kolhapur
+Kolhapur-278,Kolhapur,278,342091,21,1982832,-2.023,Kolhapur
+Kolhapur-279,Kolhapur,279,312823,21,1982832,-2.023,Kolhapur
+Kolhapur-280,Kolhapur,280,329732,22,2038994,0.752,Kolhapur;Sangli;Solapur
+Sangli-281,Sangli,281,344731,22,2038994,0.752,Kolhapur;Sangli;Solapur
+Sangli-287,Sangli,287,314856,22,2038994,0.752,Kolhapur;Sangli;Solapur
+Sangli-288,Sangli,288,292456,22,2038994,0.752,Kolhapur;Sangli;Solapur
+Solapur-251,Solapur,251,382994,22,2038994,0.752,Kolhapur;Sangli;Solapur
+Solapur-252,Solapur,252,374225,22,2038994,0.752,Kolhapur;Sangli;Solapur
+Latur-234,Latur,234,334957,23,2045591,1.078,Latur
+Latur-235,Latur,235,400145,23,2045591,1.078,Latur
+Latur-236,Latur,236,349572,23,2045591,1.078,Latur
+Latur-237,Latur,237,323962,23,2045591,1.078,Latur
+Latur-238,Latur,238,332194,23,2045591,1.078,Latur
+Latur-239,Latur,239,304761,23,2045591,1.078,Latur
+Mumbai City-178,Mumbai City,178,261892,24,1554252,-23.200,Mumbai City;Mumbai Suburban
+Mumbai City-179,Mumbai City,179,283296,24,1554252,-23.200,Mumbai City;Mumbai Suburban
+Mumbai City-180,Mumbai City,180,205429,24,1554252,-23.200,Mumbai City;Mumbai Suburban
+Mumbai City-183,Mumbai City,183,275482,24,1554252,-23.200,Mumbai City;Mumbai Suburban
+Mumbai Suburban-172,Mumbai Suburban,172,269151,24,1554252,-23.200,Mumbai City;Mumbai Suburban
+Mumbai Suburban-173,Mumbai Suburban,173,259002,24,1554252,-23.200,Mumbai City;Mumbai Suburban
+Mumbai City-181,Mumbai City,181,225975,25,1517899,-24.997,Mumbai City
+Mumbai City-182,Mumbai City,182,264583,25,1517899,-24.997,Mumbai City
+Mumbai City-184,Mumbai City,184,258880,25,1517899,-24.997,Mumbai City
+Mumbai City-185,Mumbai City,185,261172,25,1517899,-24.997,Mumbai City
+Mumbai City-186,Mumbai City,186,241963,25,1517899,-24.997,Mumbai City
+Mumbai City-187,Mumbai City,187,265326,25,1517899,-24.997,Mumbai City
+Mumbai Suburban-152,Mumbai Suburban,152,325749,26,2048196,1.207,Mumbai Suburban;Thane
+Mumbai Suburban-153,Mumbai Suburban,153,277943,26,2048196,1.207,Mumbai Suburban;Thane
+Mumbai Suburban-160,Mumbai Suburban,160,286932,26,2048196,1.207,Mumbai Suburban;Thane
+Mumbai Suburban-161,Mumbai Suburban,161,317443,26,2048196,1.207,Mumbai Suburban;Thane
+Mumbai Suburban-163,Mumbai Suburban,163,329239,26,2048196,1.207,Mumbai Suburban;Thane
+Thane-145,Thane,145,510890,26,2048196,1.207,Mumbai Suburban;Thane
+Mumbai Suburban-154,Mumbai Suburban,154,304676,27,2098389,3.687,Mumbai Suburban;Thane
+Mumbai Suburban-158,Mumbai Suburban,158,299070,27,2098389,3.687,Mumbai Suburban;Thane
+Mumbai Suburban-159,Mumbai Suburban,159,306552,27,2098389,3.687,Mumbai Suburban;Thane
+Mumbai Suburban-166,Mumbai Suburban,166,288185,27,2098389,3.687,Mumbai Suburban;Thane
+Thane-133,Thane,133,354683,27,2098389,3.687,Mumbai Suburban;Thane
+Thane-146,Thane,146,545223,27,2098389,3.687,Mumbai Suburban;Thane
+Mumbai Suburban-155,Mumbai Suburban,155,296732,28,2032149,0.414,Mumbai Suburban;Thane
+Mumbai Suburban-156,Mumbai Suburban,156,243597,28,2032149,0.414,Mumbai Suburban;Thane
+Mumbai Suburban-157,Mumbai Suburban,157,288404,28,2032149,0.414,Mumbai Suburban;Thane
+Thane-147,Thane,147,339659,28,2032149,0.414,Mumbai Suburban;Thane
+Thane-148,Thane,148,378342,28,2032149,0.414,Mumbai Suburban;Thane
+Thane-149,Thane,149,485415,28,2032149,0.414,Mumbai Suburban;Thane
+Mumbai Suburban-162,Mumbai Suburban,162,357936,29,1738672,-14.088,Mumbai Suburban
+Mumbai Suburban-164,Mumbai Suburban,164,286744,29,1738672,-14.088,Mumbai Suburban
+Mumbai Suburban-165,Mumbai Suburban,165,288139,29,1738672,-14.088,Mumbai Suburban
+Mumbai Suburban-167,Mumbai Suburban,167,275347,29,1738672,-14.088,Mumbai Suburban
+Mumbai Suburban-175,Mumbai Suburban,175,241753,29,1738672,-14.088,Mumbai Suburban
+Mumbai Suburban-177,Mumbai Suburban,177,288753,29,1738672,-14.088,Mumbai Suburban
+Mumbai Suburban-168,Mumbai Suburban,168,453074,30,1855838,-8.298,Mumbai Suburban
+Mumbai Suburban-169,Mumbai Suburban,169,277595,30,1855838,-8.298,Mumbai Suburban
+Mumbai Suburban-170,Mumbai Suburban,170,249577,30,1855838,-8.298,Mumbai Suburban
+Mumbai Suburban-171,Mumbai Suburban,171,334203,30,1855838,-8.298,Mumbai Suburban
+Mumbai Suburban-174,Mumbai Suburban,174,292275,30,1855838,-8.298,Mumbai Suburban
+Mumbai Suburban-176,Mumbai Suburban,176,249114,30,1855838,-8.298,Mumbai Suburban
+Nagpur-48,Nagpur,48,281789,31,1934383,-4.417,Nagpur;Wardha
+Nagpur-49,Nagpur,49,322122,31,1934383,-4.417,Nagpur;Wardha
+Nagpur-50,Nagpur,50,450439,31,1934383,-4.417,Nagpur;Wardha
+Nagpur-59,Nagpur,59,287301,31,1934383,-4.417,Nagpur;Wardha
+Wardha-46,Wardha,46,297703,31,1934383,-4.417,Nagpur;Wardha
+Wardha-47,Wardha,47,295029,31,1934383,-4.417,Nagpur;Wardha
+Nagpur-52,Nagpur,52,411497,32,2384013,17.800,Nagpur
+Nagpur-53,Nagpur,53,394586,32,2384013,17.800,Nagpur
+Nagpur-54,Nagpur,54,419061,32,2384013,17.800,Nagpur
+Nagpur-55,Nagpur,55,341252,32,2384013,17.800,Nagpur
+Nagpur-56,Nagpur,56,388624,32,2384013,17.800,Nagpur
+Nagpur-57,Nagpur,57,428993,32,2384013,17.800,Nagpur
+Nanded-83,Nanded,83,278803,33,1868142,-7.690,Nanded
+Nanded-84,Nanded,84,299252,33,1868142,-7.690,Nanded
+Nanded-85,Nanded,85,303352,33,1868142,-7.690,Nanded
+Nanded-86,Nanded,86,359073,33,1868142,-7.690,Nanded
+Nanded-87,Nanded,87,317052,33,1868142,-7.690,Nanded
+Nanded-89,Nanded,89,310610,33,1868142,-7.690,Nanded
+Nashik-114,Nashik,114,342786,34,2072518,2.408,Nashik
+Nashik-115,Nashik,115,381259,34,2072518,2.408,Nashik
+Nashik-118,Nashik,118,309931,34,2072518,2.408,Nashik
+Nashik-121,Nashik,121,299614,34,2072518,2.408,Nashik
+Nashik-122,Nashik,122,329389,34,2072518,2.408,Nashik
+Nashik-123,Nashik,123,409539,34,2072518,2.408,Nashik
+Nashik-119,Nashik,119,327444,35,2051215,1.356,Nashik
+Nashik-120,Nashik,120,324867,35,2051215,1.356,Nashik
+Nashik-124,Nashik,124,345502,35,2051215,1.356,Nashik
+Nashik-125,Nashik,125,483719,35,2051215,1.356,Nashik
+Nashik-126,Nashik,126,288816,35,2051215,1.356,Nashik
+Nashik-127,Nashik,127,280867,35,2051215,1.356,Nashik
+Osmanabad-240,Osmanabad,240,316046,36,2040536,0.828,Osmanabad;Pune;Solapur
+Osmanabad-241,Osmanabad,241,383672,36,2040536,0.828,Osmanabad;Pune;Solapur
+Osmanabad-243,Osmanabad,243,331546,36,2040536,0.828,Osmanabad;Pune;Solapur
+Pune-200,Pune,200,341749,36,2040536,0.828,Osmanabad;Pune;Solapur
+Solapur-244,Solapur,244,329461,36,2040536,0.828,Osmanabad;Pune;Solapur
+Solapur-246,Solapur,246,338062,36,2040536,0.828,Osmanabad;Pune;Solapur
+Pune-195,Pune,195,326041,37,2404493,18.812,Pune
+Pune-196,Pune,196,314885,37,2404493,18.812,Pune
+Pune-197,Pune,197,376929,37,2404493,18.812,Pune
+Pune-204,Pune,204,386301,37,2404493,18.812,Pune
+Pune-206,Pune,206,391739,37,2404493,18.812,Pune
+Pune-207,Pune,207,608598,37,2404493,18.812,Pune
+Pune-202,Pune,202,464651,38,2248131,11.086,Pune;Ratnagiri;Satara
+Pune-211,Pune,211,576670,38,2248131,11.086,Pune;Ratnagiri;Satara
+Ratnagiri-265,Ratnagiri,265,276224,38,2248131,11.086,Pune;Ratnagiri;Satara
+Ratnagiri-267,Ratnagiri,267,238455,38,2248131,11.086,Pune;Ratnagiri;Satara
+Satara-256,Satara,256,348113,38,2248131,11.086,Pune;Ratnagiri;Satara
+Satara-262,Satara,262,344018,38,2248131,11.086,Pune;Ratnagiri;Satara
+Pune-203,Pune,203,430571,39,2216929,9.544,Pune;Raigad;Ratnagiri
+Pune-205,Pune,205,663788,39,2216929,9.544,Pune;Raigad;Ratnagiri
+Raigad-194,Raigad,194,296832,39,2216929,9.544,Pune;Raigad;Ratnagiri
+Ratnagiri-263,Ratnagiri,263,291526,39,2216929,9.544,Pune;Raigad;Ratnagiri
+Ratnagiri-264,Ratnagiri,264,242949,39,2216929,9.544,Pune;Raigad;Ratnagiri
+Ratnagiri-266,Ratnagiri,266,291263,39,2216929,9.544,Pune;Raigad;Ratnagiri
+Pune-209,Pune,209,295246,40,2302090,13.752,Pune
+Pune-210,Pune,210,440676,40,2302090,13.752,Pune
+Pune-212,Pune,212,361038,40,2302090,13.752,Pune
+Pune-213,Pune,213,625938,40,2302090,13.752,Pune
+Pune-214,Pune,214,295520,40,2302090,13.752,Pune
+Pune-215,Pune,215,283672,40,2302090,13.752,Pune
+Raigad-188,Raigad,188,652291,41,2193144,8.369,Raigad
+Raigad-189,Raigad,189,318810,41,2193144,8.369,Raigad
+Raigad-190,Raigad,190,342148,41,2193144,8.369,Raigad
+Raigad-191,Raigad,191,308154,41,2193144,8.369,Raigad
+Raigad-192,Raigad,192,306387,41,2193144,8.369,Raigad
+Raigad-193,Raigad,193,265354,41,2193144,8.369,Raigad
+Sangli-282,Sangli,282,356664,42,1941517,-4.065,Sangli;Solapur
+Sangli-283,Sangli,283,281378,42,1941517,-4.065,Sangli;Solapur
+Sangli-284,Sangli,284,308131,42,1941517,-4.065,Sangli;Solapur
+Sangli-285,Sangli,285,293574,42,1941517,-4.065,Sangli;Solapur
+Sangli-286,Sangli,286,351802,42,1941517,-4.065,Sangli;Solapur
+Solapur-254,Solapur,254,349968,42,1941517,-4.065,Sangli;Solapur
+Satara-255,Satara,255,340608,43,1962590,-3.023,Satara
+Satara-257,Satara,257,324454,43,1962590,-3.023,Satara
+Satara-258,Satara,258,362328,43,1962590,-3.023,Satara
+Satara-259,Satara,259,308438,43,1962590,-3.023,Satara
+Satara-260,Satara,260,316060,43,1962590,-3.023,Satara
+Satara-261,Satara,261,310702,43,1962590,-3.023,Satara
+Solapur-245,Solapur,245,353046,44,2078595,2.709,Solapur
+Solapur-247,Solapur,247,331882,44,2078595,2.709,Solapur
+Solapur-248,Solapur,248,328653,44,2078595,2.709,Solapur
+Solapur-249,Solapur,249,346722,44,2078595,2.709,Solapur
+Solapur-250,Solapur,250,383913,44,2078595,2.709,Solapur
+Solapur-253,Solapur,253,334379,44,2078595,2.709,Solapur
+Thane-128,Thane,128,301257,45,2038594,0.732,Thane
+Thane-129,Thane,129,317862,45,2038594,0.732,Thane
+Thane-135,Thane,135,291096,45,2038594,0.732,Thane
+Thane-139,Thane,139,470124,45,2038594,0.732,Thane
+Thane-140,Thane,140,374769,45,2038594,0.732,Thane
+Thane-141,Thane,141,283486,45,2038594,0.732,Thane
+Thane-130,Thane,130,298608,46,2364080,16.815,Thane
+Thane-131,Thane,131,411373,46,2364080,16.815,Thane
+Thane-132,Thane,132,608609,46,2364080,16.815,Thane
+Thane-134,Thane,134,337778,46,2364080,16.815,Thane
+Thane-136,Thane,136,334053,46,2364080,16.815,Thane
+Thane-137,Thane,137,373659,46,2364080,16.815,Thane
+Thane-138,Thane,138,440729,47,2506448,23.850,Thane
+Thane-142,Thane,142,329306,47,2506448,23.850,Thane
+Thane-143,Thane,143,313180,47,2506448,23.850,Thane
+Thane-144,Thane,144,510315,47,2506448,23.850,Thane
+Thane-150,Thane,150,489215,47,2506448,23.850,Thane
+Thane-151,Thane,151,423703,47,2506448,23.850,Thane
+Yavatmal-76,Yavatmal,76,286307,48,1931508,-4.559,Yavatmal
+Yavatmal-77,Yavatmal,77,288150,48,1931508,-4.559,Yavatmal
+Yavatmal-78,Yavatmal,78,371435,48,1931508,-4.559,Yavatmal
+Yavatmal-79,Yavatmal,79,346058,48,1931508,-4.559,Yavatmal
+Yavatmal-80,Yavatmal,80,322160,48,1931508,-4.559,Yavatmal
+Yavatmal-82,Yavatmal,82,317398,48,1931508,-4.559,Yavatmal

@@ -1,0 +1,52 @@
+{
+  "sangli": {
+    "location_seats": 8,
+    "status": {
+      "gurobi_9": 2,
+      "optimal": 6
+    },
+    "max_gap": 0.021318118792782788,
+    "runtime_s": 514.0500000000001,
+    "dropped_stops": 0,
+    "pooled_seats": 2
+  },
+  "satara": {
+    "location_seats": 8,
+    "status": {
+      "optimal": 8
+    },
+    "max_gap": 0.004998975752448328,
+    "runtime_s": 368.38,
+    "dropped_stops": 34,
+    "pooled_seats": 0
+  },
+  "nashik": {
+    "location_seats": 15,
+    "status": {
+      "optimal": 15
+    },
+    "max_gap": 0.004998290931002228,
+    "runtime_s": 529.3299999999999,
+    "dropped_stops": 7,
+    "pooled_seats": 4
+  },
+  "pune": {
+    "location_seats": 21,
+    "status": {
+      "optimal": 12,
+      "gurobi_9": 9
+    },
+    "max_gap": 0.007709221851551228,
+    "runtime_s": 1533.9599999999996,
+    "dropped_stops": 41,
+    "pooled_seats": 12
+  },
+  "snapshot": {
+    "source_files": 267,
+    "scenarios": 36,
+    "simulation_variants": 48,
+    "base_electors": 19123489,
+    "base_stations": 20196,
+    "base_premises": 14532
+  }
+}

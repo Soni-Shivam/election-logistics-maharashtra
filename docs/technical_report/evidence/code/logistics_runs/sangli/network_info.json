@@ -1,0 +1,24 @@
+{
+  "district": "sangli",
+  "nodes": 638259,
+  "walk_edges": 274994,
+  "drive_edges": 273104,
+  "walk_component_nodes": 260651,
+  "drive_component_nodes": 259490,
+  "seconds": 28.1,
+  "walk_kmh": 4.5,
+  "drive_kmh": {
+    "motorway": 60,
+    "trunk": 50,
+    "primary": 40,
+    "secondary": 35,
+    "tertiary": 30,
+    "unclassified": 25,
+    "residential": 20,
+    "living_street": 10,
+    "service": 15,
+    "road": 20,
+    "track": 12
+  },
+  "urban_speed_factor": 0.6
+}

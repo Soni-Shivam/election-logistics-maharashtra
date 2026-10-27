@@ -1,0 +1,53 @@
+district,ac08_no,name,actual,rule_2011,sc_pct,st_pct,sc_rank,st_rank
+Sangli,281,Miraj (SC),SC,SC,14.7,0.6,1,5
+Sangli,282,Sangli,,,14.0,0.8,2,3
+Sangli,283,Islampur,,,11.6,0.8,6,2
+Sangli,284,Shirala,,,11.0,0.3,7,8
+Sangli,285,Palus-Kadegaon,,,10.9,0.7,8,4
+Sangli,286,Khanapur,,,12.8,0.5,3,6
+Sangli,287,Tasgaon-Kavathe Mahankal,,,11.9,0.4,5,7
+Sangli,288,Jat,,,12.5,1.2,4,1
+Satara,255,Phaltan (SC),SC,SC,13.7,0.8,1,4
+Satara,256,Wai,,,9.6,2.5,6,1
+Satara,257,Koregaon,,,10.0,0.9,5,3
+Satara,258,Man,,,11.5,0.4,3,8
+Satara,259,Karad North,,,11.0,0.7,4,5
+Satara,260,Karad South,,,11.6,0.5,2,7
+Satara,261,Patan,,,9.0,0.7,8,6
+Satara,262,Satara,,,9.4,1.2,7,2
+Nashik,113,Nandgaon,,,8.1,18.6,8,7
+Nashik,114,Malegaon Central,,,4.0,1.7,14,15
+Nashik,115,Malegaon Outer,,,6.3,13.5,11,10
+Nashik,116,Baglan (ST),ST,ST,5.1,40.0,12,4
+Nashik,117,Kalwan (ST),ST,ST,2.1,82.1,15,1
+Nashik,118,Chandvad,,,12.0,17.8,5,8
+Nashik,119,Yevla,,,9.6,12.1,7,11
+Nashik,120,Sinnar,,,6.9,19.7,10,6
+Nashik,121,Niphad,,,10.3,21.1,6,5
+Nashik,122,Dindori (ST),ST,ST,4.8,66.2,13,2
+Nashik,123,Nashik East,,SC,14.4,7.3,1,12
+Nashik,124,Nashik Central,,,14.4,7.2,2,13
+Nashik,125,Nashik West,,,14.4,7.2,2,13
+Nashik,126,Deolali (SC),SC,,13.2,17.1,4,9
+Nashik,127,Igatpuri (ST),ST,ST,7.2,55.6,9,3
+Pune,195,Junnar,,,4.5,20.3,21,1
+Pune,196,Ambegaon,,,4.6,14.6,20,2
+Pune,197,Khed Alandi,,,6.8,11.0,19,3
+Pune,198,Shirur,,,12.2,2.5,15,7
+Pune,199,Daund,,,15.1,2.5,5,6
+Pune,200,Indapur,,SC,15.9,1.2,1,13
+Pune,201,Baramati,,,15.0,0.9,6,21
+Pune,202,Purandar,,,9.6,2.2,17,9
+Pune,203,Bhor,,,9.5,3.2,18,5
+Pune,204,Maval,,,9.6,7.7,16,4
+Pune,205,Chinchwad,,,15.8,2.1,4,11
+Pune,206,Pimpri (SC),SC,SC,15.9,2.2,2,8
+Pune,207,Bhosari,,,15.8,2.1,3,10
+Pune,208,Vadgaon Sheri,,,13.4,1.1,13,16
+Pune,209,Shivajinagar,,,13.4,1.1,12,19
+Pune,210,Kothrud,,,13.4,1.1,9,17
+Pune,211,Khadakwasala,,,12.6,2.0,14,12
+Pune,212,Parvati,,,13.4,1.1,10,19
+Pune,213,Hadapsar,,,13.5,1.1,8,15
+Pune,214,Pune Cantonment (SC),SC,,13.6,1.2,7,14
+Pune,215,Kasba Peth,,,13.4,1.1,10,19

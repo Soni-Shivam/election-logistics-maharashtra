@@ -1,0 +1,26 @@
+{
+  "assigned": [
+    "pilots\\satara\\official_2008\\assigned_units.geojson",
+    "pilots\\satara\\runs\\balanced_s303\\assigned_units.geojson",
+    "pilots\\satara\\runs\\locality_s303\\assigned_units.geojson",
+    "pilots\\satara\\runs\\taluka_s303\\assigned_units.geojson"
+  ],
+  "distance_matrix": "pilots\\satara\\road_distances.npz",
+  "out": "pilots\\satara\\booth_mip_gurobi",
+  "elector_ratio": 0.7,
+  "capacity": 1500,
+  "max_km": [
+    2.0,
+    3.0,
+    5.0
+  ],
+  "booth_cost": 25000.0,
+  "voter_cost_per_km": 10.0,
+  "evm_cost_per_km": 120.0,
+  "road_factor": 1.33,
+  "solver": "Gurobi via PuLP 3.3.2",
+  "time_limit": 600.0,
+  "gap": 0.0,
+  "distance_source": "road matrix road_distances.npz",
+  "nonfinite_matrix_entries_replaced": 0
+}

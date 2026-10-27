@@ -1,0 +1,39 @@
+{
+  "label": "svc50_nobalk",
+  "service_s": 50.0,
+  "balk": false,
+  "reserve": 0.2,
+  "p_fail": 0.10080604000000015,
+  "stations": 8712,
+  "reps": 30,
+  "mean_electors_per_station": 1016,
+  "voter_mean_wait_min": 14.52,
+  "share_voters_wait_over_30": 0.1569,
+  "share_voters_wait_over_60": 0.0702,
+  "station_p95_wait_mean": 27.8,
+  "share_stations_queue_at_18": 0.8978,
+  "votes_after_18_share": 0.0538,
+  "mean_overrun_min": 27.9,
+  "p95_overrun_min": 116.9,
+  "balked_share": 0.0,
+  "stations_with_failure": 0.1009,
+  "mean_downtime_min_if_failed": 27.6,
+  "cum_votes_by": {
+    "09": 0.0989,
+    "11": 0.2675,
+    "13": 0.4621,
+    "15": 0.6561,
+    "17": 0.8451,
+    "18": 0.9462,
+    "19": 0.9856,
+    "20": 0.998
+  },
+  "reported_cum_by": {
+    "09": 0.1001,
+    "11": 0.2746,
+    "13": 0.4872,
+    "15": 0.6893,
+    "17": 0.8815,
+    "final": 1.0
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Pune",
+  "pc11_state_id": "27",
+  "pc11_district_id": "521",
+  "seats": 21,
+  "sources": "Sources: Census 2011 PCA, SHRUG PC11 polygons, WorldPop 2011 1 km population grid (city cells). Research map only.",
+  "towns": {
+    "04194-802814": {
+      "name": "Pune",
+      "ward_method": "raster_cells",
+      "raster": "../../data_raw/worldpop/ind_ppp_2011_1km_Aggregated_UNadj.tif",
+      "id_prefix": "PMC-C",
+      "absorb": [
+        "04194-802813",
+        "04194-802815"
+      ]
+    },
+    "04193-802811": {
+      "name": "Pimpri Chinchwad",
+      "ward_method": "raster_cells",
+      "raster": "../../data_raw/worldpop/ind_ppp_2011_1km_Aggregated_UNadj.tif",
+      "id_prefix": "PCMC-C",
+      "absorb": [
+        "04193-802812"
+      ]
+    }
+  },
+  "merge_gap_units": true
+}

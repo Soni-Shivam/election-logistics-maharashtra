@@ -1,0 +1,10 @@
+map,max_km,distance_source,electors,booths,min_booths,extra_booths,capacity_util,voter_person_km,mean_voter_km,max_voter_km,electors_travelling_pct,evm_km,booth_cost,voter_cost,evm_cost,objective,seats_optimal,seats,max_mip_gap,runtime_s
+map_balanced,2.0,"straight-line km x 1.33 (FALLBACK, no road matrix)",1975500,1649,1320,329,0.7987,28616,0.0145,1.999,0.92,29432.6,41225000,286156,3531909,45043065,8,8,0.0,0.62
+map_locality,2.0,"straight-line km x 1.33 (FALLBACK, no road matrix)",1975501,1649,1322,327,0.7987,28592,0.0145,1.999,0.93,29275.3,41225000,285923,3513053,45023977,8,8,0.0,0.67
+map_taluka,2.0,"straight-line km x 1.33 (FALLBACK, no road matrix)",1975502,1651,1321,330,0.7977,28508,0.0144,1.999,0.92,29367.2,41275000,285078,3524070,45084149,8,8,0.0,0.68
+map_balanced,3.0,"straight-line km x 1.33 (FALLBACK, no road matrix)",1975500,1564,1320,244,0.8421,112746,0.0571,2.983,2.59,27880.2,39100000,1127455,3345621,43573078,8,8,0.0,2.02
+map_locality,3.0,"straight-line km x 1.33 (FALLBACK, no road matrix)",1975501,1569,1322,247,0.8394,107369,0.0544,2.981,2.49,27878.7,39225000,1073689,3345444,43644134,8,8,0.0,2.64
+map_taluka,3.0,"straight-line km x 1.33 (FALLBACK, no road matrix)",1975502,1564,1321,243,0.8421,118347,0.0599,2.983,2.7,27837.3,39100000,1183472,3340468,43623939,8,8,0.0,2.27
+map_balanced,5.0,"straight-line km x 1.33 (FALLBACK, no road matrix)",1975500,1433,1320,113,0.9191,296099,0.1499,4.992,4.95,24977.6,35825000,2960989,2997309,41783298,8,8,0.0,6.08
+map_locality,5.0,"straight-line km x 1.33 (FALLBACK, no road matrix)",1975501,1435,1322,113,0.9178,295321,0.1495,4.992,4.95,24862.3,35875000,2953211,2983500,41811711,8,8,0.0,16.92
+map_taluka,5.0,"straight-line km x 1.33 (FALLBACK, no road matrix)",1975502,1436,1321,115,0.9171,294240,0.1489,4.992,4.95,24909.3,35900000,2942398,2989132,41831530,8,8,0.0,15.39

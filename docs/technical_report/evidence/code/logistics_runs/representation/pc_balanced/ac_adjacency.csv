@@ -1,0 +1,739 @@
+ac_a,ac_b,shared_km,cross_district
+Ahmednagar-216,Ahmednagar-217,96.517,False
+Ahmednagar-216,Ahmednagar-224,25.235,False
+Ahmednagar-216,Nashik-120,69.760,True
+Ahmednagar-216,Nashik-127,14.692,True
+Ahmednagar-216,Pune-195,74.281,True
+Ahmednagar-216,Thane-135,31.420,True
+Ahmednagar-216,Thane-139,15.293,True
+Ahmednagar-217,Ahmednagar-218,58.469,False
+Ahmednagar-217,Ahmednagar-223,26.107,False
+Ahmednagar-217,Ahmednagar-224,16.704,False
+Ahmednagar-218,Ahmednagar-219,84.515,False
+Ahmednagar-218,Ahmednagar-220,25.462,False
+Ahmednagar-218,Ahmednagar-223,11.270,False
+Ahmednagar-218,Nashik-120,32.116,True
+Ahmednagar-219,Ahmednagar-220,20.072,False
+Ahmednagar-219,Aurangabad-112,39.499,True
+Ahmednagar-219,Nashik-119,60.790,True
+Ahmednagar-219,Nashik-120,39.370,True
+Ahmednagar-220,Ahmednagar-221,34.100,False
+Ahmednagar-220,Ahmednagar-223,46.908,False
+Ahmednagar-220,Aurangabad-112,47.961,True
+Ahmednagar-221,Ahmednagar-222,41.627,False
+Ahmednagar-221,Ahmednagar-223,56.344,False
+Ahmednagar-221,Aurangabad-110,3.019,True
+Ahmednagar-221,Aurangabad-111,27.686,True
+Ahmednagar-221,Aurangabad-112,21.722,True
+Ahmednagar-222,Ahmednagar-223,30.692,False
+Ahmednagar-222,Aurangabad-110,68.109,True
+Ahmednagar-222,Beed-228,38.008,True
+Ahmednagar-222,Beed-231,175.324,True
+Ahmednagar-223,Ahmednagar-224,74.936,False
+Ahmednagar-223,Ahmednagar-225,18.354,False
+Ahmednagar-223,Ahmednagar-226,46.345,False
+Ahmednagar-223,Beed-231,26.762,True
+Ahmednagar-224,Ahmednagar-225,26.712,False
+Ahmednagar-224,Ahmednagar-226,64.573,False
+Ahmednagar-224,Pune-195,50.254,True
+Ahmednagar-224,Pune-196,31.708,True
+Ahmednagar-224,Pune-198,5.856,True
+Ahmednagar-225,Ahmednagar-226,11.970,False
+Ahmednagar-226,Ahmednagar-227,65.821,False
+Ahmednagar-226,Beed-231,76.556,True
+Ahmednagar-226,Pune-198,61.971,True
+Ahmednagar-226,Pune-199,27.901,True
+Ahmednagar-227,Beed-231,122.574,True
+Ahmednagar-227,Osmanabad-243,46.025,True
+Ahmednagar-227,Pune-199,30.042,True
+Ahmednagar-227,Solapur-244,72.249,True
+Akola-28,Akola-29,20.233,False
+Akola-28,Akola-31,41.461,False
+Akola-28,Amravati-40,36.433,True
+Akola-28,Amravati-41,51.668,True
+Akola-28,Buldhana-27,47.177,True
+Akola-29,Akola-30,13.997,False
+Akola-29,Akola-31,74.114,False
+Akola-29,Akola-32,11.829,False
+Akola-29,Buldhana-25,34.212,True
+Akola-29,Buldhana-26,52.246,True
+Akola-29,Buldhana-27,48.504,True
+Akola-29,Washim-33,43.059,True
+Akola-30,Akola-31,7.040,False
+Akola-31,Akola-32,91.983,False
+Akola-31,Amravati-40,38.912,True
+Akola-32,Amravati-36,9.386,True
+Akola-32,Amravati-37,18.634,True
+Akola-32,Amravati-40,35.144,True
+Akola-32,Washim-33,17.631,True
+Akola-32,Washim-34,33.053,True
+Akola-32,Washim-35,100.866,True
+Amravati-36,Amravati-37,71.536,False
+Amravati-36,Amravati-39,37.365,False
+Amravati-36,Wardha-44,37.030,True
+Amravati-36,Wardha-45,10.503,True
+Amravati-36,Washim-35,33.660,True
+Amravati-36,Yavatmal-77,49.555,True
+Amravati-36,Yavatmal-79,56.655,True
+Amravati-37,Amravati-38,28.689,False
+Amravati-37,Amravati-39,76.749,False
+Amravati-37,Amravati-40,8.102,False
+Amravati-38,Amravati-39,6.648,False
+Amravati-39,Amravati-40,28.668,False
+Amravati-39,Amravati-42,36.839,False
+Amravati-39,Amravati-43,51.970,False
+Amravati-39,Wardha-44,43.578,True
+Amravati-40,Amravati-41,40.223,False
+Amravati-40,Amravati-42,21.064,False
+Amravati-41,Amravati-42,50.375,False
+Amravati-41,Buldhana-27,22.770,True
+Amravati-42,Amravati-43,46.572,False
+Amravati-43,Nagpur-48,41.406,True
+Amravati-43,Wardha-44,35.899,True
+Aurangabad-104,Aurangabad-105,71.096,False
+Aurangabad-104,Aurangabad-106,22.282,False
+Aurangabad-104,Jalgaon-18,73.661,True
+Aurangabad-104,Jalgaon-19,77.807,True
+Aurangabad-104,Jalna-102,10.089,True
+Aurangabad-104,Jalna-103,83.213,True
+Aurangabad-105,Aurangabad-106,33.453,False
+Aurangabad-105,Aurangabad-111,74.808,False
+Aurangabad-105,Aurangabad-112,32.142,False
+Aurangabad-105,Jalgaon-17,49.597,True
+Aurangabad-105,Jalgaon-18,10.347,True
+Aurangabad-105,Nashik-113,18.279,True
+Aurangabad-106,Aurangabad-107,15.563,False
+Aurangabad-106,Aurangabad-108,25.867,False
+Aurangabad-106,Aurangabad-109,11.345,False
+Aurangabad-106,Aurangabad-110,39.740,False
+Aurangabad-106,Aurangabad-111,41.736,False
+Aurangabad-106,Jalna-102,56.076,True
+Aurangabad-107,Aurangabad-108,7.677,False
+Aurangabad-107,Aurangabad-109,8.060,False
+Aurangabad-108,Aurangabad-109,7.701,False
+Aurangabad-108,Aurangabad-110,19.924,False
+Aurangabad-108,Aurangabad-111,33.965,False
+Aurangabad-110,Aurangabad-111,33.614,False
+Aurangabad-110,Beed-228,19.798,True
+Aurangabad-110,Jalna-100,21.212,True
+Aurangabad-110,Jalna-102,44.111,True
+Aurangabad-111,Aurangabad-112,46.749,False
+Aurangabad-112,Nashik-113,42.796,True
+Aurangabad-112,Nashik-119,38.360,True
+Beed-228,Beed-229,80.632,False
+Beed-228,Beed-230,55.172,False
+Beed-228,Beed-231,24.844,False
+Beed-228,Jalna-99,3.482,True
+Beed-228,Jalna-100,83.851,True
+Beed-229,Beed-230,19.697,False
+Beed-229,Beed-232,82.374,False
+Beed-229,Beed-233,60.655,False
+Beed-229,Jalna-99,9.649,True
+Beed-229,Parbhani-98,41.914,True
+Beed-230,Beed-231,68.521,False
+Beed-230,Beed-232,33.492,False
+Beed-231,Beed-232,18.370,False
+Beed-231,Osmanabad-243,2.943,True
+Beed-232,Beed-233,45.408,False
+Beed-232,Latur-234,10.454,True
+Beed-232,Osmanabad-242,58.912,True
+Beed-232,Osmanabad-243,47.905,True
+Beed-233,Latur-234,67.787,True
+Beed-233,Latur-236,5.864,True
+Beed-233,Parbhani-97,21.071,True
+Beed-233,Parbhani-98,67.618,True
+Bhandara-60,Bhandara-61,47.932,False
+Bhandara-60,Bhandara-62,0.591,False
+Bhandara-60,Gondia-64,52.067,True
+Bhandara-60,Nagpur-58,23.005,True
+Bhandara-60,Nagpur-59,27.234,True
+Bhandara-61,Bhandara-62,64.066,False
+Bhandara-61,Chandrapur-74,40.625,True
+Bhandara-61,Nagpur-51,66.434,True
+Bhandara-61,Nagpur-58,33.516,True
+Bhandara-62,Chandrapur-74,21.290,True
+Bhandara-62,Gadchiroli-67,4.733,True
+Bhandara-62,Gondia-63,125.804,True
+Bhandara-62,Gondia-64,21.575,True
+Buldhana-21,Buldhana-22,51.363,False
+Buldhana-21,Buldhana-26,43.773,False
+Buldhana-21,Buldhana-27,30.430,False
+Buldhana-21,Jalgaon-20,56.017,True
+Buldhana-22,Buldhana-23,63.296,False
+Buldhana-22,Buldhana-26,21.967,False
+Buldhana-22,Jalgaon-19,21.844,True
+Buldhana-22,Jalgaon-20,11.672,True
+Buldhana-22,Jalna-103,35.437,True
+Buldhana-23,Buldhana-24,34.274,False
+Buldhana-23,Buldhana-25,45.354,False
+Buldhana-23,Buldhana-26,36.057,False
+Buldhana-23,Jalna-103,76.221,True
+Buldhana-24,Buldhana-25,64.628,False
+Buldhana-24,Jalna-99,34.077,True
+Buldhana-24,Jalna-101,37.250,True
+Buldhana-24,Jalna-103,52.039,True
+Buldhana-25,Buldhana-26,20.248,False
+Buldhana-25,Jalna-99,18.986,True
+Buldhana-25,Parbhani-95,15.158,True
+Buldhana-25,Washim-33,84.787,True
+Buldhana-26,Buldhana-27,72.445,False
+Buldhana-27,Jalgaon-20,17.539,True
+Chandrapur-70,Chandrapur-71,12.250,False
+Chandrapur-70,Chandrapur-72,75.016,False
+Chandrapur-70,Gadchiroli-68,24.442,True
+Chandrapur-70,Yavatmal-76,48.074,True
+Chandrapur-71,Chandrapur-72,33.892,False
+Chandrapur-71,Chandrapur-75,32.434,False
+Chandrapur-71,Yavatmal-76,16.433,True
+Chandrapur-72,Chandrapur-73,100.754,False
+Chandrapur-72,Chandrapur-75,43.440,False
+Chandrapur-72,Gadchiroli-68,29.285,True
+Chandrapur-73,Chandrapur-74,116.339,False
+Chandrapur-73,Chandrapur-75,21.804,False
+Chandrapur-73,Gadchiroli-67,28.377,True
+Chandrapur-73,Gadchiroli-68,74.711,True
+Chandrapur-74,Chandrapur-75,55.107,False
+Chandrapur-74,Gadchiroli-67,11.954,True
+Chandrapur-74,Nagpur-51,45.744,True
+Chandrapur-74,Wardha-46,13.611,True
+Chandrapur-75,Wardha-46,66.844,True
+Chandrapur-75,Yavatmal-76,63.515,True
+Dhule-5,Dhule-6,43.913,False
+Dhule-5,Dhule-8,34.091,False
+Dhule-5,Nandurbar-3,7.585,True
+Dhule-5,Nandurbar-4,86.605,True
+Dhule-5,Nashik-115,11.259,True
+Dhule-5,Nashik-116,69.835,True
+Dhule-6,Dhule-7,25.656,False
+Dhule-6,Dhule-8,47.432,False
+Dhule-6,Jalgaon-15,39.624,True
+Dhule-6,Jalgaon-16,13.216,True
+Dhule-6,Jalgaon-17,28.383,True
+Dhule-6,Nashik-113,5.699,True
+Dhule-6,Nashik-115,57.138,True
+Dhule-8,Dhule-9,39.395,False
+Dhule-8,Jalgaon-15,24.997,True
+Dhule-8,Nandurbar-3,71.801,True
+Dhule-9,Jalgaon-10,46.600,True
+Dhule-9,Jalgaon-15,8.971,True
+Dhule-9,Nandurbar-2,7.570,True
+Dhule-9,Nandurbar-3,24.406,True
+Gadchiroli-67,Gadchiroli-68,95.618,False
+Gadchiroli-67,Gondia-63,55.546,True
+Gadchiroli-67,Gondia-66,32.590,True
+Gadchiroli-68,Gadchiroli-69,137.140,False
+Gondia-63,Gondia-64,45.265,False
+Gondia-63,Gondia-66,98.778,False
+Gondia-64,Gondia-65,52.626,False
+Gondia-64,Gondia-66,9.445,False
+Gondia-65,Gondia-66,25.367,False
+Hingoli-92,Hingoli-93,58.567,False
+Hingoli-92,Hingoli-94,47.460,False
+Hingoli-92,Nanded-85,17.635,True
+Hingoli-92,Nanded-86,18.957,True
+Hingoli-92,Nanded-87,11.692,True
+Hingoli-92,Nanded-88,11.918,True
+Hingoli-92,Parbhani-95,41.091,True
+Hingoli-92,Parbhani-96,27.481,True
+Hingoli-92,Parbhani-97,48.324,True
+Hingoli-93,Hingoli-94,58.323,False
+Hingoli-93,Nanded-84,54.540,True
+Hingoli-93,Nanded-85,8.763,True
+Hingoli-93,Washim-34,7.256,True
+Hingoli-93,Yavatmal-81,60.406,True
+Hingoli-94,Parbhani-95,69.411,True
+Hingoli-94,Washim-33,49.662,True
+Hingoli-94,Washim-34,46.293,True
+Jalgaon-10,Jalgaon-11,63.130,False
+Jalgaon-10,Jalgaon-14,52.841,False
+Jalgaon-10,Jalgaon-15,25.805,False
+Jalgaon-11,Jalgaon-12,16.616,False
+Jalgaon-11,Jalgaon-14,1.966,False
+Jalgaon-11,Jalgaon-20,62.572,False
+Jalgaon-12,Jalgaon-14,32.661,False
+Jalgaon-12,Jalgaon-19,10.879,False
+Jalgaon-12,Jalgaon-20,58.947,False
+Jalgaon-13,Jalgaon-14,45.013,False
+Jalgaon-14,Jalgaon-15,29.922,False
+Jalgaon-14,Jalgaon-16,70.553,False
+Jalgaon-14,Jalgaon-18,13.028,False
+Jalgaon-14,Jalgaon-19,33.429,False
+Jalgaon-15,Jalgaon-16,43.896,False
+Jalgaon-16,Jalgaon-17,7.367,False
+Jalgaon-16,Jalgaon-18,69.348,False
+Jalgaon-17,Jalgaon-18,43.295,False
+Jalgaon-17,Nashik-113,64.685,True
+Jalgaon-18,Jalgaon-19,24.257,False
+Jalgaon-19,Jalgaon-20,27.848,False
+Jalgaon-19,Jalna-103,24.176,True
+Jalna-99,Jalna-100,89.307,False
+Jalna-99,Jalna-101,10.324,False
+Jalna-99,Parbhani-95,92.204,True
+Jalna-99,Parbhani-98,23.410,True
+Jalna-100,Jalna-101,50.320,False
+Jalna-100,Jalna-102,63.550,False
+Jalna-101,Jalna-102,45.773,False
+Jalna-101,Jalna-103,4.495,False
+Jalna-102,Jalna-103,80.151,False
+Kolhapur-271,Kolhapur-272,38.468,False
+Kolhapur-271,Kolhapur-273,26.044,False
+Kolhapur-271,Sindhudurg-270,78.902,True
+Kolhapur-272,Kolhapur-273,89.787,False
+Kolhapur-272,Kolhapur-274,6.515,False
+Kolhapur-272,Kolhapur-275,58.655,False
+Kolhapur-272,Sindhudurg-268,77.595,True
+Kolhapur-272,Sindhudurg-269,60.857,True
+Kolhapur-272,Sindhudurg-270,17.510,True
+Kolhapur-273,Kolhapur-274,34.379,False
+Kolhapur-273,Kolhapur-278,8.574,False
+Kolhapur-274,Kolhapur-275,31.591,False
+Kolhapur-274,Kolhapur-276,8.622,False
+Kolhapur-274,Kolhapur-278,21.491,False
+Kolhapur-275,Kolhapur-276,9.025,False
+Kolhapur-275,Kolhapur-277,67.943,False
+Kolhapur-275,Kolhapur-278,11.423,False
+Kolhapur-275,Ratnagiri-267,17.677,True
+Kolhapur-275,Sindhudurg-268,28.606,True
+Kolhapur-276,Kolhapur-278,5.704,False
+Kolhapur-277,Kolhapur-278,11.233,False
+Kolhapur-277,Ratnagiri-265,40.281,True
+Kolhapur-277,Ratnagiri-267,62.075,True
+Kolhapur-277,Sangli-284,94.726,True
+Kolhapur-278,Kolhapur-279,20.261,False
+Kolhapur-278,Kolhapur-280,13.181,False
+Kolhapur-278,Sangli-283,24.411,True
+Kolhapur-278,Sangli-284,12.181,True
+Kolhapur-279,Kolhapur-280,18.858,False
+Kolhapur-280,Sangli-281,17.647,True
+Kolhapur-280,Sangli-282,9.442,True
+Kolhapur-280,Sangli-283,12.824,True
+Latur-234,Latur-235,67.877,False
+Latur-234,Latur-236,47.952,False
+Latur-234,Latur-238,14.809,False
+Latur-234,Latur-239,62.480,False
+Latur-234,Osmanabad-241,31.677,True
+Latur-234,Osmanabad-242,35.675,True
+Latur-235,Latur-239,17.428,False
+Latur-236,Latur-237,69.698,False
+Latur-236,Latur-238,26.461,False
+Latur-236,Nanded-88,14.507,True
+Latur-236,Nanded-91,9.506,True
+Latur-236,Parbhani-97,34.975,True
+Latur-237,Latur-238,54.039,False
+Latur-237,Nanded-91,70.459,True
+Latur-238,Latur-239,74.374,False
+Latur-238,Osmanabad-240,0.866,True
+Latur-239,Osmanabad-240,69.738,True
+Latur-239,Osmanabad-241,13.099,True
+Mumbai City-178,Mumbai City-179,2.677,False
+Mumbai City-178,Mumbai City-180,0.618,False
+Mumbai City-178,Mumbai City-181,1.700,False
+Mumbai City-178,Mumbai Suburban-176,2.113,True
+Mumbai City-178,Mumbai Suburban-177,0.653,True
+Mumbai City-179,Mumbai City-180,3.885,False
+Mumbai City-179,Mumbai Suburban-173,2.392,True
+Mumbai City-179,Mumbai Suburban-174,1.163,True
+Mumbai City-179,Mumbai Suburban-176,1.472,True
+Mumbai City-180,Mumbai City-181,3.566,False
+Mumbai City-180,Mumbai City-183,4.646,False
+Mumbai City-181,Mumbai City-182,1.667,False
+Mumbai City-182,Mumbai City-183,2.493,False
+Mumbai City-182,Mumbai City-184,1.342,False
+Mumbai City-182,Mumbai City-185,1.665,False
+Mumbai City-183,Mumbai City-184,2.546,False
+Mumbai City-184,Mumbai City-185,1.372,False
+Mumbai City-184,Mumbai City-186,4.222,False
+Mumbai City-185,Mumbai City-186,2.911,False
+Mumbai City-185,Mumbai City-187,0.833,False
+Mumbai City-186,Mumbai City-187,3.653,False
+Mumbai Suburban-152,Mumbai Suburban-153,4.764,False
+Mumbai Suburban-152,Mumbai Suburban-154,2.115,False
+Mumbai Suburban-152,Mumbai Suburban-160,1.706,False
+Mumbai Suburban-152,Mumbai Suburban-161,7.779,False
+Mumbai Suburban-152,Thane-145,5.021,True
+Mumbai Suburban-153,Mumbai Suburban-154,3.855,False
+Mumbai Suburban-153,Thane-145,7.131,True
+Mumbai Suburban-154,Mumbai Suburban-155,5.150,False
+Mumbai Suburban-154,Mumbai Suburban-159,2.959,False
+Mumbai Suburban-154,Mumbai Suburban-160,4.563,False
+Mumbai Suburban-154,Thane-145,2.476,True
+Mumbai Suburban-154,Thane-146,3.841,True
+Mumbai Suburban-154,Thane-147,2.048,True
+Mumbai Suburban-155,Mumbai Suburban-157,7.830,False
+Mumbai Suburban-155,Mumbai Suburban-158,2.677,False
+Mumbai Suburban-155,Mumbai Suburban-159,2.826,False
+Mumbai Suburban-155,Thane-147,7.746,True
+Mumbai Suburban-156,Mumbai Suburban-157,3.884,False
+Mumbai Suburban-156,Mumbai Suburban-168,1.927,False
+Mumbai Suburban-156,Mumbai Suburban-170,3.610,False
+Mumbai Suburban-157,Mumbai Suburban-158,1.419,False
+Mumbai Suburban-157,Mumbai Suburban-166,0.895,False
+Mumbai Suburban-157,Mumbai Suburban-168,1.929,False
+Mumbai Suburban-158,Mumbai Suburban-159,4.402,False
+Mumbai Suburban-158,Mumbai Suburban-163,4.315,False
+Mumbai Suburban-158,Mumbai Suburban-164,1.145,False
+Mumbai Suburban-158,Mumbai Suburban-165,0.856,False
+Mumbai Suburban-158,Mumbai Suburban-166,6.816,False
+Mumbai Suburban-159,Mumbai Suburban-160,3.911,False
+Mumbai Suburban-160,Mumbai Suburban-161,2.447,False
+Mumbai Suburban-160,Mumbai Suburban-162,2.142,False
+Mumbai Suburban-160,Mumbai Suburban-163,1.292,False
+Mumbai Suburban-161,Mumbai Suburban-162,5.862,False
+Mumbai Suburban-162,Mumbai Suburban-163,5.065,False
+Mumbai Suburban-162,Mumbai Suburban-164,1.873,False
+Mumbai Suburban-163,Mumbai Suburban-164,5.207,False
+Mumbai Suburban-164,Mumbai Suburban-165,3.555,False
+Mumbai Suburban-165,Mumbai Suburban-166,1.468,False
+Mumbai Suburban-165,Mumbai Suburban-167,3.878,False
+Mumbai Suburban-165,Mumbai Suburban-177,2.904,False
+Mumbai Suburban-166,Mumbai Suburban-167,6.140,False
+Mumbai Suburban-166,Mumbai Suburban-168,3.667,False
+Mumbai Suburban-167,Mumbai Suburban-168,1.221,False
+Mumbai Suburban-167,Mumbai Suburban-175,5.793,False
+Mumbai Suburban-167,Mumbai Suburban-176,0.823,False
+Mumbai Suburban-167,Mumbai Suburban-177,1.916,False
+Mumbai Suburban-168,Mumbai Suburban-169,5.764,False
+Mumbai Suburban-168,Mumbai Suburban-174,0.872,False
+Mumbai Suburban-168,Mumbai Suburban-175,1.970,False
+Mumbai Suburban-169,Mumbai Suburban-170,1.636,False
+Mumbai Suburban-169,Mumbai Suburban-174,2.560,False
+Mumbai Suburban-170,Mumbai Suburban-171,1.876,False
+Mumbai Suburban-170,Mumbai Suburban-173,0.914,False
+Mumbai Suburban-171,Mumbai Suburban-172,5.004,False
+Mumbai Suburban-172,Mumbai Suburban-173,7.789,False
+Mumbai Suburban-173,Mumbai Suburban-174,3.988,False
+Mumbai Suburban-174,Mumbai Suburban-175,2.682,False
+Mumbai Suburban-174,Mumbai Suburban-176,0.894,False
+Mumbai Suburban-175,Mumbai Suburban-176,4.533,False
+Mumbai Suburban-176,Mumbai Suburban-177,2.526,False
+Nagpur-48,Nagpur-49,63.659,False
+Nagpur-48,Nagpur-50,36.404,False
+Nagpur-48,Wardha-44,68.298,True
+Nagpur-48,Wardha-47,4.117,True
+Nagpur-49,Nagpur-50,29.046,False
+Nagpur-49,Nagpur-58,25.813,False
+Nagpur-49,Nagpur-59,66.793,False
+Nagpur-50,Nagpur-51,39.314,False
+Nagpur-50,Nagpur-52,9.620,False
+Nagpur-50,Nagpur-56,15.194,False
+Nagpur-50,Nagpur-57,3.251,False
+Nagpur-50,Nagpur-58,41.781,False
+Nagpur-50,Wardha-46,19.120,True
+Nagpur-50,Wardha-47,40.917,True
+Nagpur-51,Nagpur-58,67.755,False
+Nagpur-51,Wardha-46,41.902,True
+Nagpur-52,Nagpur-53,4.385,False
+Nagpur-52,Nagpur-55,2.408,False
+Nagpur-52,Nagpur-56,11.161,False
+Nagpur-52,Nagpur-58,17.691,False
+Nagpur-53,Nagpur-54,4.125,False
+Nagpur-53,Nagpur-55,3.306,False
+Nagpur-53,Nagpur-58,8.927,False
+Nagpur-54,Nagpur-55,3.065,False
+Nagpur-54,Nagpur-57,8.156,False
+Nagpur-54,Nagpur-58,12.176,False
+Nagpur-55,Nagpur-56,1.849,False
+Nagpur-55,Nagpur-57,3.034,False
+Nagpur-56,Nagpur-57,5.554,False
+Nagpur-57,Nagpur-58,11.333,False
+Nagpur-58,Nagpur-59,84.245,False
+Nanded-83,Nanded-84,15.465,False
+Nanded-83,Yavatmal-80,56.822,True
+Nanded-83,Yavatmal-82,113.894,True
+Nanded-84,Nanded-85,57.494,False
+Nanded-84,Yavatmal-81,4.945,True
+Nanded-84,Yavatmal-82,116.192,True
+Nanded-85,Nanded-86,21.721,False
+Nanded-85,Nanded-87,28.253,False
+Nanded-85,Nanded-88,9.453,False
+Nanded-85,Nanded-89,58.042,False
+Nanded-86,Nanded-87,19.415,False
+Nanded-87,Nanded-88,41.029,False
+Nanded-88,Nanded-89,34.480,False
+Nanded-88,Nanded-91,62.378,False
+Nanded-88,Parbhani-97,62.018,True
+Nanded-89,Nanded-90,63.402,False
+Nanded-89,Nanded-91,30.616,False
+Nanded-90,Nanded-91,55.332,False
+Nandurbar-1,Nandurbar-2,98.009,False
+Nandurbar-2,Nandurbar-3,90.147,False
+Nandurbar-3,Nandurbar-4,59.674,False
+Nashik-113,Nashik-115,71.804,False
+Nashik-113,Nashik-118,46.664,False
+Nashik-113,Nashik-119,40.653,False
+Nashik-114,Nashik-115,21.493,False
+Nashik-115,Nashik-116,56.561,False
+Nashik-115,Nashik-118,18.041,False
+Nashik-116,Nashik-117,41.682,False
+Nashik-116,Nashik-118,30.843,False
+Nashik-117,Nashik-118,57.195,False
+Nashik-117,Nashik-122,77.979,False
+Nashik-118,Nashik-119,44.101,False
+Nashik-118,Nashik-121,23.244,False
+Nashik-118,Nashik-122,25.730,False
+Nashik-119,Nashik-120,1.846,False
+Nashik-119,Nashik-121,48.408,False
+Nashik-120,Nashik-121,38.381,False
+Nashik-120,Nashik-126,38.529,False
+Nashik-120,Nashik-127,39.720,False
+Nashik-121,Nashik-122,23.046,False
+Nashik-121,Nashik-126,15.950,False
+Nashik-122,Nashik-123,17.105,False
+Nashik-122,Nashik-126,26.624,False
+Nashik-122,Nashik-127,30.698,False
+Nashik-123,Nashik-124,13.193,False
+Nashik-123,Nashik-126,27.972,False
+Nashik-124,Nashik-125,12.000,False
+Nashik-124,Nashik-126,6.455,False
+Nashik-125,Nashik-126,28.307,False
+Nashik-126,Nashik-127,64.704,False
+Nashik-127,Thane-129,79.499,True
+Nashik-127,Thane-135,25.264,True
+Osmanabad-240,Osmanabad-241,82.797,False
+Osmanabad-240,Solapur-250,3.089,True
+Osmanabad-241,Osmanabad-242,114.745,False
+Osmanabad-241,Solapur-246,42.349,True
+Osmanabad-241,Solapur-247,25.198,True
+Osmanabad-241,Solapur-250,85.999,True
+Osmanabad-242,Osmanabad-243,43.928,False
+Osmanabad-242,Solapur-246,49.804,True
+Osmanabad-243,Solapur-244,74.611,True
+Osmanabad-243,Solapur-246,67.123,True
+Parbhani-95,Parbhani-96,33.476,False
+Parbhani-95,Parbhani-98,74.241,False
+Parbhani-95,Washim-33,4.265,True
+Parbhani-96,Parbhani-97,23.193,False
+Parbhani-96,Parbhani-98,56.243,False
+Parbhani-97,Parbhani-98,76.632,False
+Pune-195,Pune-196,75.105,False
+Pune-195,Thane-139,38.466,True
+Pune-196,Pune-197,102.987,False
+Pune-196,Pune-198,59.667,False
+Pune-196,Raigad-189,8.863,True
+Pune-196,Thane-139,27.832,True
+Pune-197,Pune-198,19.111,False
+Pune-197,Pune-204,52.619,False
+Pune-197,Pune-206,18.722,False
+Pune-197,Pune-207,10.860,False
+Pune-197,Pune-208,7.993,False
+Pune-197,Raigad-189,18.658,True
+Pune-198,Pune-199,91.183,False
+Pune-198,Pune-202,23.886,False
+Pune-198,Pune-208,9.318,False
+Pune-198,Pune-214,10.886,False
+Pune-199,Pune-200,13.719,False
+Pune-199,Pune-201,50.850,False
+Pune-199,Pune-202,26.403,False
+Pune-199,Solapur-244,8.769,True
+Pune-200,Pune-201,32.564,False
+Pune-200,Satara-255,7.490,True
+Pune-200,Solapur-244,71.914,True
+Pune-200,Solapur-245,42.146,True
+Pune-200,Solapur-254,73.087,True
+Pune-201,Pune-202,35.945,False
+Pune-201,Satara-255,57.224,True
+Pune-202,Pune-203,63.047,False
+Pune-202,Pune-211,27.428,False
+Pune-202,Pune-213,12.670,False
+Pune-202,Pune-214,6.162,False
+Pune-202,Satara-256,20.912,True
+Pune-203,Pune-204,50.359,False
+Pune-203,Pune-205,3.845,False
+Pune-203,Pune-206,5.726,False
+Pune-203,Pune-207,4.057,False
+Pune-203,Pune-210,16.112,False
+Pune-203,Pune-211,57.299,False
+Pune-203,Raigad-191,40.943,True
+Pune-203,Raigad-194,128.234,True
+Pune-203,Satara-256,80.145,True
+Pune-204,Pune-206,6.413,False
+Pune-204,Raigad-189,53.835,True
+Pune-204,Raigad-191,11.252,True
+Pune-205,Pune-207,20.584,False
+Pune-205,Pune-208,8.762,False
+Pune-205,Pune-209,8.051,False
+Pune-205,Pune-210,5.561,False
+Pune-206,Pune-207,14.735,False
+Pune-207,Pune-208,5.278,False
+Pune-208,Pune-209,4.800,False
+Pune-208,Pune-214,7.916,False
+Pune-208,Pune-215,1.644,False
+Pune-209,Pune-210,13.047,False
+Pune-209,Pune-215,5.534,False
+Pune-210,Pune-211,7.207,False
+Pune-210,Pune-212,2.065,False
+Pune-210,Pune-215,0.629,False
+Pune-211,Pune-212,5.887,False
+Pune-211,Pune-213,6.332,False
+Pune-212,Pune-213,5.588,False
+Pune-212,Pune-214,3.168,False
+Pune-212,Pune-215,4.312,False
+Pune-213,Pune-214,14.237,False
+Pune-214,Pune-215,5.527,False
+Raigad-188,Raigad-189,6.698,False
+Raigad-188,Raigad-190,37.655,False
+Raigad-188,Thane-139,10.549,True
+Raigad-188,Thane-142,12.936,True
+Raigad-188,Thane-144,7.261,True
+Raigad-188,Thane-150,2.219,True
+Raigad-188,Thane-151,8.160,True
+Raigad-189,Raigad-190,36.268,False
+Raigad-189,Raigad-191,29.593,False
+Raigad-189,Thane-139,37.877,True
+Raigad-190,Raigad-191,29.029,False
+Raigad-190,Thane-151,1.296,True
+Raigad-191,Raigad-192,46.376,False
+Raigad-191,Raigad-193,26.106,False
+Raigad-191,Raigad-194,23.904,False
+Raigad-192,Raigad-193,25.075,False
+Raigad-193,Raigad-194,85.616,False
+Raigad-193,Ratnagiri-263,33.095,True
+Raigad-194,Ratnagiri-263,65.350,True
+Raigad-194,Satara-256,30.409,True
+Ratnagiri-263,Ratnagiri-264,86.529,False
+Ratnagiri-263,Satara-256,5.900,True
+Ratnagiri-263,Satara-262,19.838,True
+Ratnagiri-264,Ratnagiri-265,124.760,False
+Ratnagiri-264,Ratnagiri-266,26.756,False
+Ratnagiri-264,Satara-262,22.137,True
+Ratnagiri-265,Ratnagiri-266,56.210,False
+Ratnagiri-265,Ratnagiri-267,38.687,False
+Ratnagiri-265,Sangli-284,13.066,True
+Ratnagiri-265,Satara-261,48.208,True
+Ratnagiri-265,Satara-262,13.479,True
+Ratnagiri-266,Ratnagiri-267,66.947,False
+Ratnagiri-267,Sindhudurg-268,83.677,True
+Sangli-281,Sangli-282,20.751,False
+Sangli-281,Sangli-287,62.310,False
+Sangli-282,Sangli-283,14.448,False
+Sangli-282,Sangli-287,6.532,False
+Sangli-283,Sangli-284,39.529,False
+Sangli-283,Sangli-285,51.144,False
+Sangli-283,Sangli-287,0.561,False
+Sangli-283,Satara-260,10.943,True
+Sangli-284,Satara-260,15.011,True
+Sangli-284,Satara-261,59.405,True
+Sangli-285,Sangli-286,62.756,False
+Sangli-285,Sangli-287,24.564,False
+Sangli-285,Satara-258,3.722,True
+Sangli-285,Satara-259,49.493,True
+Sangli-285,Satara-260,12.543,True
+Sangli-286,Sangli-287,44.250,False
+Sangli-286,Satara-258,78.528,True
+Sangli-286,Solapur-253,85.950,True
+Sangli-286,Solapur-254,3.068,True
+Sangli-287,Sangli-288,43.594,False
+Sangli-287,Solapur-253,53.292,True
+Sangli-288,Solapur-252,46.240,True
+Sangli-288,Solapur-253,69.914,True
+Satara-255,Satara-256,59.179,False
+Satara-255,Satara-257,45.284,False
+Satara-255,Satara-258,50.051,False
+Satara-255,Solapur-254,26.581,True
+Satara-256,Satara-257,15.406,False
+Satara-256,Satara-262,104.034,False
+Satara-257,Satara-258,53.991,False
+Satara-257,Satara-259,41.890,False
+Satara-257,Satara-262,34.292,False
+Satara-258,Satara-259,61.566,False
+Satara-258,Solapur-254,90.229,True
+Satara-259,Satara-260,33.569,False
+Satara-259,Satara-261,30.832,False
+Satara-259,Satara-262,15.061,False
+Satara-260,Satara-261,45.190,False
+Satara-261,Satara-262,38.583,False
+Sindhudurg-268,Sindhudurg-269,88.398,False
+Sindhudurg-269,Sindhudurg-270,84.641,False
+Solapur-244,Solapur-245,69.736,False
+Solapur-244,Solapur-246,9.145,False
+Solapur-245,Solapur-246,25.741,False
+Solapur-245,Solapur-247,84.699,False
+Solapur-245,Solapur-252,24.284,False
+Solapur-245,Solapur-253,17.965,False
+Solapur-245,Solapur-254,44.049,False
+Solapur-246,Solapur-247,26.428,False
+Solapur-247,Solapur-248,25.881,False
+Solapur-247,Solapur-250,15.092,False
+Solapur-247,Solapur-251,36.769,False
+Solapur-247,Solapur-252,54.762,False
+Solapur-248,Solapur-249,10.333,False
+Solapur-248,Solapur-250,8.477,False
+Solapur-248,Solapur-251,14.086,False
+Solapur-249,Solapur-250,5.264,False
+Solapur-249,Solapur-251,12.447,False
+Solapur-250,Solapur-251,66.369,False
+Solapur-251,Solapur-252,8.550,False
+Solapur-252,Solapur-253,75.039,False
+Solapur-253,Solapur-254,36.010,False
+Thane-128,Thane-129,29.037,False
+Thane-128,Thane-130,41.870,False
+Thane-129,Thane-130,24.968,False
+Thane-129,Thane-131,44.647,False
+Thane-129,Thane-134,37.824,False
+Thane-129,Thane-135,59.242,False
+Thane-130,Thane-131,66.820,False
+Thane-131,Thane-132,18.759,False
+Thane-131,Thane-133,12.824,False
+Thane-131,Thane-134,22.333,False
+Thane-132,Thane-133,18.294,False
+Thane-133,Thane-134,18.339,False
+Thane-133,Thane-146,7.070,False
+Thane-134,Thane-135,72.925,False
+Thane-134,Thane-136,22.581,False
+Thane-134,Thane-137,21.210,False
+Thane-134,Thane-138,15.130,False
+Thane-134,Thane-139,15.473,False
+Thane-134,Thane-143,5.876,False
+Thane-134,Thane-144,9.528,False
+Thane-134,Thane-146,2.500,False
+Thane-134,Thane-148,6.426,False
+Thane-134,Thane-149,4.445,False
+Thane-135,Thane-139,98.496,False
+Thane-136,Thane-137,12.292,False
+Thane-138,Thane-139,16.329,False
+Thane-138,Thane-141,5.207,False
+Thane-138,Thane-142,5.304,False
+Thane-138,Thane-144,0.592,False
+Thane-139,Thane-140,6.732,False
+Thane-139,Thane-141,4.611,False
+Thane-139,Thane-142,6.965,False
+Thane-140,Thane-141,6.717,False
+Thane-140,Thane-142,6.611,False
+Thane-141,Thane-142,7.468,False
+Thane-142,Thane-144,19.883,False
+Thane-143,Thane-144,4.677,False
+Thane-144,Thane-149,5.446,False
+Thane-144,Thane-150,9.958,False
+Thane-145,Thane-146,8.129,False
+Thane-146,Thane-147,4.900,False
+Thane-146,Thane-148,10.834,False
+Thane-147,Thane-148,5.271,False
+Thane-147,Thane-149,3.181,False
+Thane-148,Thane-149,4.254,False
+Thane-149,Thane-150,2.644,False
+Thane-150,Thane-151,7.243,False
+Wardha-44,Wardha-45,39.786,False
+Wardha-44,Wardha-47,35.566,False
+Wardha-45,Wardha-46,79.257,False
+Wardha-45,Wardha-47,72.658,False
+Wardha-45,Yavatmal-77,67.923,True
+Wardha-46,Wardha-47,30.683,False
+Wardha-46,Yavatmal-76,1.820,True
+Wardha-46,Yavatmal-77,26.120,True
+Washim-33,Washim-34,74.920,False
+Washim-34,Washim-35,98.839,False
+Washim-34,Yavatmal-81,28.226,True
+Washim-35,Yavatmal-79,91.846,True
+Washim-35,Yavatmal-81,34.419,True
+Yavatmal-76,Yavatmal-77,34.443,False
+Yavatmal-76,Yavatmal-80,42.439,False
+Yavatmal-77,Yavatmal-78,94.727,False
+Yavatmal-77,Yavatmal-79,12.827,False
+Yavatmal-77,Yavatmal-80,65.411,False
+Yavatmal-78,Yavatmal-79,89.346,False
+Yavatmal-78,Yavatmal-80,67.526,False
+Yavatmal-79,Yavatmal-80,37.050,False
+Yavatmal-79,Yavatmal-81,37.410,False
+Yavatmal-79,Yavatmal-82,3.145,False
+Yavatmal-80,Yavatmal-82,12.687,False
+Yavatmal-81,Yavatmal-82,85.490,False
