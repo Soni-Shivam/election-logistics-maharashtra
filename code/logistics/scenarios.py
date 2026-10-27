@@ -71,9 +71,10 @@ def cmd(args: list[str]) -> str:
 
 def run_location(districts, scens, workers):
     # the base run fills each district's distance cache before the others read it
-    with ProcessPoolExecutor(workers) as ex:
-        for f in as_completed([ex.submit(location_job, d, "base") for d in districts]):
-            print("location done", f.result(), flush=True)
+    if "base" in scens:
+        with ProcessPoolExecutor(workers) as ex:
+            for f in as_completed([ex.submit(location_job, d, "base") for d in districts]):
+                print("location done", f.result(), flush=True)
     rest = [s for s in scens if s != "base"]
     with ProcessPoolExecutor(workers) as ex:
         for f in as_completed([ex.submit(location_job, d, s) for d in districts for s in rest]):

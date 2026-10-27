@@ -204,6 +204,13 @@ def village_rule(s, e, w, dkm, cand, d_open, cap) -> dict:
     n = len(s)
     Y = np.zeros(n, int)
     X = {}
+    w = w.copy()
+    far = ~np.isfinite(w)
+    if far.any():  # hamlets beyond the walking matrix's range: straight line x 1.3 + walk inside
+        from .common import haversine_km
+        lon, lat = s["lon"].to_numpy(), s["lat"].to_numpy()
+        ii, jj = np.nonzero(far)
+        w[ii, jj] = haversine_km(lon[ii], lat[ii], lon[jj], lat[jj]) * 1.3 + s["intra_km"].to_numpy()[ii]
     for unit, g in s.groupby("unit_id"):
         main = int(g["electors_2024"].idxmax())
         total = float(e[g.index].sum())
