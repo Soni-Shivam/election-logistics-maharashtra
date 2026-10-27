@@ -23,3 +23,6 @@ code/runs/
 
 # per-run solver outputs are large; the summary tables are kept
 code/logistics_runs/*/location/
+
+# cached route geometry for result maps
+figures/results/_paths_*.pkl
