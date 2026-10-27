@@ -1,0 +1,10 @@
+{
+  "pbf": "..\\data_raw\\geofabrik\\western-zone-261022.osm.pbf",
+  "points": 1741,
+  "road_nodes": 434658,
+  "road_segments": 445784,
+  "snap_km_median": 0.2559876924644159,
+  "snap_km_max": 7.725330074292246,
+  "road_over_straight_median": 1.3528954185770206,
+  "seconds": 144.2
+}

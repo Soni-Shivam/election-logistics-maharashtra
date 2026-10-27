@@ -1,0 +1,15 @@
+2530 populated demand points
+read 1,295,554 drivable road segments in 59s
+road graph: 1,234,817 nodes, 1,277,248 segments (largest of 328,830 components)
+snap distance km: median 0.12, 95th pct 0.79, max 4.52
+road / straight-line ratio (pairs > 2 km apart): median 1.249
+{
+  "pbf": "..\\data_raw\\geofabrik\\western-zone-261022.osm.pbf",
+  "points": 2530,
+  "road_nodes": 1234817,
+  "road_segments": 1277248,
+  "snap_km_median": 0.12066502393583348,
+  "snap_km_max": 4.515125665567451,
+  "road_over_straight_median": 1.2489247054713797,
+  "seconds": 634.3
+}

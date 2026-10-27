@@ -1,0 +1,25 @@
+{
+  "assigned": [
+    "map_balanced\\assigned_units.geojson",
+    "map_locality\\assigned_units.geojson",
+    "map_taluka\\assigned_units.geojson"
+  ],
+  "distance_matrix": null,
+  "out": "booth_mip_results",
+  "elector_ratio": 0.7,
+  "capacity": 1500,
+  "max_km": [
+    2.0,
+    3.0,
+    5.0
+  ],
+  "booth_cost": 25000.0,
+  "voter_cost_per_km": 10.0,
+  "evm_cost_per_km": 120.0,
+  "road_factor": 1.33,
+  "time_limit": 300.0,
+  "gap": 0.0,
+  "distance_source": "straight-line km x 1.33 (FALLBACK, no road matrix)",
+  "nonfinite_matrix_entries_replaced": 0,
+  "solver": "CBC via PuLP 3.3.2"
+}

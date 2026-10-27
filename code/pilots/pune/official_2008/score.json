@@ -1,0 +1,480 @@
+{
+  "score": 1.4713295729191511,
+  "distance_source": {
+    "type": "road_km_matrix",
+    "path": "pilots\\pune\\road_distances.npz",
+    "matrix_points": 2530,
+    "matched_units": 2530
+  },
+  "terms": {
+    "population": 2.144902718934514,
+    "distance": 0.5640655042123147,
+    "taluka_fragmentation": 2.25,
+    "shape": 0.675959800189178
+  },
+  "raw": {
+    "population_target": 449019.4285714286,
+    "population_bounds": [
+      404118,
+      493921
+    ],
+    "population_weighted_mean_distance_km": 11.281310084246295,
+    "evm_km_estimate": 70917.38370591513,
+    "taluka_excess_fragments": 18,
+    "taluka_fragments": {
+      "Ambegaon": 1,
+      "Baramati": 1,
+      "Bhor": 1,
+      "Daund": 1,
+      "Haveli": 15,
+      "Indapur": 1,
+      "Junnar": 1,
+      "Khed": 1,
+      "Mawal": 1,
+      "Mulshi": 1,
+      "Pune City": 14,
+      "Purandhar": 1,
+      "Shirur": 2,
+      "Velhe": 1
+    },
+    "units_using_polygon_interior_for_distance": 0
+  },
+  "seats": [
+    {
+      "population": 399302,
+      "mean_distance_km": 17.92039175636964,
+      "centre_unit_id": "04187-555351",
+      "compactness_loss": 0.6691176074709431,
+      "area_km2": 1402.0668274918994,
+      "evm_km_estimate": 4770.432179401274
+    },
+    {
+      "population": 377651,
+      "mean_distance_km": 24.545357574280843,
+      "centre_unit_id": "04188-555538",
+      "compactness_loss": 0.7484685468452392,
+      "area_km2": 1711.6582269452583,
+      "evm_km_estimate": 6179.719222189822
+    },
+    {
+      "population": 450116,
+      "mean_distance_km": 15.752899781216348,
+      "centre_unit_id": "04190-555862",
+      "compactness_loss": 0.6805757661411154,
+      "area_km2": 1384.901866710042,
+      "evm_km_estimate": 4727.088158614652
+    },
+    {
+      "population": 476769,
+      "mean_distance_km": 22.76778833222203,
+      "centre_unit_id": "04189-555638",
+      "compactness_loss": 0.775969689687807,
+      "area_km2": 1363.7248686669402,
+      "evm_km_estimate": 7236.650450243444
+    },
+    {
+      "population": 380496,
+      "mean_distance_km": 19.973644696813547,
+      "centre_unit_id": "04195-556390",
+      "compactness_loss": 0.7345755112452319,
+      "area_km2": 1315.2209669234712,
+      "evm_km_estimate": 5066.594608372512
+    },
+    {
+      "population": 383183,
+      "mean_distance_km": 19.044088480958916,
+      "centre_unit_id": "04200-557062",
+      "compactness_loss": 0.678489247506701,
+      "area_km2": 1478.411657991271,
+      "evm_km_estimate": 4864.913970932854
+    },
+    {
+      "population": 429600,
+      "mean_distance_km": 15.43342703355827,
+      "centre_unit_id": "04199-556949",
+      "compactness_loss": 0.44265651635688674,
+      "area_km2": 1379.5204073640666,
+      "evm_km_estimate": 4420.133502411089
+    },
+    {
+      "population": 365613,
+      "mean_distance_km": 19.158050735216126,
+      "centre_unit_id": "04196-556444",
+      "compactness_loss": 0.7168665850488072,
+      "area_km2": 1291.1921885981378,
+      "evm_km_estimate": 4669.621602303049
+    },
+    {
+      "population": 537683,
+      "mean_distance_km": 32.459549835321674,
+      "centre_unit_id": "PMC-C216",
+      "compactness_loss": 0.8433676909454464,
+      "area_km2": 2496.6192721141715,
+      "evm_km_estimate": 11635.298756070177
+    },
+    {
+      "population": 377874,
+      "mean_distance_km": 16.164874098362354,
+      "centre_unit_id": "04191-555895",
+      "compactness_loss": 0.5012179852349579,
+      "area_km2": 1132.656717235494,
+      "evm_km_estimate": 4072.190423363051
+    },
+    {
+      "population": 483582,
+      "mean_distance_km": 4.653984934158517,
+      "centre_unit_id": "PCMC-C266",
+      "compactness_loss": 0.7217286054490963,
+      "area_km2": 65.48686169888036,
+      "evm_km_estimate": 1500.3888949534962
+    },
+    {
+      "population": 637348,
+      "mean_distance_km": 4.1912725499895735,
+      "centre_unit_id": "PCMC-C094",
+      "compactness_loss": 0.6313930886027674,
+      "area_km2": 88.36190164644727,
+      "evm_km_estimate": 1780.8661181271698
+    },
+    {
+      "population": 578546,
+      "mean_distance_km": 4.448428285881953,
+      "centre_unit_id": "PCMC-C171",
+      "compactness_loss": 0.7506654036500842,
+      "area_km2": 74.6363635366743,
+      "evm_km_estimate": 1715.7469273892402
+    },
+    {
+      "population": 643782,
+      "mean_distance_km": 3.41129938451071,
+      "centre_unit_id": "PMC-C100",
+      "compactness_loss": 0.607616064055489,
+      "area_km2": 81.10589927766527,
+      "evm_km_estimate": 1464.0887602393825
+    },
+    {
+      "population": 493997,
+      "mean_distance_km": 3.148296413235218,
+      "centre_unit_id": "PMC-C121",
+      "compactness_loss": 0.6676460469569135,
+      "area_km2": 37.286854479802116,
+      "evm_km_estimate": 1036.8326554993052
+    },
+    {
+      "population": 248468,
+      "mean_distance_km": 4.98668641922355,
+      "centre_unit_id": "PMC-C206",
+      "compactness_loss": 0.7737174062306378,
+      "area_km2": 46.018019526672944,
+      "evm_km_estimate": 826.0213341410913
+    },
+    {
+      "population": 261600,
+      "mean_distance_km": 6.414885399883598,
+      "centre_unit_id": "PMC-C282",
+      "compactness_loss": 0.7598883773531226,
+      "area_km2": 231.10950755732298,
+      "evm_km_estimate": 1118.7560137396995
+    },
+    {
+      "population": 415953,
+      "mean_distance_km": 2.170847917521413,
+      "centre_unit_id": "PMC-C250",
+      "compactness_loss": 0.4948247710434428,
+      "area_km2": 19.857335439437776,
+      "evm_km_estimate": 601.9804692245228
+    },
+    {
+      "population": 437771,
+      "mean_distance_km": 3.1103593589585126,
+      "centre_unit_id": "PMC-C316",
+      "compactness_loss": 0.7598267225827262,
+      "area_km2": 41.18783578459498,
+      "evm_km_estimate": 907.7500846204181
+    },
+    {
+      "population": 750610,
+      "mean_distance_km": 3.948424521254497,
+      "centre_unit_id": "PMC-C199",
+      "compactness_loss": 0.6173262968936036,
+      "area_km2": 70.03880285119308,
+      "evm_km_estimate": 1975.8179532658921
+    },
+    {
+      "population": 299464,
+      "mean_distance_km": 1.7355589694236475,
+      "centre_unit_id": "PMC-C195",
+      "compactness_loss": 0.6192178746717203,
+      "area_km2": 9.789099216474229,
+      "evm_km_estimate": 346.4916208129888
+    }
+  ],
+  "official_checks": [
+    {
+      "constituency": 1,
+      "ac08_no": 195,
+      "name": "Junnar",
+      "pc_name": "SHIRUR",
+      "population_2011": 399302,
+      "deviation_pct": -11.07,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 2,
+      "ac08_no": 196,
+      "name": "Ambegaon",
+      "pc_name": "SHIRUR",
+      "population_2011": 377651,
+      "deviation_pct": -15.89,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 3,
+      "ac08_no": 197,
+      "name": "Khed Alandi",
+      "pc_name": "SHIRUR",
+      "population_2011": 450116,
+      "deviation_pct": 0.24,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 4,
+      "ac08_no": 198,
+      "name": "Shirur",
+      "pc_name": "SHIRUR",
+      "population_2011": 476769,
+      "deviation_pct": 6.18,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 5,
+      "ac08_no": 199,
+      "name": "Daund",
+      "pc_name": "BARAMATI",
+      "population_2011": 380496,
+      "deviation_pct": -15.26,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 6,
+      "ac08_no": 200,
+      "name": "Indapur",
+      "pc_name": "BARAMATI",
+      "population_2011": 383183,
+      "deviation_pct": -14.66,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 7,
+      "ac08_no": 201,
+      "name": "Baramati",
+      "pc_name": "BARAMATI",
+      "population_2011": 429600,
+      "deviation_pct": -4.32,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 8,
+      "ac08_no": 202,
+      "name": "Purandar",
+      "pc_name": "BARAMATI",
+      "population_2011": 365613,
+      "deviation_pct": -18.58,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 9,
+      "ac08_no": 203,
+      "name": "Bhor",
+      "pc_name": "BARAMATI",
+      "population_2011": 537683,
+      "deviation_pct": 19.75,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 10,
+      "ac08_no": 204,
+      "name": "Maval",
+      "pc_name": "MAVAL",
+      "population_2011": 377874,
+      "deviation_pct": -15.84,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 11,
+      "ac08_no": 205,
+      "name": "Chinchwad",
+      "pc_name": "MAVAL",
+      "population_2011": 483582,
+      "deviation_pct": 7.7,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 12,
+      "ac08_no": 206,
+      "name": "Pimpri (SC)",
+      "pc_name": "MAVAL",
+      "population_2011": 637348,
+      "deviation_pct": 41.94,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 13,
+      "ac08_no": 207,
+      "name": "Bhosari",
+      "pc_name": "SHIRUR",
+      "population_2011": 578546,
+      "deviation_pct": 28.85,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 14,
+      "ac08_no": 208,
+      "name": "Vadgaon Sheri",
+      "pc_name": "PUNE",
+      "population_2011": 643782,
+      "deviation_pct": 43.38,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 15,
+      "ac08_no": 209,
+      "name": "Shivajinagar",
+      "pc_name": "PUNE",
+      "population_2011": 493997,
+      "deviation_pct": 10.02,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 16,
+      "ac08_no": 210,
+      "name": "Kothrud",
+      "pc_name": "PUNE",
+      "population_2011": 248468,
+      "deviation_pct": -44.66,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 17,
+      "ac08_no": 211,
+      "name": "Khadakwasala",
+      "pc_name": "BARAMATI",
+      "population_2011": 261600,
+      "deviation_pct": -41.74,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 18,
+      "ac08_no": 212,
+      "name": "Parvati",
+      "pc_name": "PUNE",
+      "population_2011": 415953,
+      "deviation_pct": -7.36,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 19,
+      "ac08_no": 213,
+      "name": "Hadapsar",
+      "pc_name": "SHIRUR",
+      "population_2011": 437771,
+      "deviation_pct": -2.51,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 20,
+      "ac08_no": 214,
+      "name": "Pune Cantonment (SC)",
+      "pc_name": "PUNE",
+      "population_2011": 750610,
+      "deviation_pct": 67.17,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 21,
+      "ac08_no": 215,
+      "name": "Kasba Peth",
+      "pc_name": "PUNE",
+      "population_2011": 299464,
+      "deviation_pct": -33.31,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    }
+  ],
+  "settings": {
+    "seats": 21,
+    "balance": 0.1,
+    "split_share": 0.25,
+    "min_neck_km": 0.5,
+    "neck_lobe_fraction": 0.1,
+    "weight_population": 0.35,
+    "weight_distance": 0.3,
+    "weight_taluka": 0.2,
+    "weight_shape": 0.15,
+    "distance_reference_km": 20.0,
+    "taluka_reference_fragments": 8.0,
+    "link_islands_km": 0.0
+  }
+}

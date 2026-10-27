@@ -1,0 +1,197 @@
+{
+  "score": 1.0443664534492356,
+  "distance_source": {
+    "type": "road_km_matrix",
+    "path": "pilots\\nashik\\road_distances.npz",
+    "matrix_points": 2472,
+    "matched_units": 2472
+  },
+  "terms": {
+    "population": 0.22280306792636292,
+    "distance": 0.7640732114218655,
+    "taluka_fragmentation": 3.125,
+    "shape": 0.7477561083229934
+  },
+  "raw": {
+    "population_target": 407145.8,
+    "population_bounds": [
+      366432,
+      447860
+    ],
+    "population_weighted_mean_distance_km": 15.28146422843731,
+    "evm_km_estimate": 62217.83978458492,
+    "taluka_excess_fragments": 25,
+    "taluka_fragments": {
+      "Baglan": 3,
+      "Chandvad": 4,
+      "Deola": 2,
+      "Dindori": 5,
+      "Igatpuri": 2,
+      "Kalwan": 3,
+      "Malegaon": 4,
+      "Nandgaon": 3,
+      "Nashik": 7,
+      "Niphad": 4,
+      "Peint": 2,
+      "Sinnar": 2,
+      "Surgana": 1,
+      "Trimbakeshwar": 3,
+      "Yevla": 1
+    },
+    "units_using_polygon_interior_for_distance": 0
+  },
+  "seats": [
+    {
+      "population": 414022,
+      "mean_distance_km": 10.440460361765396,
+      "centre_unit_id": "NSK-C114",
+      "compactness_loss": 0.8084874577813375,
+      "area_km2": 580.4155652178795,
+      "evm_km_estimate": 2881.7201865992215
+    },
+    {
+      "population": 366801,
+      "mean_distance_km": 27.325253914161024,
+      "centre_unit_id": "04142-549779",
+      "compactness_loss": 0.8454960846591475,
+      "area_km2": 1760.268972945844,
+      "evm_km_estimate": 6681.953640645452
+    },
+    {
+      "population": 406333,
+      "mean_distance_km": 21.912506917397252,
+      "centre_unit_id": "04153-551069",
+      "compactness_loss": 0.7496743096513467,
+      "area_km2": 1433.2727332284896,
+      "evm_km_estimate": 5935.849782177852
+    },
+    {
+      "population": 409173,
+      "mean_distance_km": 20.34294235888915,
+      "centre_unit_id": "04156-802781",
+      "compactness_loss": 0.7623347102421789,
+      "area_km2": 1681.5315469052723,
+      "evm_km_estimate": 5549.1885025425
+    },
+    {
+      "population": 408034,
+      "mean_distance_km": 23.590109696576036,
+      "centre_unit_id": "04152-550953",
+      "compactness_loss": 0.8426794246247152,
+      "area_km2": 1373.931350297524,
+      "evm_km_estimate": 6417.044546621804
+    },
+    {
+      "population": 386877,
+      "mean_distance_km": 4.3698038662526795,
+      "centre_unit_id": "NSK-C331",
+      "compactness_loss": 0.6387641916895054,
+      "area_km2": 100.83164186815486,
+      "evm_km_estimate": 1127.0510735761586
+    },
+    {
+      "population": 413609,
+      "mean_distance_km": 5.13896903208261,
+      "centre_unit_id": "NSK-C278",
+      "compactness_loss": 0.8187202694075721,
+      "area_km2": 99.45292346217863,
+      "evm_km_estimate": 1417.015894927104
+    },
+    {
+      "population": 407273,
+      "mean_distance_km": 20.776952400485403,
+      "centre_unit_id": "04145-550132",
+      "compactness_loss": 0.7401863328747909,
+      "area_km2": 1678.6778901435086,
+      "evm_km_estimate": 5641.261156668595
+    },
+    {
+      "population": 408121,
+      "mean_distance_km": 18.11723365100892,
+      "centre_unit_id": "04144-549962",
+      "compactness_loss": 0.5723078962518959,
+      "area_km2": 1328.417173384624,
+      "evm_km_estimate": 4929.3490099222745
+    },
+    {
+      "population": 431719,
+      "mean_distance_km": 15.826220426651588,
+      "centre_unit_id": "MLG-C30",
+      "compactness_loss": 0.8104083199939258,
+      "area_km2": 1328.2046924093388,
+      "evm_km_estimate": 4554.986704249065
+    },
+    {
+      "population": 421375,
+      "mean_distance_km": 2.779346038888963,
+      "centre_unit_id": "MLG-C32",
+      "compactness_loss": 0.7456065902991843,
+      "area_km2": 86.09755117621481,
+      "evm_km_estimate": 780.7646247578912
+    },
+    {
+      "population": 413761,
+      "mean_distance_km": 18.211653900762414,
+      "centre_unit_id": "04154-802780",
+      "compactness_loss": 0.646218547273355,
+      "area_km2": 1380.9681335932999,
+      "evm_km_estimate": 5023.514753088905
+    },
+    {
+      "population": 400717,
+      "mean_distance_km": 23.276242262090783,
+      "centre_unit_id": "04143-549915",
+      "compactness_loss": 0.8396138694173892,
+      "area_km2": 1700.1219671656634,
+      "evm_km_estimate": 6218.123980358821
+    },
+    {
+      "population": 406966,
+      "mean_distance_km": 3.554984752252274,
+      "centre_unit_id": "NSK-C177",
+      "compactness_loss": 0.7480645083483035,
+      "area_km2": 43.59607449189488,
+      "evm_km_estimate": 964.5052831233993
+    },
+    {
+      "population": 412406,
+      "mean_distance_km": 14.896160502002411,
+      "centre_unit_id": "04155-551311",
+      "compactness_loss": 0.6477791123302539,
+      "area_km2": 982.0425276831093,
+      "evm_km_estimate": 4095.5106453258713
+    }
+  ],
+  "search": {
+    "seed": 714,
+    "steps_per_restart": 2000,
+    "restarts": 3,
+    "successful_starts": 3,
+    "initial_search_budget_per_start": 5000,
+    "initial_seconds_per_start": 30.0,
+    "proposals": 5995,
+    "accepted": 3921
+  },
+  "settings": {
+    "seats": 15,
+    "balance": 0.1,
+    "split_share": 0.25,
+    "min_neck_km": 0.5,
+    "neck_lobe_fraction": 0.1,
+    "weight_population": 0.35,
+    "weight_distance": 0.3,
+    "weight_taluka": 0.2,
+    "weight_shape": 0.15,
+    "distance_reference_km": 20.0,
+    "taluka_reference_fragments": 8.0,
+    "link_islands_km": 0.2
+  },
+  "island_links": [
+    {
+      "from": "04151-550854",
+      "to": "04151-550853",
+      "gap_km": 0.0,
+      "island_units": 6
+    }
+  ]
+}

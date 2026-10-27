@@ -1,0 +1,207 @@
+{
+  "score": 0.7113011066630023,
+  "distance_source": {
+    "type": "road_km_matrix",
+    "path": "sangli_road\\road_distances.npz",
+    "matrix_points": 751,
+    "matched_units": 751
+  },
+  "terms": {
+    "population": 0.6962102912573884,
+    "distance": 0.7937522217986415,
+    "taluka_fragmentation": 0.625,
+    "shape": 0.6966789212221596
+  },
+  "raw": {
+    "population_target": 352767.875,
+    "population_bounds": [
+      317492,
+      388044
+    ],
+    "population_weighted_mean_distance_km": 15.87504443597283,
+    "evm_km_estimate": 29867.763686446448,
+    "taluka_excess_fragments": 5,
+    "taluka_fragments": {
+      "Atpadi": 1,
+      "Jat": 1,
+      "Kadegaon": 3,
+      "Kavathemahankal": 1,
+      "Khanapur (Vita)": 2,
+      "Miraj": 3,
+      "Palus": 1,
+      "Shirala": 1,
+      "Tasgaon": 3,
+      "Walwa": 2
+    },
+    "units_using_polygon_interior_for_distance": 0
+  },
+  "seats": [
+    {
+      "population": 398044,
+      "mean_distance_km": 10.159168181345844,
+      "centre_unit_id": "SMKC-W06",
+      "compactness_loss": 0.6660040955764548,
+      "area_km2": 698.8115057024149,
+      "evm_km_estimate": 2695.8639597170836
+    },
+    {
+      "population": 405732,
+      "mean_distance_km": 4.561981719389119,
+      "centre_unit_id": "SMKC-W10",
+      "compactness_loss": 0.5350500982727026,
+      "area_km2": 142.29200205862375,
+      "evm_km_estimate": 1233.9613113141243
+    },
+    {
+      "population": 320376,
+      "mean_distance_km": 13.558622906120084,
+      "centre_unit_id": "04296-568387",
+      "compactness_loss": 0.697001507008181,
+      "area_km2": 510.5280016388741,
+      "evm_km_estimate": 2895.9049147807523
+    },
+    {
+      "population": 349342,
+      "mean_distance_km": 16.53039241449205,
+      "centre_unit_id": "04295-568296",
+      "compactness_loss": 0.8016386401175224,
+      "area_km2": 923.896017241991,
+      "evm_km_estimate": 3849.840231242321
+    },
+    {
+      "population": 322779,
+      "mean_distance_km": 16.310270786141263,
+      "centre_unit_id": "04297-568413",
+      "compactness_loss": 0.7421046017673177,
+      "area_km2": 869.4262927428166,
+      "evm_km_estimate": 3509.741929386594
+    },
+    {
+      "population": 345436,
+      "mean_distance_km": 25.232411665509634,
+      "centre_unit_id": "04299-568544",
+      "compactness_loss": 0.7233350395503699,
+      "area_km2": 1738.302558597954,
+      "evm_km_estimate": 5810.788904057991
+    },
+    {
+      "population": 352110,
+      "mean_distance_km": 18.43330149308078,
+      "centre_unit_id": "04303-568803",
+      "compactness_loss": 0.6865640779574336,
+      "area_km2": 1373.9771769138454,
+      "evm_km_estimate": 4327.033192485782
+    },
+    {
+      "population": 328324,
+      "mean_distance_km": 25.33151358168364,
+      "centre_unit_id": "04304-568870",
+      "compactness_loss": 0.7217333095272942,
+      "area_km2": 2308.1371324271267,
+      "evm_km_estimate": 5544.6292434618
+    }
+  ],
+  "official_checks": [
+    {
+      "constituency": 1,
+      "ac08_no": 281,
+      "name": "Miraj (SC)",
+      "population_2011": 398044,
+      "deviation_pct": 12.83,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 2,
+      "ac08_no": 282,
+      "name": "Sangli",
+      "population_2011": 405732,
+      "deviation_pct": 15.01,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 3,
+      "ac08_no": 283,
+      "name": "Islampur",
+      "population_2011": 320376,
+      "deviation_pct": -9.18,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 4,
+      "ac08_no": 284,
+      "name": "Shirala",
+      "population_2011": 349342,
+      "deviation_pct": -0.97,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 5,
+      "ac08_no": 285,
+      "name": "Palus-Kadegaon",
+      "population_2011": 322779,
+      "deviation_pct": -8.5,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 6,
+      "ac08_no": 286,
+      "name": "Khanapur",
+      "population_2011": 345436,
+      "deviation_pct": -2.08,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 7,
+      "ac08_no": 287,
+      "name": "Tasgaon-Kavathe Mahankal",
+      "population_2011": 352110,
+      "deviation_pct": -0.19,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 8,
+      "ac08_no": 288,
+      "name": "Jat",
+      "population_2011": 328324,
+      "deviation_pct": -6.93,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    }
+  ],
+  "settings": {
+    "seats": 8,
+    "balance": 0.1,
+    "split_share": 0.25,
+    "min_neck_km": 0.5,
+    "neck_lobe_fraction": 0.1,
+    "weight_population": 0.35,
+    "weight_distance": 0.3,
+    "weight_taluka": 0.2,
+    "weight_shape": 0.15,
+    "distance_reference_km": 20.0,
+    "taluka_reference_fragments": 8.0
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "district": "pune",
+  "nodes": 1846365,
+  "walk_edges": 1377423,
+  "drive_edges": 1266629,
+  "walk_component_nodes": 1318069,
+  "drive_component_nodes": 1204933,
+  "seconds": 34.8,
+  "walk_kmh": 4.5,
+  "drive_kmh": {
+    "motorway": 60,
+    "trunk": 50,
+    "primary": 40,
+    "secondary": 35,
+    "tertiary": 30,
+    "unclassified": 25,
+    "residential": 20,
+    "living_street": 10,
+    "service": 15,
+    "road": 20,
+    "track": 12
+  },
+  "urban_speed_factor": 0.6
+}

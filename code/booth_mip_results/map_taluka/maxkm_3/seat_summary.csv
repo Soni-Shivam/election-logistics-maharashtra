@@ -1,0 +1,9 @@
+map,max_km,seat,units,electors,booths,min_booths,extra_booths,booth_sites,capacity_util,isolated_units,voter_person_km,mean_voter_km,max_voter_km,electors_travelling_pct,evm_km,depot_id,depot_name,booth_cost,voter_cost,evm_cost,objective,status,mip_gap,runtime_s
+map_taluka,3.0,1,91,246702,201,165,36,89,0.8182,69,4464.1,0.0181,2.981,0.69,3847.6,04302-568718,Bhose,5025000,44641,461714,5531354,Optimal solution found,0.0,0.09
+map_taluka,3.0,2,26,248043,171,166,5,25,0.967,8,6286.0,0.0253,2.952,1.36,920.3,SMKC-W10,Sangli Miraj Kupwad approximate ward 10,4275000,62860,110431,4448291,Optimal solution found,0.0,0.16
+map_taluka,3.0,3,141,250003,230,167,63,135,0.7246,125,6034.2,0.0241,2.821,1.0,6686.9,04304-568926,Jat,5750000,60342,802430,6612772,Optimal solution found,0.0,0.05
+map_taluka,3.0,4,157,244635,224,164,60,140,0.7281,101,17002.3,0.0695,2.958,2.8,5735.7,04299-568543,Benapur,5600000,170023,688281,6458304,Optimal solution found,0.0,0.08
+map_taluka,3.0,5,99,245239,195,164,31,91,0.8384,55,17312.3,0.0706,2.983,2.78,3709.1,04299-568531,Bhalwani,4875000,173123,445092,5493215,Optimal solution found,0.0,0.19
+map_taluka,3.0,6,26,249430,175,167,8,26,0.9502,11,4627.3,0.0186,2.715,0.87,1347.6,SMKC-W06,Sangli Miraj Kupwad approximate ward 6,4375000,46273,161715,4582988,Optimal solution found,0.0,0.08
+map_taluka,3.0,7,64,245631,180,164,16,58,0.9097,24,10789.3,0.0439,2.835,2.17,2391.7,04296-568387,Walwa,4500000,107893,286999,4894892,Optimal solution found,0.0,0.06
+map_taluka,3.0,8,147,245819,188,164,24,109,0.8717,19,51831.7,0.2109,2.962,9.99,3198.4,04295-568292,Red,4700000,518317,383806,5602123,Optimal solution found,0.0,1.56

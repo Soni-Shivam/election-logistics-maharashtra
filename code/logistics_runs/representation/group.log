@@ -1,0 +1,16 @@
+{"acs": 288, "pcs_count": 48, "crossing_pcs": 26, "max_abs_deviation_pct": 24.996721013244947, "objective": 430.8603519765936, "lp_bound": 388.62355520725663, "solver": "heuristic (CBC skipped: 185419 columns after filtering > --max-mip-columns)", "output": "/home/shivam/Downloads/ie 301/code/logistics_runs/representation/pc_balanced"}
+running /home/shivam/Downloads/ie 301/code/../.venv/bin/python /home/shivam/Downloads/ie 301/code/group_lok_sabha.py --district Ahmednagar=/home/shivam/Downloads/ie 301/code/logistics_runs/representation/pc_input/Ahmednagar.geojson ...
+                                0              1
+plan                     official  balanced_2024
+pcs                            48             48
+largest_2024              2755077        2506448
+smallest_2024             1485615        1517899
+size_ratio_2024             1.855          1.651
+outside_10pct_2024             19             10
+outside_20pct_2024              7              3
+mean_abs_dev_pct_2024       10.48           6.27
+sc_reserved_mean_sc_pct     16.47          18.93
+st_reserved_mean_st_pct     41.97          38.77
+best_sc_mean_pct            19.82          18.93
+best_st_mean_pct            41.97          38.77
+note: 3 ACs have no SHRUG SC/ST row

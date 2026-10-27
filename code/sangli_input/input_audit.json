@@ -1,0 +1,10 @@
+{
+  "population": 2822143,
+  "unit_count": 756,
+  "village_town_count": 735,
+  "approx_city_wards": 20,
+  "zero_population_gap_parts": 2,
+  "gap_area_degree2": 0.008912529598791559,
+  "location_method": "polygon interior, not verified habitation centroid",
+  "city_ward_geometry": "approximate; official 2025 ward population and rough map positions on 2011 Census city extent"
+}

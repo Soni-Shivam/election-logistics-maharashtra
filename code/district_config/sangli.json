@@ -1,0 +1,27 @@
+{
+  "name": "Sangli",
+  "pc11_state_id": "27",
+  "pc11_district_id": "531",
+  "seats": 8,
+  "census_sheet": "EB-2735",
+  "ward_geometry_note": "approximate; official 2025 ward population and rough map positions on 2011 Census city extent",
+  "sources": "Sources: Census 2011 PCA, SHRUG PC11 polygons, SMKC 2025 ward populations/map. Research map only.",
+  "towns": {
+    "04302-802895": {
+      "name": "Sangli Miraj Kupwad",
+      "ward_method": "approx_labels",
+      "ward_population_csv": "../sangli_city_2025_ward_population.csv",
+      "id_prefix": "SMKC-W",
+      "ward_name": "Sangli Miraj Kupwad approximate ward {ward}",
+      "geometry_note": "Approximate 2025 ward ordering adapted to 2011 city polygon; not official GIS",
+      "label_note": "Approximate ward-label pixel positions on the official 2025 combined map (1888x1333 preview). West/east and north/south ordering, not street boundaries, is the information carried into the pilot.",
+      "ward_labels": {
+        "1": [844, 420], "2": [1140, 560], "3": [1450, 430], "4": [1610, 520],
+        "5": [1650, 820], "6": [1470, 730], "7": [1320, 690], "8": [960, 590],
+        "9": [785, 610], "10": [610, 670], "11": [680, 550], "12": [450, 660],
+        "13": [250, 880], "14": [560, 810], "15": [725, 865], "16": [650, 810],
+        "17": [880, 795], "18": [700, 940], "19": [1100, 770], "20": [1400, 880]
+      }
+    }
+  }
+}

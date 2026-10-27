@@ -1,0 +1,102 @@
+{
+  "rules": {
+    "shrug_key": 723,
+    "shrug_key_border_fragment_dropped": 3,
+    "no_shrug_row_from_neighbour": 8,
+    "city_ward_axis_split": 20,
+    "zero_pop_gap_from_neighbour": 2
+  },
+  "city_wards_to_sangli_282": 13,
+  "city_wards_to_miraj_281": 7,
+  "score": 0.7113011066630023,
+  "checks": [
+    {
+      "constituency": 1,
+      "ac08_no": 281,
+      "name": "Miraj (SC)",
+      "population_2011": 398044,
+      "deviation_pct": 12.83,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 2,
+      "ac08_no": 282,
+      "name": "Sangli",
+      "population_2011": 405732,
+      "deviation_pct": 15.01,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 3,
+      "ac08_no": 283,
+      "name": "Islampur",
+      "population_2011": 320376,
+      "deviation_pct": -9.18,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 4,
+      "ac08_no": 284,
+      "name": "Shirala",
+      "population_2011": 349342,
+      "deviation_pct": -0.97,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 5,
+      "ac08_no": 285,
+      "name": "Palus-Kadegaon",
+      "population_2011": 322779,
+      "deviation_pct": -8.5,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 6,
+      "ac08_no": 286,
+      "name": "Khanapur",
+      "population_2011": 345436,
+      "deviation_pct": -2.08,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 7,
+      "ac08_no": 287,
+      "name": "Tasgaon-Kavathe Mahankal",
+      "population_2011": 352110,
+      "deviation_pct": -0.19,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 8,
+      "ac08_no": 288,
+      "name": "Jat",
+      "population_2011": 328324,
+      "deviation_pct": -6.93,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    }
+  ]
+}

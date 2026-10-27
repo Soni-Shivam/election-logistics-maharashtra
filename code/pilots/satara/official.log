@@ -1,0 +1,15 @@
+{
+  "district": "SATARA",
+  "seats": 8,
+  "rules": {
+    "shrug_key": 1720,
+    "shape_overlap_village": 47
+  },
+  "score": 0.9011730389667733,
+  "taluka_excess": 13,
+  "fail_band": [
+    "Karad North",
+    "Patan"
+  ],
+  "not_contiguous": []
+}

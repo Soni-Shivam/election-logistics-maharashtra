@@ -1,0 +1,22 @@
+# environments and secrets
+.venv/
+*.lic
+__pycache__/
+*.pyc
+gurobi.log
+.claude/settings.local.json
+
+# raw downloads (multi-GB; see docs/BLUEPRINT.md and the scripts for sources)
+data_raw/
+raw_data/
+
+# regenerable binaries: road graphs, distance matrices, solver caches
+*.npz
+code/logistics_runs/*/matrices/
+code/pilots/*/booth_mip/
+code/pilots/*/booth_mip_gurobi/
+code/sangli_road/booth_mip_*/
+code/pilots/*/runs/*/assigned_units.geojson
+code/sangli_road/runs/*/assigned_units.geojson
+code/sangli_road/rescored/
+code/runs/

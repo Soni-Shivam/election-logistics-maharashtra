@@ -1,0 +1,113 @@
+{
+  "district": "SATARA",
+  "seats": 8,
+  "rules": {
+    "shrug_key": 1720,
+    "shape_overlap_village": 47
+  },
+  "score": 0.9011730389667733,
+  "taluka_excess": 13,
+  "fail_band": [
+    "Karad North",
+    "Patan"
+  ],
+  "not_contiguous": [],
+  "checks": [
+    {
+      "constituency": 1,
+      "ac08_no": 255,
+      "name": "Phaltan (SC)",
+      "pc_name": "MADHA",
+      "population_2011": 391230,
+      "deviation_pct": 4.2,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 2,
+      "ac08_no": 256,
+      "name": "Wai",
+      "pc_name": "SATARA",
+      "population_2011": 396277,
+      "deviation_pct": 5.54,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 3,
+      "ac08_no": 257,
+      "name": "Koregaon",
+      "pc_name": "SATARA",
+      "population_2011": 387492,
+      "deviation_pct": 3.2,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 4,
+      "ac08_no": 258,
+      "name": "Man",
+      "pc_name": "MADHA",
+      "population_2011": 391297,
+      "deviation_pct": 4.22,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 5,
+      "ac08_no": 259,
+      "name": "Karad North",
+      "pc_name": "SATARA",
+      "population_2011": 333928,
+      "deviation_pct": -11.06,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 6,
+      "ac08_no": 260,
+      "name": "Karad South",
+      "pc_name": "SATARA",
+      "population_2011": 369897,
+      "deviation_pct": -1.48,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 7,
+      "ac08_no": 261,
+      "name": "Patan",
+      "pc_name": "SATARA",
+      "population_2011": 337162,
+      "deviation_pct": -10.2,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 8,
+      "ac08_no": 262,
+      "name": "Satara",
+      "pc_name": "SATARA",
+      "population_2011": 396458,
+      "deviation_pct": 5.59,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    }
+  ]
+}

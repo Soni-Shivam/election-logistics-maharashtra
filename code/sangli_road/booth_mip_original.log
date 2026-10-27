@@ -1,0 +1,115 @@
+Distances: road matrix road_distances.npz
+Electors = population x 0.7 (ASSUMPTION); capacity 1500/booth
+  map_balanced max_km=2 seat 1: 232 booths (+67 vs min), mean 0.000 km, Optimal solution found, gap 0.0, 0.1 s
+  map_balanced max_km=2 seat 2: 195 booths (+27 vs min), mean 0.000 km, Optimal solution found, gap 0.0, 0.06 s
+  map_balanced max_km=2 seat 3: 218 booths (+54 vs min), mean 0.000 km, Optimal solution found, gap 0.0, 0.07 s
+  map_balanced max_km=2 seat 4: 241 booths (+74 vs min), mean 0.003 km, Optimal solution found, gap 0.0, 0.12 s
+  map_balanced max_km=2 seat 5: 192 booths (+31 vs min), mean 0.001 km, Optimal solution found, gap 0.0, 0.14 s
+  map_balanced max_km=2 seat 6: 171 booths (+6 vs min), mean 0.003 km, Optimal solution found, gap 0.0, 0.2 s
+  map_balanced max_km=2 seat 7: 235 booths (+70 vs min), mean 0.022 km, Optimal solution found, gap 0.0, 0.21 s
+  map_balanced max_km=2 seat 8: 196 booths (+31 vs min), mean 0.011 km, Optimal solution found, gap 0.0, 0.07 s
+  map_locality max_km=2 seat 1: 208 booths (+35 vs min), mean 0.008 km, Optimal solution found, gap 0.0, 0.06 s
+  map_locality max_km=2 seat 2: 184 booths (+22 vs min), mean 0.000 km, Optimal solution found, gap 0.0, 0.07 s
+  map_locality max_km=2 seat 3: 197 booths (+28 vs min), mean 0.001 km, Optimal solution found, gap 0.0, 0.09 s
+  map_locality max_km=2 seat 4: 168 booths (+6 vs min), mean 0.003 km, Optimal solution found, gap 0.0, 0.2 s
+  map_locality max_km=2 seat 5: 227 booths (+63 vs min), mean 0.000 km, Optimal solution found, gap 0.0, 0.09 s
+  map_locality max_km=2 seat 6: 238 booths (+73 vs min), mean 0.003 km, Optimal solution found, gap 0.0, 0.07 s
+  map_locality max_km=2 seat 7: 226 booths (+62 vs min), mean 0.000 km, Optimal solution found, gap 0.0, 0.07 s
+  map_locality max_km=2 seat 8: 232 booths (+69 vs min), mean 0.025 km, Optimal solution found, gap 0.0, 0.15 s
+  map_taluka max_km=2 seat 1: 207 booths (+42 vs min), mean 0.000 km, Optimal solution found, gap 0.0, 0.09 s
+  map_taluka max_km=2 seat 2: 176 booths (+10 vs min), mean 0.003 km, Optimal solution found, gap 0.0, 0.21 s
+  map_taluka max_km=2 seat 3: 236 booths (+69 vs min), mean 0.000 km, Optimal solution found, gap 0.0, 0.08 s
+  map_taluka max_km=2 seat 4: 242 booths (+78 vs min), mean 0.003 km, Optimal solution found, gap 0.0, 0.24 s
+  map_taluka max_km=2 seat 5: 210 booths (+46 vs min), mean 0.004 km, Optimal solution found, gap 0.0, 0.08 s
+  map_taluka max_km=2 seat 6: 179 booths (+12 vs min), mean 0.003 km, Optimal solution found, gap 0.0, 0.08 s
+  map_taluka max_km=2 seat 7: 193 booths (+29 vs min), mean 0.007 km, Optimal solution found, gap 0.0, 0.07 s
+  map_taluka max_km=2 seat 8: 236 booths (+72 vs min), mean 0.022 km, Optimal solution found, gap 0.0, 0.23 s
+  official_2008 max_km=2 seat 1: 212 booths (+26 vs min), mean 0.000 km, Optimal solution found, gap 0.0, 0.08 s
+  official_2008 max_km=2 seat 2: 199 booths (+9 vs min), mean 0.003 km, Optimal solution found, gap 0.0, 0.31 s
+  official_2008 max_km=2 seat 3: 175 booths (+25 vs min), mean 0.006 km, Optimal solution found, gap 0.0, 0.07 s
+  official_2008 max_km=2 seat 4: 233 booths (+69 vs min), mean 0.022 km, Optimal solution found, gap 0.0, 0.2 s
+  official_2008 max_km=2 seat 5: 196 booths (+45 vs min), mean 0.007 km, Optimal solution found, gap 0.0, 0.07 s
+  official_2008 max_km=2 seat 6: 231 booths (+69 vs min), mean 0.003 km, Optimal solution found, gap 0.0, 0.14 s
+  official_2008 max_km=2 seat 7: 221 booths (+56 vs min), mean 0.000 km, Optimal solution found, gap 0.0, 0.1 s
+  official_2008 max_km=2 seat 8: 213 booths (+59 vs min), mean 0.000 km, Optimal solution found, gap 0.0, 0.09 s
+  map_balanced max_km=3 seat 1: 230 booths (+65 vs min), mean 0.006 km, Optimal solution found, gap 0.0, 0.08 s
+  map_balanced max_km=3 seat 2: 193 booths (+25 vs min), mean 0.009 km, Optimal solution found, gap 0.0, 0.13 s
+  map_balanced max_km=3 seat 3: 214 booths (+50 vs min), mean 0.011 km, Optimal solution found, gap 0.0, 0.1 s
+  map_balanced max_km=3 seat 4: 234 booths (+67 vs min), mean 0.027 km, Optimal solution found, gap 0.0, 0.1 s
+  map_balanced max_km=3 seat 5: 183 booths (+22 vs min), mean 0.030 km, Optimal solution found, gap 0.0, 0.22 s
+  map_balanced max_km=3 seat 6: 168 booths (+3 vs min), mean 0.013 km, Optimal solution found, gap 0.0, 0.21 s
+  map_balanced max_km=3 seat 7: 212 booths (+47 vs min), mean 0.126 km, Optimal solution found, gap 0.0, 1.1 s
+  map_balanced max_km=3 seat 8: 187 booths (+22 vs min), mean 0.043 km, Optimal solution found, gap 0.0, 0.16 s
+  map_locality max_km=3 seat 1: 199 booths (+26 vs min), mean 0.030 km, Optimal solution found, gap 0.0, 0.08 s
+  map_locality max_km=3 seat 2: 180 booths (+18 vs min), mean 0.019 km, Optimal solution found, gap 0.0, 0.07 s
+  map_locality max_km=3 seat 3: 190 booths (+21 vs min), mean 0.023 km, Optimal solution found, gap 0.0, 0.22 s
+  map_locality max_km=3 seat 4: 165 booths (+3 vs min), mean 0.013 km, Optimal solution found, gap 0.0, 0.21 s
+  map_locality max_km=3 seat 5: 225 booths (+61 vs min), mean 0.006 km, Optimal solution found, gap 0.0, 0.07 s
+  map_locality max_km=3 seat 6: 233 booths (+68 vs min), mean 0.023 km, Optimal solution found, gap 0.0, 0.08 s
+  map_locality max_km=3 seat 7: 220 booths (+56 vs min), mean 0.019 km, Optimal solution found, gap 0.0, 0.08 s
+  map_locality max_km=3 seat 8: 208 booths (+45 vs min), mean 0.137 km, Optimal solution found, gap 0.0, 0.75 s
+  map_taluka max_km=3 seat 1: 203 booths (+38 vs min), mean 0.015 km, Optimal solution found, gap 0.0, 0.07 s
+  map_taluka max_km=3 seat 2: 174 booths (+8 vs min), mean 0.010 km, Optimal solution found, gap 0.0, 0.2 s
+  map_taluka max_km=3 seat 3: 234 booths (+67 vs min), mean 0.006 km, Optimal solution found, gap 0.0, 0.07 s
+  map_taluka max_km=3 seat 4: 235 booths (+71 vs min), mean 0.026 km, Optimal solution found, gap 0.0, 0.08 s
+  map_taluka max_km=3 seat 5: 204 booths (+40 vs min), mean 0.026 km, Optimal solution found, gap 0.0, 0.08 s
+  map_taluka max_km=3 seat 6: 176 booths (+9 vs min), mean 0.017 km, Optimal solution found, gap 0.0, 0.07 s
+  map_taluka max_km=3 seat 7: 185 booths (+21 vs min), mean 0.027 km, Optimal solution found, gap 0.0, 0.07 s
+  map_taluka max_km=3 seat 8: 212 booths (+48 vs min), mean 0.131 km, Optimal solution found, gap 0.0, 1.53 s
+  official_2008 max_km=3 seat 1: 208 booths (+22 vs min), mean 0.017 km, Optimal solution found, gap 0.0, 0.07 s
+  official_2008 max_km=3 seat 2: 195 booths (+5 vs min), mean 0.015 km, Optimal solution found, gap 0.0, 0.38 s
+  official_2008 max_km=3 seat 3: 166 booths (+16 vs min), mean 0.033 km, Optimal solution found, gap 0.0, 0.07 s
+  official_2008 max_km=3 seat 4: 210 booths (+46 vs min), mean 0.128 km, Optimal solution found, gap 0.0, 1.44 s
+  official_2008 max_km=3 seat 5: 190 booths (+39 vs min), mean 0.026 km, Optimal solution found, gap 0.0, 0.33 s
+  official_2008 max_km=3 seat 6: 226 booths (+64 vs min), mean 0.016 km, Optimal solution found, gap 0.0, 0.31 s
+  official_2008 max_km=3 seat 7: 216 booths (+51 vs min), mean 0.018 km, Optimal solution found, gap 0.0, 0.1 s
+  official_2008 max_km=3 seat 8: 211 booths (+57 vs min), mean 0.007 km, Optimal solution found, gap 0.0, 0.08 s
+  map_balanced max_km=5 seat 1: 221 booths (+56 vs min), mean 0.046 km, Optimal solution found, gap 0.0, 0.11 s
+  map_balanced max_km=5 seat 2: 181 booths (+13 vs min), mean 0.070 km, Optimal solution found, gap 0.0, 0.09 s
+  map_balanced max_km=5 seat 3: 192 booths (+28 vs min), mean 0.123 km, Optimal solution found, gap 0.0, 0.16 s
+  map_balanced max_km=5 seat 4: 209 booths (+42 vs min), mean 0.158 km, Optimal solution found, gap 0.0, 0.32 s
+  map_balanced max_km=5 seat 5: 172 booths (+11 vs min), mean 0.086 km, Optimal solution found, gap 0.0, 0.57 s
+  map_balanced max_km=5 seat 6: 166 booths (+1 vs min), mean 0.018 km, Optimal solution found, gap 0.0, 0.12 s
+  map_balanced max_km=5 seat 7: 182 booths (+17 vs min), mean 0.297 km, Optimal solution found, gap 0.0, 2.3 s
+  map_balanced max_km=5 seat 8: 176 booths (+11 vs min), mean 0.108 km, Optimal solution found, gap 0.0, 0.13 s
+  map_locality max_km=5 seat 1: 185 booths (+12 vs min), mean 0.087 km, Optimal solution found, gap 0.0, 0.12 s
+  map_locality max_km=5 seat 2: 172 booths (+10 vs min), mean 0.069 km, Optimal solution found, gap 0.0, 0.18 s
+  map_locality max_km=5 seat 3: 183 booths (+14 vs min), mean 0.057 km, Optimal solution found, gap 0.0, 0.1 s
+  map_locality max_km=5 seat 4: 163 booths (+1 vs min), mean 0.025 km, Optimal solution found, gap 0.0, 0.09 s
+  map_locality max_km=5 seat 5: 217 booths (+53 vs min), mean 0.041 km, Optimal solution found, gap 0.0, 0.08 s
+  map_locality max_km=5 seat 6: 208 booths (+43 vs min), mean 0.152 km, Optimal solution found, gap 0.0, 0.44 s
+  map_locality max_km=5 seat 7: 194 booths (+30 vs min), mean 0.157 km, Optimal solution found, gap 0.0, 0.15 s
+  map_locality max_km=5 seat 8: 180 booths (+17 vs min), mean 0.301 km, Optimal solution found, gap 0.0, 1.91 s
+  map_taluka max_km=5 seat 1: 189 booths (+24 vs min), mean 0.093 km, Optimal solution found, gap 0.0, 0.45 s
+  map_taluka max_km=5 seat 2: 170 booths (+4 vs min), mean 0.025 km, Optimal solution found, gap 0.0, 0.2 s
+  map_taluka max_km=5 seat 3: 224 booths (+57 vs min), mean 0.049 km, Optimal solution found, gap 0.0, 0.09 s
+  map_taluka max_km=5 seat 4: 203 booths (+39 vs min), mean 0.189 km, Optimal solution found, gap 0.0, 0.17 s
+  map_taluka max_km=5 seat 5: 187 booths (+23 vs min), mean 0.114 km, Optimal solution found, gap 0.0, 0.15 s
+  map_taluka max_km=5 seat 6: 172 booths (+5 vs min), mean 0.045 km, Optimal solution found, gap 0.0, 0.14 s
+  map_taluka max_km=5 seat 7: 175 booths (+11 vs min), mean 0.084 km, Optimal solution found, gap 0.0, 0.12 s
+  map_taluka max_km=5 seat 8: 181 booths (+17 vs min), mean 0.312 km, Optimal solution found, gap 0.0, 2.19 s
+  official_2008 max_km=5 seat 1: 199 booths (+13 vs min), mean 0.062 km, Optimal solution found, gap 0.0, 0.09 s
+  official_2008 max_km=5 seat 2: 193 booths (+3 vs min), mean 0.025 km, Optimal solution found, gap 0.0, 0.19 s
+  official_2008 max_km=5 seat 3: 158 booths (+8 vs min), mean 0.087 km, Optimal solution found, gap 0.0, 0.22 s
+  official_2008 max_km=5 seat 4: 180 booths (+16 vs min), mean 0.300 km, Optimal solution found, gap 0.0, 2.57 s
+  official_2008 max_km=5 seat 5: 172 booths (+21 vs min), mean 0.126 km, Optimal solution found, gap 0.0, 0.24 s
+  official_2008 max_km=5 seat 6: 198 booths (+36 vs min), mean 0.150 km, Optimal solution found, gap 0.0, 0.23 s
+  official_2008 max_km=5 seat 7: 196 booths (+31 vs min), mean 0.122 km, Optimal solution found, gap 0.0, 0.14 s
+  official_2008 max_km=5 seat 8: 203 booths (+49 vs min), mean 0.045 km, Optimal solution found, gap 0.0, 0.09 s
+
+Distances: road matrix road_distances.npz
+          map  max_km  booths  extra_booths  capacity_util  voter_person_km  mean_voter_km  max_voter_km  evm_km  objective  seats_optimal  max_mip_gap  runtime_s
+ map_balanced     2.0    1680           360         0.7839             9880         0.0050         1.974 28679.1   45540290              8          0.0       0.97
+ map_locality     2.0    1680           358         0.7839             9880         0.0050         1.974 28746.5   45548374              8          0.0       0.80
+   map_taluka     2.0    1679           358         0.7844            10406         0.0053         1.974 28489.0   45497727              8          0.0       1.08
+official_2008     2.0    1680           358         0.7839             9880         0.0050         1.974 28309.1   45495892              8          0.0       1.06
+ map_balanced     3.0    1621           301         0.8125            65545         0.0332         2.991 27759.2   44511570              8          0.0       2.10
+ map_locality     3.0    1620           298         0.8130            66446         0.0336         2.991 27838.4   44505059              8          0.0       1.56
+   map_taluka     3.0    1623           302         0.8115            63515         0.0322         2.991 27624.8   44525151              8          0.0       2.17
+official_2008     3.0    1622           300         0.8120            63352         0.0321         2.991 27385.5   44469783              8          0.0       2.78
+ map_balanced     5.0    1499           179         0.8786           223864         0.1133         4.996 25520.9   42776147              8          0.0       3.80
+ map_locality     5.0    1502           180         0.8768           218816         0.1108         4.981 25633.6   42814186              8          0.0       3.07
+   map_taluka     5.0    1501           180         0.8774           224329         0.1136         4.996 25294.5   42803647              8          0.0       3.51
+official_2008     5.0    1499           177         0.8786           222339         0.1125         4.981 25046.6   42703961              8          0.0       3.77
+
+Wrote sangli_road\booth_mip_original

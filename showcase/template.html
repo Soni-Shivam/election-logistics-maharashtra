@@ -1,0 +1,550 @@
+<title>Sangli Delimitation Lab</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: a survey sheet. One reading column of findings, then a map explorer
+   (map + selected-plan panel), then comparison table, trade-off charts and the booth model. */
+:root {
+  --bg: #f2f3f5;
+  --surface: #fcfcfb;
+  --ink: #15171c;
+  --ink-2: #4b4f58;
+  --muted: #747985;
+  --rule: #dcdee3;
+  --rule-strong: #b9bcc4;
+  --accent: #5a3e9e;          /* indelible-ink violet */
+  --accent-soft: #ece7f7;
+  --good: #0ca30c;
+  --critical: #d03b3b;
+  --critical-soft: #fbe9e9;
+  --good-soft: #e5f5e5;
+  --band: #e9edf2;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
+  --s5: #e87ba4; --s6: #008300; --s7: #6250d6; --s8: #e34948;
+  --font-display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Public Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --step--1: 0.8125rem; --step-0: 1rem; --step-1: 1.1875rem; --step-2: 1.5rem; --step-3: 2.125rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111215; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #8f9098;
+    --rule: #2e2f33; --rule-strong: #4a4b50; --accent: #a993ec; --accent-soft: #2a2440;
+    --critical-soft: #3a1f1f; --good-soft: #1c2f1c; --band: #24262b;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+    --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111215; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #8f9098;
+  --rule: #2e2f33; --rule-strong: #4a4b50; --accent: #a993ec; --accent-soft: #2a2440;
+  --critical-soft: #3a1f1f; --good-soft: #1c2f1c; --band: #24262b;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+  --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: var(--step-0); line-height: 1.55; }
+.wrap { max-width: 1200px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 2rem 4rem; display: grid; gap: 2.75rem; }
+h1, h2, h3 { font-family: var(--font-display); font-stretch: 85%; text-wrap: balance; margin: 0; line-height: 1.1; }
+h1 { font-size: clamp(2rem, 5vw, 3.1rem); font-weight: 800; letter-spacing: -0.01em; }
+h2 { font-size: var(--step-2); font-weight: 750; }
+h3 { font-size: var(--step-1); font-weight: 700; }
+p { margin: 0; max-width: 68ch; }
+.eyebrow { font-family: var(--font-data); font-size: var(--step--1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.lede { font-size: var(--step-1); color: var(--ink-2); max-width: 62ch; }
+.muted { color: var(--muted); }
+.num, td.n, .mono { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+header { display: grid; gap: 0.9rem; }
+.stamp { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; font-family: var(--font-data); font-size: var(--step--1); color: var(--muted); }
+.section { display: grid; gap: 1.1rem; }
+.section > header { gap: 0.4rem; }
+
+/* findings */
+.findings { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 1.25rem; border-top: 2px solid var(--ink); }
+@media (max-width: 1000px) { .findings { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 540px) { .findings { grid-template-columns: minmax(0, 1fr); } }
+[hidden] { display: none !important; }
+.finding { padding: 1rem 1.1rem 1.1rem 0; border-bottom: 1px solid var(--rule); display: grid; gap: 0.35rem; align-content: start; min-width: 0; }
+.finding .k { font-family: var(--font-display); font-stretch: 80%; font-size: var(--step-3); font-weight: 800; line-height: 1; }
+.finding .k small { font-size: 0.5em; font-weight: 600; color: var(--muted); }
+.finding p { font-size: 0.95rem; color: var(--ink-2); }
+
+/* explorer */
+.explorer { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 1.25rem; align-items: start; }
+@media (max-width: 900px) { .explorer { grid-template-columns: minmax(0, 1fr); } }
+.panel { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 1rem; min-width: 0; }
+.controls { display: grid; gap: 0.6rem; }
+.seg { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+.seg .lbl { font-family: var(--font-data); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); min-width: 6.5rem; }
+button.chip { font: 500 0.85rem/1 var(--font-body); color: var(--ink); background: transparent; border: 1px solid var(--rule-strong); border-radius: 999px; padding: 0.45rem 0.75rem; cursor: pointer; }
+button.chip:hover { border-color: var(--accent); }
+button.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+button.chip:focus-visible, input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+.toggles { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; font-size: 0.88rem; color: var(--ink-2); }
+.toggles label { display: inline-flex; gap: 0.4rem; align-items: center; cursor: pointer; }
+.toggles input { accent-color: var(--accent); width: 1rem; height: 1rem; }
+.mapbox { position: relative; }
+#map { width: 100%; height: auto; display: block; }
+#map .seat { stroke: var(--surface); stroke-width: 2.5; fill-opacity: 0.55; cursor: pointer; transition: fill-opacity .15s; }
+#map .seat.hot { fill-opacity: 0.85; stroke: var(--ink); stroke-width: 3.5; }
+#map .taluka { fill: none; stroke: var(--ink-2); stroke-width: 1.6; stroke-dasharray: 4 5; opacity: 0.85; pointer-events: none; }
+#map .official { fill: none; stroke: var(--ink); stroke-width: 4; stroke-dasharray: 12 7; pointer-events: none; }
+#map .district { fill: none; stroke: var(--ink); stroke-width: 2.4; pointer-events: none; }
+#map .booth { fill: var(--ink); fill-opacity: 0.7; pointer-events: none; }
+#map .depot { fill: var(--accent); stroke: var(--surface); stroke-width: 1.5; pointer-events: none; }
+#map .village { fill: var(--ink); fill-opacity: 0.35; pointer-events: none; }
+#map .sl circle { fill: var(--surface); stroke: var(--ink); stroke-width: 2; }
+#map .sl text { font: 700 24px var(--font-data); fill: var(--ink); text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+#map .sl { pointer-events: none; }
+#map .tl { font: 600 19px var(--font-body); fill: var(--muted); text-anchor: middle; pointer-events: none; paint-order: stroke; stroke: var(--surface); stroke-width: 5px; }
+.legend { display: flex; flex-wrap: wrap; gap: 0.3rem 0.9rem; font-size: 0.8rem; color: var(--ink-2); margin-top: 0.5rem; }
+.legend span { display: inline-flex; align-items: center; gap: 0.35rem; }
+.sw { width: 0.8rem; height: 0.8rem; border-radius: 2px; display: inline-block; flex: none; }
+.line-sw { width: 1.4rem; height: 0; border-top: 2px dashed var(--ink); display: inline-block; }
+.dot-sw { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--ink); opacity: .7; display: inline-block; }
+.tip { position: absolute; pointer-events: none; background: var(--surface); color: var(--ink); border: 1px solid var(--rule-strong); border-radius: 6px; padding: 0.6rem 0.7rem; font-size: 0.82rem; line-height: 1.4; box-shadow: 0 6px 18px rgb(0 0 0 / 0.14); max-width: 250px; z-index: 5; }
+.tip b { font-family: var(--font-display); font-stretch: 85%; font-size: 1rem; }
+.tip .row { display: flex; justify-content: space-between; gap: 1rem; }
+.tip .row span:last-child { font-family: var(--font-data); }
+
+.plan-head { display: grid; gap: 0.3rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--rule); }
+.kv { display: grid; grid-template-columns: 1fr auto; gap: 0.35rem 1rem; padding-block: 0.8rem; border-bottom: 1px solid var(--rule); font-size: 0.9rem; }
+.kv dt { color: var(--ink-2); }
+.kv dd { margin: 0; font-family: var(--font-data); font-variant-numeric: tabular-nums; text-align: right; }
+.pill { display: inline-flex; align-items: center; gap: 0.3rem; font: 600 0.75rem/1 var(--font-body); padding: 0.3rem 0.55rem; border-radius: 999px; white-space: nowrap; }
+.pill.ok { background: var(--good-soft); color: var(--ink); }
+.pill.bad { background: var(--critical-soft); color: var(--ink); }
+.pill.ok::before { content: "✓"; color: var(--good); font-weight: 800; }
+.pill.bad::before { content: "!"; color: var(--critical); font-weight: 800; }
+.chart-title { font-family: var(--font-display); font-stretch: 85%; font-weight: 700; font-size: 1rem; margin: 0.9rem 0 0.2rem; }
+svg text { fill: var(--ink-2); font-family: var(--font-data); font-size: 11px; }
+svg .axis line, svg .axis path { stroke: var(--rule-strong); }
+svg .grid line { stroke: var(--rule); }
+svg .lbl-ink { fill: var(--ink); }
+
+/* tables */
+.tablebox { overflow-x: auto; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; }
+table { border-collapse: collapse; width: 100%; font-size: 0.86rem; }
+th, td { padding: 0.55rem 0.7rem; text-align: left; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font: 600 0.72rem/1.25 var(--font-body); text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); background: var(--surface); position: sticky; top: 0; }
+td.n, th.n { text-align: right; white-space: nowrap; }
+tr.grp td { background: var(--band); font: 600 0.75rem var(--font-data); text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-2); padding-block: 0.4rem; }
+tbody tr.sel td { background: var(--accent-soft); }
+tbody tr[data-key] { cursor: pointer; }
+td .best { font-weight: 700; color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem; }
+.two > * { min-width: 0; }
+.note { font-size: 0.88rem; color: var(--ink-2); max-width: 75ch; }
+.caveats { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem 1.5rem; }
+.caveats div { border-top: 1px solid var(--rule-strong); padding-top: 0.6rem; display: grid; gap: 0.3rem; }
+.caveats h3 { font-size: 1rem; }
+.caveats p { font-size: 0.9rem; color: var(--ink-2); }
+ol.pipeline { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.45rem; max-width: 80ch; }
+ol.pipeline li { padding-left: 0.2rem; }
+ol.pipeline code, .note code { font-family: var(--font-data); font-size: 0.85em; background: var(--band); padding: 0.05rem 0.3rem; border-radius: 3px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">IE 301 · Election logistics · Sangli district pilot</div>
+    <h1>Sangli Delimitation Lab</h1>
+    <p class="lede">Eight Assembly constituencies for Sangli, drawn by a ReCom optimizer on 756 villages and city wards, then scored on real OpenStreetMap road distances and an exact polling-booth model. Every plan is compared against the official 2008 constituencies on the same 2011 Census population.</p>
+    <div class="stamp" id="stamp"></div>
+  </header>
+
+  <section class="section" aria-labelledby="f-h">
+    <header><h2 id="f-h">What the results say</h2></header>
+    <div class="findings" id="findings"></div>
+  </section>
+
+  <section class="section" aria-labelledby="m-h">
+    <header>
+      <h2 id="m-h">Map explorer</h2>
+      <p class="note">Pick a plan. Seat numbers are matched to the nearest official seat, so seat 1 is always the Miraj-like seat. Hover a seat for its numbers.</p>
+    </header>
+    <div class="explorer">
+      <div class="panel">
+        <div class="controls">
+          <div class="seg" id="seg-official"><span class="lbl">Official</span></div>
+          <div class="seg" id="seg-original"><span class="lbl">First runs</span></div>
+          <div class="seg" id="seg-road"><span class="lbl">Road runs</span></div>
+          <div class="toggles">
+            <label><input type="checkbox" id="t-official" checked><span>Official boundaries</span></label>
+            <label><input type="checkbox" id="t-taluka"><span>Taluka lines</span></label>
+            <label><input type="checkbox" id="t-booth"><span>Booth sites (2 km rule)</span></label>
+            <label><input type="checkbox" id="t-village"><span>Villages</span></label>
+          </div>
+        </div>
+        <div class="mapbox" id="mapbox">
+          <svg id="map" role="img" aria-label="Map of Sangli district constituencies"></svg>
+          <div class="tip" id="tip" hidden></div>
+        </div>
+        <div class="legend" id="map-legend"></div>
+      </div>
+      <aside class="panel" id="plan" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="t-h">
+    <header>
+      <h2 id="t-h">Every plan on one scale</h2>
+      <p class="note">All plans are re-scored with road distances and the common 35 / 30 / 20 / 15 weights (population balance / distance / taluka splits / shape). Lower is better everywhere except the band check. Underlined values are the best in each column. Click a row to show it on the map.</p>
+    </header>
+    <div class="tablebox"><table id="cmp"></table></div>
+  </section>
+
+  <section class="section" aria-labelledby="x-h">
+    <header>
+      <h2 id="x-h">Trade-offs</h2>
+      <p class="note">The official map keeps talukas together and sits close to the district's roads, but it breaks the population band. The optimizer balances population and pays for it in taluka splits.</p>
+    </header>
+    <div class="two">
+      <div class="panel"><div class="chart-title">Taluka splits vs road distance</div><svg id="scatter" role="img" aria-label="Scatter of extra taluka pieces against mean road distance"></svg><div class="legend" id="scatter-legend"></div></div>
+      <div class="panel"><div class="chart-title">Largest population deviation per plan</div><svg id="devbars" role="img" aria-label="Largest seat population deviation for each plan"></svg></div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="b-h">
+    <header>
+      <h2 id="b-h">Booth model</h2>
+      <p class="note">An exact integer programme per seat (CBC, every solve proven optimal): each booth serves at most 1,500 electors (assumed 70% of 2011 population), nobody walks further than the limit by road, and cost = booths + voter travel + EVM transport from the seat's road-best depot. The shaded band is the range across all plans. It is barely visible because the boundaries hardly change the booth plan.</p>
+    </header>
+    <div class="two">
+      <div class="panel"><div class="chart-title">Booths needed by walking limit</div><svg id="booth-n" role="img" aria-label="Booths needed at 2, 3 and 5 km limits"></svg></div>
+      <div class="panel"><div class="chart-title">EVM transport (one-way road km, all booths)</div><svg id="booth-evm" role="img" aria-label="EVM transport km at 2, 3 and 5 km limits"></svg></div>
+    </div>
+    <div class="legend" id="booth-legend"></div>
+  </section>
+
+  <section class="section" aria-labelledby="r-h">
+    <header>
+      <h2 id="r-h">Search robustness</h2>
+      <p class="note">Each road-run profile was searched twice from different random seeds (2,000 steps × 4 restarts each). Close scores across seeds mean the result is not luck. The map explorer shows the better seed under each profile's own weights.</p>
+    </header>
+    <div class="tablebox"><table id="seeds"></table></div>
+  </section>
+
+  <section class="section" aria-labelledby="h-h">
+    <header><h2 id="h-h">How it was computed</h2></header>
+    <ol class="pipeline">
+      <li><code>prepare_sangli_inputs.py</code>: Census 2011 PCA and SHRUG village polygons become 756 units (734 villages and towns, 20 approximate city wards, 2 empty land patches). Total population is 2,822,143.</li>
+      <li><code>build_road_matrix.py</code>: drivable OpenStreetMap roads (Geofabrik western zone) give shortest road distances between all 751 populated units.</li>
+      <li><code>sangli_recom.py --distance-matrix</code>: ReCom with simulated annealing. Every seat must be contiguous, within ±10% of 352,768, and free of narrow necks. Each seat's centre is its road 1-median, which works as the EVM depot.</li>
+      <li><code>official_ac_map.py</code>: the 2008 constituencies, rebuilt on the same units from SHRUG's village-to-constituency key.</li>
+      <li><code>booth_mip.py</code>: exact booth placement per seat on road distances at 2, 3 and 5 km walking limits.</li>
+    </ol>
+  </section>
+
+  <section class="section" aria-labelledby="c-h">
+    <header><h2 id="c-h">Limits of these results</h2></header>
+    <div class="caveats">
+      <div><h3>Population, not electors</h3><p>Seats are balanced on 2011 Census population. The official seats were drawn on 2001 population, so part of their imbalance is twenty years of growth around the city.</p></div>
+      <div><h3>Approximate city wards</h3><p>Sangli-Miraj-Kupwad is split into 20 schematic wards. The official Miraj/Sangli line through the city is approximated, but those two seats exceed the band under any split, since together they hold more people than two seats may.</p></div>
+      <div><h3>One point per village</h3><p>Each village is a single point, so travel inside a village counts as zero. Booth and voter-distance figures measure travel between villages only.</p></div>
+      <div><h3>Assumed costs</h3><p>The elector ratio (0.70), booth cost and per-km costs are placeholders. The booth count depends mainly on the walking limit, not on these values.</p></div>
+      <div><h3>Heuristic search</h3><p>ReCom finds good plans, not proven-best ones. Rule checks are exact; scores are not certificates of optimality.</p></div>
+      <div><h3>Not a delimitation</h3><p>SC/ST reservation, Lok Sabha nesting and public consultation are not modelled. This is a research comparison.</p></div>
+    </div>
+  </section>
+</div>
+
+<script id="data" type="application/json">/*DATA*/</script>
+<script>
+(() => {
+  const D = JSON.parse(document.getElementById("data").textContent);
+  const $ = (s) => document.querySelector(s);
+  const NS = "http://www.w3.org/2000/svg";
+  const fmt = (v, d = 0) => Number(v).toLocaleString("en-IN", { minimumFractionDigits: d, maximumFractionDigits: d });
+  const seatColor = (s) => `var(--s${s})`;
+  const names = D.official_names;
+  const maps = D.maps;
+  const byKey = Object.fromEntries(maps.map((m) => [m.key, m]));
+  const GROUPS = { official: "Official 2008", original: "First runs (straight-line search)", road: "Road runs (road-distance search)" };
+  const GCOL = { official: "var(--s1)", original: "var(--s2)", road: "var(--s3)" };
+  let current = "official";
+  try { const s = localStorage.getItem("sangli-plan"); if (s && byKey[s]) current = s; } catch (e) {}
+
+  // ---------- projection ----------
+  let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+  D.district.forEach((poly) => poly[0].forEach(([x, y]) => { minX = Math.min(minX, x); maxX = Math.max(maxX, x); minY = Math.min(minY, y); maxY = Math.max(maxY, y); }));
+  const kx = Math.cos(((minY + maxY) / 2) * Math.PI / 180);
+  const W = 1000, pad = 14, sc = (W - 2 * pad) / ((maxX - minX) * kx), H = Math.round((maxY - minY) * sc + 2 * pad);
+  const px = (lon) => pad + (lon - minX) * kx * sc, py = (lat) => pad + (maxY - lat) * sc;
+  const pathOf = (polys) => polys.map((poly) => poly.map((ring) => "M" + ring.map(([x, y]) => `${px(x).toFixed(1)},${py(y).toFixed(1)}`).join("L") + "Z").join("")).join("");
+  const el = (tag, attrs = {}, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; };
+
+  // ---------- header stamp + findings ----------
+  const off = byKey.official;
+  const gen = maps.filter((m) => m.group !== "official");
+  const roadMaps = maps.filter((m) => m.group === "road");
+  const bestGen = gen.slice().sort((a, b) => a.common_score - b.common_score)[0];
+  $("#stamp").innerHTML = [
+    `${fmt(D.points.length)} populated units`, `target ${fmt(D.target)} people / seat`,
+    `band ${fmt(D.bounds[0])}–${fmt(D.bounds[1])}`,
+    `${fmt(D.road_info.road_nodes)} road nodes · median detour ×${D.road_info.road_over_straight_median.toFixed(2)}`,
+  ].map((t) => `<span>${t}</span>`).join("");
+
+  const over = off.seats.filter((s) => Math.abs(s.dev_pct) > 10);
+  const b2 = D.booth_rows.filter((r) => +r.max_km === 2).map((r) => +r.booths);
+  const obj2 = D.booth_rows.filter((r) => +r.max_km === 2).map((r) => +r.objective);
+  const spread = (Math.max(...obj2) / Math.min(...obj2) - 1) * 100;
+  const minTal = Math.min(...gen.map((m) => m.taluka_excess));
+  const findings = [
+    { k: `${over.length}<small> of 8</small>`, p: `official seats break the ±10% band on 2011 population: ${over.map((s) => `${names[s.seat]} (${s.dev_pct > 0 ? "+" : ""}${s.dev_pct.toFixed(1)}%)`).join(" and ")}. Every optimized plan passes.` },
+    { k: `${off.taluka_excess}<small> vs ${minTal}+</small>`, p: `extra taluka pieces: the official map keeps talukas more intact than every optimized plan. Taluka integrity is the optimizer's weakest criterion.` },
+    { k: `${spread.toFixed(2)}<small>%</small>`, p: `spread in booth-model cost across all ${D.booth_rows.length / 3} plans at a 2 km walking limit (${fmt(Math.min(...b2))}–${fmt(Math.max(...b2))} booths). Booth logistics do not depend on the boundaries.` },
+    { k: `${bestGen.common_score.toFixed(3)}<small> vs ${off.common_score.toFixed(3)}</small>`, p: `best common score, from the ${bestGen.label.replace(' (road)', ' road run').replace(' (first run)', ' first run')}, against the official map's. Lower is better; the official map loses mainly on population balance.` },
+  ];
+  $("#findings").innerHTML = findings.map((f) => `<div class="finding"><div class="k num">${f.k}</div><p>${f.p}</p></div>`).join("");
+
+  // ---------- map ----------
+  const svg = $("#map");
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  const gSeats = el("g", {}, svg), gTal = el("g", {}, svg), gOff = el("g", {}, svg), gVil = el("g", {}, svg), gBooth = el("g", {}, svg), gLab = el("g", {}, svg), gTalLab = el("g", {}, svg);
+  el("path", { d: pathOf(D.district), class: "district" }, svg);
+  D.talukas.forEach((t) => { el("path", { d: pathOf(t.geom), class: "taluka" }, gTal); const tx = el("text", { x: px(t.label[0]), y: py(t.label[1]) + 36, class: "tl" }, gTalLab); tx.textContent = t.name; });
+  off.seats.forEach((s) => el("path", { d: pathOf(s.geom), class: "official" }, gOff));
+  D.points.forEach(([x, y, p]) => el("circle", { cx: px(x), cy: py(y), r: Math.max(1.6, Math.min(7, Math.sqrt(p) / 26)), class: "village" }, gVil));
+  const tip = $("#tip"), box = $("#mapbox");
+
+  function showTip(evt, m, s) {
+    tip.innerHTML = `<b>Seat ${s.seat} · nearest official: ${names[s.seat]}</b>
+      <div class="row"><span>Population</span><span>${fmt(s.population)}</span></div>
+      <div class="row"><span>Deviation</span><span>${s.dev_pct > 0 ? "+" : ""}${s.dev_pct.toFixed(2)}%</span></div>
+      <div class="row"><span>Mean road km to centre</span><span>${s.road_km.toFixed(1)}</span></div>
+      <div class="row"><span>EVM km (est.)</span><span>${fmt(s.evm_km)}</span></div>
+      <div class="row"><span>Area km²</span><span>${fmt(s.area_km2)}</span></div>
+      <div class="row"><span>Centre / depot</span><span>${s.centre}</span></div>
+      <div style="margin-top:.3rem;color:var(--ink-2)">${s.talukas.join(", ")}</div>`;
+    tip.hidden = false;
+    const r = box.getBoundingClientRect();
+    let x = evt.clientX - r.left + 14, y = evt.clientY - r.top + 14;
+    if (x + 260 > r.width) x = Math.max(4, evt.clientX - r.left - 264);
+    if (y + tip.offsetHeight > r.height) y = Math.max(4, evt.clientY - r.top - tip.offsetHeight - 10);
+    tip.style.left = x + "px"; tip.style.top = y + "px";
+  }
+
+  function drawMap() {
+    const m = byKey[current];
+    gSeats.replaceChildren(); gLab.replaceChildren(); gBooth.replaceChildren();
+    m.seats.forEach((s) => {
+      const p = el("path", { d: pathOf(s.geom), class: "seat", fill: seatColor(s.seat), tabindex: 0, "aria-label": `Seat ${s.seat}, population ${s.population}` }, gSeats);
+      p.addEventListener("pointermove", (e) => { p.classList.add("hot"); showTip(e, m, s); });
+      p.addEventListener("pointerleave", () => { p.classList.remove("hot"); tip.hidden = true; });
+      p.addEventListener("focus", () => { p.classList.add("hot"); const bb = p.getBoundingClientRect(); showTip({ clientX: bb.left + bb.width / 2, clientY: bb.top + bb.height / 2 }, m, s); });
+      p.addEventListener("blur", () => { p.classList.remove("hot"); tip.hidden = true; });
+      const g = el("g", { class: "sl", transform: `translate(${px(s.label[0]).toFixed(1)},${py(s.label[1]).toFixed(1)})` }, gLab);
+      el("circle", { r: 20 }, g); el("text", {}, g).textContent = s.seat;
+    });
+    if (m.booths) m.booths.forEach(([x, y, n, seat, dep]) => {
+      if (dep) el("rect", { x: px(x) - 9, y: py(y) - 9, width: 18, height: 18, transform: `rotate(45 ${px(x)} ${py(y)})`, class: "depot" }, gBooth);
+      else el("circle", { cx: px(x), cy: py(y), r: (1.6 + Math.sqrt(n) * 1.5).toFixed(2), class: "booth" }, gBooth);
+    });
+    applyToggles(); drawPlan(); markRows();
+  }
+  function applyToggles() {
+    gOff.style.display = $("#t-official").checked && current !== "official" ? "" : "none";
+    gTal.style.display = gTalLab.style.display = $("#t-taluka").checked ? "" : "none";
+    gBooth.style.display = $("#t-booth").checked ? "" : "none";
+    gVil.style.display = $("#t-village").checked ? "" : "none";
+    $("#map-legend").innerHTML = Array.from({ length: 8 }, (_, i) => `<span><i class="sw" style="background:var(--s${i + 1});opacity:.75"></i>${i + 1} ${names[i + 1]}</span>`).join("")
+      + (gOff.style.display === "" ? `<span><i class="line-sw"></i>Official 2008 lines</span>` : "")
+      + (gBooth.style.display === "" ? `<span><i class="dot-sw"></i>Booth site (size = booths)</span><span><i class="sw" style="background:var(--accent);transform:rotate(45deg) scale(.8)"></i>Depot</span>` : "");
+  }
+  ["#t-official", "#t-taluka", "#t-booth", "#t-village"].forEach((id) => $(id).addEventListener("change", applyToggles));
+
+  // plan selector
+  ["official", "original", "road"].forEach((grp) => {
+    const seg = $(`#seg-${grp}`);
+    maps.filter((m) => m.group === grp).forEach((m) => {
+      const b = document.createElement("button");
+      b.className = "chip"; b.type = "button"; b.dataset.key = m.key;
+      b.textContent = m.label.replace(/ \((first run|road)\)/, "");
+      b.addEventListener("click", () => select(m.key));
+      seg.appendChild(b);
+    });
+    if (!seg.querySelector("button")) seg.hidden = true;
+  });
+  function select(key) {
+    current = key;
+    try { localStorage.setItem("sangli-plan", key); } catch (e) {}
+    document.querySelectorAll("button.chip").forEach((b) => b.setAttribute("aria-pressed", b.dataset.key === key ? "true" : "false"));
+    drawMap();
+  }
+
+  // ---------- selected plan panel ----------
+  function boothRow(m, km) { return D.booth_rows.find((r) => r.map === m.booth_key && +r.max_km === km); }
+  function drawPlan() {
+    const m = byKey[current];
+    const br = boothRow(m, 2);
+    const pass = m.passes_band;
+    const desc = m.group === "official" ? "Drawn by the Delimitation Commission in 2008 on 2001 Census population, rebuilt here on the same units."
+      : m.group === "original" ? `Searched on straight-line distance (Oct 2026 first run). Weights ${m.weights}.`
+      : `Searched on road distance, seed ${m.seed}. Weights ${m.weights}.`;
+    $("#plan").innerHTML = `
+      <div class="plan-head"><div class="eyebrow">${GROUPS[m.group]}</div><h3>${m.label}</h3><p class="note">${desc}</p>
+        <div><span class="pill ${pass ? "ok" : "bad"}">${pass ? "All seats within ±10%" : "Breaks the ±10% band"}</span></div></div>
+      <dl class="kv">
+        <dt>Common score</dt><dd>${m.common_score.toFixed(3)}</dd>
+        <dt>Largest deviation</dt><dd>${m.max_dev_pct.toFixed(2)}%</dd>
+        <dt>Mean road km to seat centre</dt><dd>${m.road_km.toFixed(2)}</dd>
+        <dt>Extra taluka pieces</dt><dd>${m.taluka_excess}</dd>
+        <dt>Shape penalty</dt><dd>${m.terms.shape.toFixed(3)}</dd>
+        <dt>People in a different seat than official</dt><dd>${fmt(m.people_moved_vs_official)}</dd>
+        ${br ? `<dt>Booths at 2 km limit</dt><dd>${fmt(br.booths)}</dd><dt>EVM km at 2 km limit</dt><dd>${fmt(br.evm_km)}</dd>` : ""}
+      </dl>
+      <div class="chart-title">Seat population vs the ±10% band</div>
+      <svg id="seatdev" role="img" aria-label="Population deviation of each seat"></svg>`;
+    drawSeatDev(m);
+  }
+  function drawSeatDev(m) {
+    const s = $("#seatdev"), w = 420, rowH = 24, top = 18, left = 34, right = 54, h = top + rowH * 8 + 22;
+    s.setAttribute("viewBox", `0 0 ${w} ${h}`); s.style.width = "100%";
+    const lim = 20, x = (v) => left + ((v + lim) / (2 * lim)) * (w - left - right);
+    el("rect", { x: x(-10), y: top - 4, width: x(10) - x(-10), height: rowH * 8 + 4, fill: "var(--band)" }, s);
+    [-20, -10, 0, 10, 20].forEach((v) => { el("line", { x1: x(v), x2: x(v), y1: top - 4, y2: top + rowH * 8, stroke: v === 0 ? "var(--rule-strong)" : "var(--rule)" }, s); const t = el("text", { x: x(v), y: h - 6, "text-anchor": "middle" }, s); t.textContent = (v > 0 ? "+" : "") + v + "%"; });
+    m.seats.forEach((st, i) => {
+      const y = top + i * rowH + 4, v = Math.max(-lim, Math.min(lim, st.dev_pct)), out = Math.abs(st.dev_pct) > 10;
+      const x0 = x(Math.min(0, v)), x1 = x(Math.max(0, v));
+      el("rect", { x: x0, y, width: Math.max(2, x1 - x0), height: rowH - 9, rx: 3, fill: seatColor(st.seat) }, s);
+      const lb = el("text", { x: left - 8, y: y + (rowH - 9) / 2, "text-anchor": "end", "dominant-baseline": "central", class: "lbl-ink" }, s); lb.textContent = st.seat;
+      const vl = el("text", { x: v >= 0 ? x1 + 5 : x0 - 5, y: y + (rowH - 9) / 2, "text-anchor": v >= 0 ? "start" : "end", "dominant-baseline": "central", class: out ? "lbl-ink" : "" }, s);
+      vl.textContent = (st.dev_pct > 0 ? "+" : "") + st.dev_pct.toFixed(1) + "%" + (out ? " !" : "");
+      if (out) vl.setAttribute("font-weight", "700");
+    });
+  }
+
+  // ---------- comparison table ----------
+  const cols = [
+    { h: "Plan", f: (m) => m.label },
+    { h: "±10% band", f: (m) => `<span class="pill ${m.passes_band ? "ok" : "bad"}">${m.passes_band ? "Pass" : "Fail"}</span>` },
+    { h: "Max dev.", n: 1, v: (m) => m.max_dev_pct, f: (m) => m.max_dev_pct.toFixed(2) + "%" },
+    { h: "Road km to centre", n: 1, v: (m) => m.road_km, f: (m) => m.road_km.toFixed(2) },
+    { h: "EVM km (est.)", n: 1, v: (m) => m.evm_km_est, f: (m) => fmt(m.evm_km_est) },
+    { h: "Extra taluka pieces", n: 1, v: (m) => m.taluka_excess, f: (m) => m.taluka_excess },
+    { h: "Shape penalty", n: 1, v: (m) => m.terms.shape, f: (m) => m.terms.shape.toFixed(3) },
+    { h: "Common score", n: 1, v: (m) => m.common_score, f: (m) => m.common_score.toFixed(3) },
+    { h: "Booths at 2 km", n: 1, v: (m) => +(boothRow(m, 2)?.booths ?? Infinity), f: (m) => boothRow(m, 2) ? fmt(boothRow(m, 2).booths) : "–" },
+    { h: "People moved vs official", n: 1, f: (m) => fmt(m.people_moved_vs_official) },
+  ];
+  const best = cols.map((c) => c.v ? Math.min(...maps.map(c.v)) : null);
+  let html = `<thead><tr>${cols.map((c) => `<th class="${c.n ? "n" : ""}" scope="col">${c.h}</th>`).join("")}</tr></thead><tbody>`;
+  ["official", "original", "road"].forEach((g) => {
+    const rows = maps.filter((m) => m.group === g);
+    if (!rows.length) return;
+    html += `<tr class="grp"><td colspan="${cols.length}">${GROUPS[g]}</td></tr>`;
+    rows.forEach((m) => {
+      html += `<tr data-key="${m.key}" tabindex="0">` + cols.map((c, i) => {
+        let v = c.f(m);
+        if (c.v && Math.abs(c.v(m) - best[i]) < 1e-9) v = `<span class="best">${v}</span>`;
+        return `<td class="${c.n ? "n" : ""}">${v}</td>`;
+      }).join("") + "</tr>";
+    });
+  });
+  $("#cmp").innerHTML = html + "</tbody>";
+  document.querySelectorAll("#cmp tr[data-key]").forEach((tr) => {
+    tr.addEventListener("click", () => { select(tr.dataset.key); $("#m-h").scrollIntoView({ behavior: "smooth", block: "start" }); });
+    tr.addEventListener("keydown", (e) => { if (e.key === "Enter") tr.click(); });
+  });
+  function markRows() { document.querySelectorAll("#cmp tr[data-key]").forEach((tr) => tr.classList.toggle("sel", tr.dataset.key === current)); }
+
+  // ---------- generic axes helper ----------
+  function frame(s, w, h, m) {
+    s.setAttribute("viewBox", `0 0 ${w} ${h}`); s.style.width = "100%"; s.replaceChildren();
+    return { x0: m.l, x1: w - m.r, y0: h - m.b, y1: m.t };
+  }
+  function niceTicks(lo, hi, n = 5) {
+    const step0 = (hi - lo) / n, mag = Math.pow(10, Math.floor(Math.log10(step0))), r = step0 / mag;
+    const step = (r < 1.5 ? 1 : r < 3 ? 2 : r < 7 ? 5 : 10) * mag;
+    const out = []; for (let v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step) out.push(+v.toFixed(10)); return out;
+  }
+
+  // ---------- scatter: taluka vs road km ----------
+  (function scatter() {
+    const s = $("#scatter"), w = 520, h = 330, f = frame(s, w, h, { l: 70, r: 18, t: 14, b: 44 });
+    const pts = maps.map((m) => ({ x: m.taluka_excess, y: m.road_km, m }));
+    const seeds = D.runs.map((r) => ({ x: r.taluka_excess, y: r.road_km, r }));
+    const all = pts.concat(seeds);
+    const xl = 0, xh = Math.max(...all.map((p) => p.x)) + 2;
+    const yl = Math.min(...all.map((p) => p.y)) - 0.15, yh = Math.max(...all.map((p) => p.y)) + 0.15;
+    const X = (v) => f.x0 + ((v - xl) / (xh - xl)) * (f.x1 - f.x0), Y = (v) => f.y0 - ((v - yl) / (yh - yl)) * (f.y0 - f.y1);
+    const gg = el("g", { class: "grid" }, s);
+    niceTicks(yl, yh, 5).forEach((v) => { el("line", { x1: f.x0, x2: f.x1, y1: Y(v), y2: Y(v) }, gg); const t = el("text", { x: f.x0 - 6, y: Y(v), "text-anchor": "end", "dominant-baseline": "central" }, s); t.textContent = v.toFixed(1); });
+    niceTicks(xl, xh, 6).forEach((v) => { const t = el("text", { x: X(v), y: f.y0 + 16, "text-anchor": "middle" }, s); t.textContent = v; });
+    el("line", { x1: f.x0, x2: f.x1, y1: f.y0, y2: f.y0, stroke: "var(--rule-strong)" }, s);
+    const xt = el("text", { x: (f.x0 + f.x1) / 2, y: h - 6, "text-anchor": "middle" }, s); xt.textContent = "extra taluka pieces →  (fewer is better)";
+    const yt = el("text", { x: 14, y: (f.y0 + f.y1) / 2, transform: `rotate(-90 14 ${(f.y0 + f.y1) / 2})`, "text-anchor": "middle" }, s); yt.textContent = "mean road km to seat centre";
+    seeds.forEach((p) => el("circle", { cx: X(p.x), cy: Y(p.y), r: 5, fill: "var(--surface)", stroke: GCOL.road, "stroke-width": 2 }, s));
+    const placed = [];
+    pts.forEach((p) => {
+      const c = el("circle", { cx: X(p.x), cy: Y(p.y), r: 6.5, fill: GCOL[p.m.group], stroke: "var(--surface)", "stroke-width": 2, style: "cursor:pointer" }, s);
+      c.addEventListener("click", () => select(p.m.key));
+      const title = el("title", {}, c); title.textContent = `${p.m.label}: ${p.x} extra pieces, ${p.y.toFixed(2)} km`;
+      const t = el("text", { x: X(p.x) + 9, y: Y(p.y) - 9, class: "lbl-ink" }, s);
+      t.textContent = p.m.label.replace(" (first run)", " · first").replace(" (road)", " · road");
+      let b = t.getBBox();
+      if (b.x + b.width > w - 4) { t.setAttribute("x", X(p.x) - 9); t.setAttribute("text-anchor", "end"); b = t.getBBox(); }
+      const hit = (bb) => placed.some((q) => bb.x < q.x + q.width && q.x < bb.x + bb.width && bb.y < q.y + q.height && q.y < bb.y + bb.height);
+      for (let k = 0; k < 8 && hit(b); k++) { t.setAttribute("y", +t.getAttribute("y") + (k % 2 ? -1 : 1) * 13 * (Math.floor(k / 2) + 1)); b = t.getBBox(); }
+      placed.push(b);
+    });
+    $("#scatter-legend").innerHTML = Object.entries(GROUPS).map(([g, n]) => `<span><i class="sw" style="background:${GCOL[g]};border-radius:50%"></i>${n}</span>`).join("") + `<span><i class="sw" style="border:2px solid ${GCOL.road};border-radius:50%"></i>Each road-run seed</span>`;
+  })();
+
+  // ---------- largest deviation per plan ----------
+  (function devbars() {
+    const s = $("#devbars"), w = 520, rowH = 30, top = 10, left = 150, right = 60, h = top + rowH * maps.length + 30;
+    frame(s, w, h, { l: 0, r: 0, t: 0, b: 0 });
+    const xmax = Math.max(16, ...maps.map((m) => m.max_dev_pct)) * 1.05;
+    const X = (v) => left + (v / xmax) * (w - left - right);
+    el("rect", { x: X(0), y: top - 4, width: X(10) - X(0), height: rowH * maps.length + 4, fill: "var(--band)" }, s);
+    [0, 5, 10, 15].forEach((v) => { el("line", { x1: X(v), x2: X(v), y1: top - 4, y2: top + rowH * maps.length, stroke: v === 10 ? "var(--rule-strong)" : "var(--rule)", "stroke-dasharray": v === 10 ? "4 3" : "" }, s); const t = el("text", { x: X(v), y: h - 8, "text-anchor": "middle" }, s); t.textContent = v + "%"; });
+    const lt = el("text", { x: X(10) + 4, y: top + 6, class: "lbl-ink" }, s); lt.textContent = "limit";
+    maps.forEach((m, i) => {
+      const y = top + i * rowH + 6, bad = m.max_dev_pct > 10;
+      el("rect", { x: X(0), y, width: Math.max(2, X(m.max_dev_pct) - X(0)), height: rowH - 14, rx: 3, fill: GCOL[m.group] }, s);
+      const n = el("text", { x: left - 8, y: y + (rowH - 14) / 2, "text-anchor": "end", "dominant-baseline": "central", class: "lbl-ink" }, s); n.textContent = m.label;
+      const v = el("text", { x: X(m.max_dev_pct) + 6, y: y + (rowH - 14) / 2, "dominant-baseline": "central", class: bad ? "lbl-ink" : "" }, s);
+      v.textContent = m.max_dev_pct.toFixed(1) + "%" + (bad ? "  over" : ""); if (bad) v.setAttribute("font-weight", "700");
+    });
+  })();
+
+  // ---------- booth model charts ----------
+  function boothChart(id, field, label, fmtv) {
+    const s = $(id), w = 520, h = 280, f = frame(s, w, h, { l: 64, r: 150, t: 14, b: 40 });
+    const kms = [2, 3, 5];
+    const rows = D.booth_rows;
+    const rng = kms.map((k) => { const v = rows.filter((r) => +r.max_km === k).map((r) => +r[field]); return [Math.min(...v), Math.max(...v)]; });
+    const offv = kms.map((k) => +rows.find((r) => r.map === "official_2008" && +r.max_km === k)[field]);
+    const lo = Math.min(...rng.map((r) => r[0])), hi = Math.max(...rng.map((r) => r[1]));
+    const yl = lo - (hi - lo) * 0.15, yh = hi + (hi - lo) * 0.15;
+    const X = (k) => f.x0 + ((k - 2) / 3) * (f.x1 - f.x0), Y = (v) => f.y0 - ((v - yl) / (yh - yl)) * (f.y0 - f.y1);
+    const gg = el("g", { class: "grid" }, s);
+    niceTicks(yl, yh, 4).forEach((v) => { el("line", { x1: f.x0, x2: f.x1, y1: Y(v), y2: Y(v) }, gg); const t = el("text", { x: f.x0 - 6, y: Y(v), "text-anchor": "end", "dominant-baseline": "central" }, s); t.textContent = fmtv(v); });
+    kms.forEach((k) => { const t = el("text", { x: X(k), y: f.y0 + 18, "text-anchor": "middle" }, s); t.textContent = k + " km"; });
+    const xt = el("text", { x: (f.x0 + f.x1) / 2, y: h - 4, "text-anchor": "middle" }, s); xt.textContent = "maximum road distance to booth";
+    const band = kms.map((k, i) => `${X(k)},${Y(rng[i][1])}`).concat(kms.slice().reverse().map((k, j) => `${X(k)},${Y(rng[kms.length - 1 - j][0])}`));
+    el("polygon", { points: band.join(" "), fill: GCOL.original, "fill-opacity": 0.25 }, s);
+    el("polyline", { points: kms.map((k, i) => `${X(k)},${Y(offv[i])}`).join(" "), fill: "none", stroke: GCOL.official, "stroke-width": 2 }, s);
+    kms.forEach((k, i) => { const c = el("circle", { cx: X(k), cy: Y(offv[i]), r: 5, fill: GCOL.official, stroke: "var(--surface)", "stroke-width": 2 }, s); el("title", {}, c).textContent = `Official, ${k} km: ${fmtv(offv[i])} (range across plans ${fmtv(rng[i][0])}–${fmtv(rng[i][1])})`; });
+    const t1 = el("text", { x: X(5) + 9, y: Y(offv[2]), "dominant-baseline": "central", class: "lbl-ink" }, s); t1.textContent = "Official " + fmtv(offv[2]);
+    const t2 = el("text", { x: X(5) + 9, y: Y(offv[2]) + 16, "dominant-baseline": "central" }, s); t2.textContent = `range ${fmtv(rng[2][0])}–${fmtv(rng[2][1])}`;
+  }
+  boothChart("#booth-n", "booths", "booths", (v) => fmt(v));
+  boothChart("#booth-evm", "evm_km", "EVM km", (v) => fmt(v));
+  $("#booth-legend").innerHTML = `<span><i class="sw" style="background:${GCOL.official};border-radius:50%"></i>Official 2008</span><span><i class="sw" style="background:${GCOL.original};opacity:.35"></i>Range across all ${D.booth_rows.length / 3} plans</span>`;
+
+  // ---------- seeds table ----------
+  if (D.runs.length) {
+    $("#seeds").innerHTML = `<thead><tr><th>Profile</th><th class="n">Seed</th><th class="n">Proposals</th><th class="n">Accepted</th><th class="n">Own-weights score</th><th class="n">Common score</th><th class="n">Max dev.</th><th class="n">Road km</th><th class="n">Extra taluka pieces</th></tr></thead><tbody>`
+      + D.runs.map((r) => `<tr><td>${r.profile}</td><td class="n">${r.seed}</td><td class="n">${fmt(r.proposals)}</td><td class="n">${fmt(r.accepted)}</td><td class="n">${r.own_score.toFixed(3)}</td><td class="n">${r.common_score.toFixed(3)}</td><td class="n">${r.max_dev_pct.toFixed(2)}%</td><td class="n">${r.road_km.toFixed(2)}</td><td class="n">${r.taluka_excess}</td></tr>`).join("") + "</tbody>";
+  } else { $("#r-h").closest("section").hidden = true; }
+
+  select(current);
+})();
+</script>

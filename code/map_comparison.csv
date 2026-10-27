@@ -1,0 +1,4 @@
+name,passed,units,population,max_deviation_pct,mean_distance_km,taluka_excess_fragments,mean_shape_penalty,own_weighted_score,common_baseline_score,geographic_discrepancy_km2,proposals,accepted,units_changed_vs_balanced,people_changed_vs_balanced
+map_balanced,True,756,2822143,2.45,12.73,12,0.743,0.629,0.629,0.0,600,314,0,0
+map_locality,True,756,2822143,4.61,12.63,13,0.726,0.61,0.687,0.0,600,378,111,380913
+map_taluka,True,756,2822143,1.24,12.68,11,0.756,0.742,0.602,0.0,300,165,199,823886

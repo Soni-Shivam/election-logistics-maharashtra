@@ -1,0 +1,9 @@
+map,max_km,seat,units,electors,booths,min_booths,extra_booths,booth_sites,capacity_util,isolated_units,voter_person_km,mean_voter_km,max_voter_km,electors_travelling_pct,evm_km,depot_id,depot_name,booth_cost,voter_cost,evm_cost,objective,status,mip_gap,runtime_s
+map_balanced,5.0,1,139,246888,203,165,38,125,0.8108,39,36883.1,0.1494,4.992,4.12,5809.9,04304-568926,Jat,5075000,368831,697191,6141021,Optimal solution found,0.0,0.61
+map_balanced,5.0,2,56,251916,180,168,12,53,0.933,14,18467.6,0.0733,4.82,2.32,2730.6,04302-568743,Takali,4500000,184676,327667,5012343,Optimal solution found,0.0,0.05
+map_balanced,5.0,3,114,245529,181,164,17,97,0.9043,4,43679.7,0.1779,4.892,5.28,3550.7,04299-802893,Vita (M Cl),4525000,436797,426090,5387887,Optimal solution found,0.0,0.1
+map_balanced,5.0,4,148,249126,188,167,21,120,0.8834,8,73022.2,0.2931,4.989,8.41,4901.9,04301-568652,Yamgarwadi,4700000,730222,588229,6018451,Optimal solution found,0.0,0.84
+map_balanced,5.0,5,64,240890,169,161,8,61,0.9503,3,20892.1,0.0867,4.732,2.96,2286.8,04302-568708,Wajegaon (N.V.),4225000,208921,274414,4708335,Optimal solution found,0.0,0.47
+map_balanced,5.0,6,17,246832,166,165,1,17,0.9913,1,4236.6,0.0172,3.987,0.78,674.5,SMKC-W18,Sangli Miraj Kupwad approximate ward 18,4150000,42366,80937,4273304,Optimal solution found,0.0,0.08
+map_balanced,5.0,7,145,247339,173,165,8,105,0.9531,3,72993.7,0.2951,4.741,11.46,2961.7,04295-568292,Red,4325000,729937,355404,5410341,Optimal solution found,0.0,3.63
+map_balanced,5.0,8,68,246980,173,165,8,57,0.9518,2,25923.9,0.105,4.651,4.23,2061.5,04296-568385,June Khed,4325000,259239,247377,4831616,Optimal solution found,0.0,0.3

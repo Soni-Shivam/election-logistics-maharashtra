@@ -1,0 +1,27 @@
+{
+  "district": "NASHIK",
+  "seats": 15,
+  "rules": {
+    "shrug_key": 1934,
+    "shape_overlap_village": 10,
+    "shape_overlap_grid_cell": 531
+  },
+  "score": 1.026974374662678,
+  "taluka_excess": 11,
+  "fail_band": [
+    "Nandgaon",
+    "Malegaon Central",
+    "Malegaon Outer",
+    "Chandvad",
+    "Niphad",
+    "Nashik East",
+    "Deolali (SC)"
+  ],
+  "not_contiguous": [
+    "Baglan (ST)",
+    "Kalwan (ST)",
+    "Nashik East",
+    "Nashik Central",
+    "Igatpuri (ST)"
+  ]
+}

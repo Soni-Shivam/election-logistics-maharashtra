@@ -1,0 +1,5 @@
+subset,census,acs,outside_10pct_of_district_avg,outside_20pct_of_district_avg,outside_10pct_of_state_avg,mean_abs_dev_district_pct,largest_over_smallest
+all ACs (city ACs unreliable),2001 (base used in 2008),285,106,74,122,19.3,14.84
+all ACs (city ACs unreliable),2011,285,138,78,159,20.79,16.93
+rural ACs only,2001 (base used in 2008),176,31,12,42,8.7,5.56
+rural ACs only,2011,176,57,11,73,10.17,5.48

@@ -1,0 +1,209 @@
+{
+  "district": "NASHIK",
+  "seats": 15,
+  "rules": {
+    "shrug_key": 1934,
+    "shape_overlap_village": 10,
+    "shape_overlap_grid_cell": 531
+  },
+  "score": 1.026974374662678,
+  "taluka_excess": 11,
+  "fail_band": [
+    "Nandgaon",
+    "Malegaon Central",
+    "Malegaon Outer",
+    "Chandvad",
+    "Niphad",
+    "Nashik East",
+    "Deolali (SC)"
+  ],
+  "not_contiguous": [
+    "Baglan (ST)",
+    "Kalwan (ST)",
+    "Nashik East",
+    "Nashik Central",
+    "Igatpuri (ST)"
+  ],
+  "checks": [
+    {
+      "constituency": 1,
+      "ac08_no": 113,
+      "name": "Nandgaon",
+      "pc_name": "DINDORI (ST)",
+      "population_2011": 348817,
+      "deviation_pct": -14.33,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 2,
+      "ac08_no": 114,
+      "name": "Malegaon Central",
+      "pc_name": "DHULE",
+      "population_2011": 320471,
+      "deviation_pct": -21.29,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 3,
+      "ac08_no": 115,
+      "name": "Malegaon Outer",
+      "pc_name": "DHULE",
+      "population_2011": 495096,
+      "deviation_pct": 21.6,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 4,
+      "ac08_no": 116,
+      "name": "Baglan (ST)",
+      "pc_name": "DHULE",
+      "population_2011": 374435,
+      "deviation_pct": -8.03,
+      "within_10pct": true,
+      "connected": false,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 5,
+      "ac08_no": 117,
+      "name": "Kalwan (ST)",
+      "pc_name": "DINDORI (ST)",
+      "population_2011": 380225,
+      "deviation_pct": -6.61,
+      "within_10pct": true,
+      "connected": false,
+      "single_polygon": false,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 6,
+      "ac08_no": 118,
+      "name": "Chandvad",
+      "pc_name": "DINDORI (ST)",
+      "population_2011": 464382,
+      "deviation_pct": 14.06,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 7,
+      "ac08_no": 119,
+      "name": "Yevla",
+      "pc_name": "DINDORI (ST)",
+      "population_2011": 403124,
+      "deviation_pct": -0.99,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 8,
+      "ac08_no": 120,
+      "name": "Sinnar",
+      "pc_name": "NASHIK",
+      "population_2011": 398994,
+      "deviation_pct": -2.0,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 9,
+      "ac08_no": 121,
+      "name": "Niphad",
+      "pc_name": "DINDORI (ST)",
+      "population_2011": 361273,
+      "deviation_pct": -11.27,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 10,
+      "ac08_no": 122,
+      "name": "Dindori (ST)",
+      "pc_name": "DINDORI (ST)",
+      "population_2011": 440349,
+      "deviation_pct": 8.16,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 11,
+      "ac08_no": 123,
+      "name": "Nashik East",
+      "pc_name": "NASHIK",
+      "population_2011": 363167,
+      "deviation_pct": -10.8,
+      "within_10pct": false,
+      "connected": false,
+      "single_polygon": false,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 12,
+      "ac08_no": 124,
+      "name": "Nashik Central",
+      "pc_name": "NASHIK",
+      "population_2011": 388813,
+      "deviation_pct": -4.5,
+      "within_10pct": true,
+      "connected": false,
+      "single_polygon": false,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 13,
+      "ac08_no": 125,
+      "name": "Nashik West",
+      "pc_name": "NASHIK",
+      "population_2011": 417654,
+      "deviation_pct": 2.58,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 14,
+      "ac08_no": 126,
+      "name": "Deolali (SC)",
+      "pc_name": "NASHIK",
+      "population_2011": 579864,
+      "deviation_pct": 42.42,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 15,
+      "ac08_no": 127,
+      "name": "Igatpuri (ST)",
+      "pc_name": "NASHIK",
+      "population_2011": 370523,
+      "deviation_pct": -9.0,
+      "within_10pct": true,
+      "connected": false,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    }
+  ]
+}

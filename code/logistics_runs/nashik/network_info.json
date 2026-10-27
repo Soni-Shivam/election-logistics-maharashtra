@@ -1,0 +1,24 @@
+{
+  "district": "nashik",
+  "nodes": 801983,
+  "walk_edges": 611114,
+  "drive_edges": 586601,
+  "walk_component_nodes": 583235,
+  "drive_component_nodes": 559935,
+  "seconds": 27.5,
+  "walk_kmh": 4.5,
+  "drive_kmh": {
+    "motorway": 60,
+    "trunk": 50,
+    "primary": 40,
+    "secondary": 35,
+    "tertiary": 30,
+    "unclassified": 25,
+    "residential": 20,
+    "living_street": 10,
+    "service": 15,
+    "road": 20,
+    "track": 12
+  },
+  "urban_speed_factor": 0.6
+}

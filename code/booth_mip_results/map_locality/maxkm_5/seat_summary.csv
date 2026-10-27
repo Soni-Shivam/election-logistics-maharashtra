@@ -1,0 +1,9 @@
+map,max_km,seat,units,electors,booths,min_booths,extra_booths,booth_sites,capacity_util,isolated_units,voter_person_km,mean_voter_km,max_voter_km,electors_travelling_pct,evm_km,depot_id,depot_name,booth_cost,voter_cost,evm_cost,objective,status,mip_gap,runtime_s
+map_locality,5.0,1,73,258322,181,173,8,62,0.9515,1,25767.3,0.0997,4.705,3.73,2449.3,04296-568385,June Khed,4525000,257673,293921,5076594,Optimal solution found,0.0,0.14
+map_locality,5.0,2,46,242285,172,162,10,44,0.9391,12,16741.6,0.0691,4.82,2.22,2017.4,04302-568743,Takali,4300000,167416,242094,4709510,Optimal solution found,0.0,0.05
+map_locality,5.0,3,59,253464,179,169,10,58,0.944,8,17593.4,0.0694,4.732,2.34,2501.6,04302-568706,Nandra,4475000,175934,300193,4951127,Optimal solution found,0.0,0.17
+map_locality,5.0,4,18,241868,162,162,0,16,0.9953,0,6531.5,0.027,3.987,1.23,636.8,SMKC-W18,Sangli Miraj Kupwad approximate ward 18,4050000,65315,76421,4191737,Optimal solution found,0.0,0.18
+map_locality,5.0,5,131,245274,200,164,36,120,0.8176,38,31788.1,0.1296,4.992,3.54,5815.1,04304-568926,Jat,5000000,317881,697818,6015699,Optimal solution found,0.0,0.28
+map_locality,5.0,6,149,246549,187,165,22,119,0.879,10,71326.3,0.2893,4.989,8.03,5054.9,04299-568562,Kusbavade,4675000,713263,606593,5994855,Optimal solution found,0.0,0.93
+map_locality,5.0,7,129,244723,182,164,18,108,0.8964,5,54959.7,0.2246,4.892,6.84,3466.5,04299-802893,Vita (M Cl),4550000,549597,415982,5515579,Optimal solution found,0.0,0.47
+map_locality,5.0,8,146,243016,172,163,9,106,0.9419,1,70613.2,0.2906,4.741,11.79,2920.7,04295-568291,Beldarwadi,4300000,706132,350478,5356610,Optimal solution found,0.0,14.7

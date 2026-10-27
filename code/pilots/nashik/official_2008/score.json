@@ -1,0 +1,361 @@
+{
+  "score": 1.026974374662678,
+  "distance_source": {
+    "type": "road_km_matrix",
+    "path": "pilots\\nashik\\road_distances.npz",
+    "matrix_points": 2472,
+    "matched_units": 2472
+  },
+  "terms": {
+    "population": 1.1842309724591698,
+    "distance": 0.7723122166864458,
+    "taluka_fragmentation": 1.375,
+    "shape": 0.7053324619735661
+  },
+  "raw": {
+    "population_target": 407145.8,
+    "population_bounds": [
+      366432,
+      447860
+    ],
+    "population_weighted_mean_distance_km": 15.446244333728915,
+    "evm_km_estimate": 62888.73506251526,
+    "taluka_excess_fragments": 11,
+    "taluka_fragments": {
+      "Baglan": 2,
+      "Chandvad": 1,
+      "Deola": 1,
+      "Dindori": 1,
+      "Igatpuri": 2,
+      "Kalwan": 3,
+      "Malegaon": 3,
+      "Nandgaon": 2,
+      "Nashik": 9,
+      "Niphad": 2,
+      "Peint": 1,
+      "Sinnar": 1,
+      "Surgana": 1,
+      "Trimbakeshwar": 2,
+      "Yevla": 1
+    },
+    "units_using_polygon_interior_for_distance": 0
+  },
+  "seats": [
+    {
+      "population": 348817,
+      "mean_distance_km": 21.87921734365395,
+      "centre_unit_id": "04147-550376",
+      "compactness_loss": 0.740904772747488,
+      "area_km2": 1779.6558045263994,
+      "evm_km_estimate": 5087.89530410756
+    },
+    {
+      "population": 320471,
+      "mean_distance_km": 1.7291267999565838,
+      "centre_unit_id": "MLG-C41",
+      "compactness_loss": 0.5477915866052194,
+      "area_km2": 13.659527409140788,
+      "evm_km_estimate": 369.42332980592425
+    },
+    {
+      "population": 495096,
+      "mean_distance_km": 8.972146204521824,
+      "centre_unit_id": "MLG-C24",
+      "compactness_loss": 0.7401683989199315,
+      "area_km2": 1102.161456171665,
+      "evm_km_estimate": 2961.3824648492914
+    },
+    {
+      "population": 374435,
+      "mean_distance_km": 19.786805126152963,
+      "centre_unit_id": "04145-550089",
+      "compactness_loss": 0.6802763779236238,
+      "area_km2": 1452.059874125868,
+      "evm_km_estimate": 4939.24825160739
+    },
+    {
+      "population": 380225,
+      "mean_distance_km": 28.992970353460695,
+      "centre_unit_id": "04143-549863",
+      "compactness_loss": 0.8520169724795502,
+      "area_km2": 1657.2240116869734,
+      "evm_km_estimate": 7349.234768429729
+    },
+    {
+      "population": 464382,
+      "mean_distance_km": 20.29774038870906,
+      "centre_unit_id": "04148-550516",
+      "compactness_loss": 0.6827739564998879,
+      "area_km2": 1578.3711842510054,
+      "evm_km_estimate": 6283.93685145966
+    },
+    {
+      "population": 403124,
+      "mean_distance_km": 18.57085674562989,
+      "centre_unit_id": "04156-551483",
+      "compactness_loss": 0.6625014750345171,
+      "area_km2": 1395.1654957250016,
+      "evm_km_estimate": 4990.905369816869
+    },
+    {
+      "population": 398994,
+      "mean_distance_km": 18.871161351675156,
+      "centre_unit_id": "04154-802780",
+      "compactness_loss": 0.7112706860570202,
+      "area_km2": 1546.5386367133926,
+      "evm_km_estimate": 5019.653434900184
+    },
+    {
+      "population": 361273,
+      "mean_distance_km": 13.463714342130263,
+      "centre_unit_id": "04155-551365",
+      "compactness_loss": 0.618046220224965,
+      "area_km2": 695.9390258389551,
+      "evm_km_estimate": 3242.7176476829513
+    },
+    {
+      "population": 440349,
+      "mean_distance_km": 25.423462646169185,
+      "centre_unit_id": "04149-550546",
+      "compactness_loss": 0.6736101556864247,
+      "area_km2": 1852.207860846039,
+      "evm_km_estimate": 7463.464235185303
+    },
+    {
+      "population": 363167,
+      "mean_distance_km": 5.380491272470922,
+      "centre_unit_id": "NSK-C160",
+      "compactness_loss": 0.7347437709535909,
+      "area_km2": 113.44685183698495,
+      "evm_km_estimate": 1302.6779159662983
+    },
+    {
+      "population": 388813,
+      "mean_distance_km": 3.26820570736169,
+      "centre_unit_id": "NSK-C199",
+      "compactness_loss": 0.6461443148170639,
+      "area_km2": 40.601811080935974,
+      "evm_km_estimate": 847.1472437976139
+    },
+    {
+      "population": 417654,
+      "mean_distance_km": 4.1630578012221955,
+      "centre_unit_id": "NSK-C258",
+      "compactness_loss": 0.6105418296185423,
+      "area_km2": 57.12075332540881,
+      "evm_km_estimate": 1159.1451619411034
+    },
+    {
+      "population": 579864,
+      "mean_distance_km": 10.761733472825515,
+      "centre_unit_id": "NSK-C328",
+      "compactness_loss": 0.862983318575897,
+      "area_km2": 686.230073315454,
+      "evm_km_estimate": 4160.227878990997
+    },
+    {
+      "population": 370523,
+      "mean_distance_km": 31.219419053504314,
+      "centre_unit_id": "04153-551046",
+      "compactness_loss": 0.8162130934597683,
+      "area_km2": 1587.4483771968025,
+      "evm_km_estimate": 7711.675203974386
+    }
+  ],
+  "official_checks": [
+    {
+      "constituency": 1,
+      "ac08_no": 113,
+      "name": "Nandgaon",
+      "pc_name": "DINDORI (ST)",
+      "population_2011": 348817,
+      "deviation_pct": -14.33,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 2,
+      "ac08_no": 114,
+      "name": "Malegaon Central",
+      "pc_name": "DHULE",
+      "population_2011": 320471,
+      "deviation_pct": -21.29,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 3,
+      "ac08_no": 115,
+      "name": "Malegaon Outer",
+      "pc_name": "DHULE",
+      "population_2011": 495096,
+      "deviation_pct": 21.6,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 4,
+      "ac08_no": 116,
+      "name": "Baglan (ST)",
+      "pc_name": "DHULE",
+      "population_2011": 374435,
+      "deviation_pct": -8.03,
+      "within_10pct": true,
+      "connected": false,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 5,
+      "ac08_no": 117,
+      "name": "Kalwan (ST)",
+      "pc_name": "DINDORI (ST)",
+      "population_2011": 380225,
+      "deviation_pct": -6.61,
+      "within_10pct": true,
+      "connected": false,
+      "single_polygon": false,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 6,
+      "ac08_no": 118,
+      "name": "Chandvad",
+      "pc_name": "DINDORI (ST)",
+      "population_2011": 464382,
+      "deviation_pct": 14.06,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 7,
+      "ac08_no": 119,
+      "name": "Yevla",
+      "pc_name": "DINDORI (ST)",
+      "population_2011": 403124,
+      "deviation_pct": -0.99,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 8,
+      "ac08_no": 120,
+      "name": "Sinnar",
+      "pc_name": "NASHIK",
+      "population_2011": 398994,
+      "deviation_pct": -2.0,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 9,
+      "ac08_no": 121,
+      "name": "Niphad",
+      "pc_name": "DINDORI (ST)",
+      "population_2011": 361273,
+      "deviation_pct": -11.27,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 10,
+      "ac08_no": 122,
+      "name": "Dindori (ST)",
+      "pc_name": "DINDORI (ST)",
+      "population_2011": 440349,
+      "deviation_pct": 8.16,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 11,
+      "ac08_no": 123,
+      "name": "Nashik East",
+      "pc_name": "NASHIK",
+      "population_2011": 363167,
+      "deviation_pct": -10.8,
+      "within_10pct": false,
+      "connected": false,
+      "single_polygon": false,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 12,
+      "ac08_no": 124,
+      "name": "Nashik Central",
+      "pc_name": "NASHIK",
+      "population_2011": 388813,
+      "deviation_pct": -4.5,
+      "within_10pct": true,
+      "connected": false,
+      "single_polygon": false,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 13,
+      "ac08_no": 125,
+      "name": "Nashik West",
+      "pc_name": "NASHIK",
+      "population_2011": 417654,
+      "deviation_pct": 2.58,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 14,
+      "ac08_no": 126,
+      "name": "Deolali (SC)",
+      "pc_name": "NASHIK",
+      "population_2011": 579864,
+      "deviation_pct": 42.42,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 15,
+      "ac08_no": 127,
+      "name": "Igatpuri (ST)",
+      "pc_name": "NASHIK",
+      "population_2011": 370523,
+      "deviation_pct": -9.0,
+      "within_10pct": true,
+      "connected": false,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    }
+  ],
+  "settings": {
+    "seats": 15,
+    "balance": 0.1,
+    "split_share": 0.25,
+    "min_neck_km": 0.5,
+    "neck_lobe_fraction": 0.1,
+    "weight_population": 0.35,
+    "weight_distance": 0.3,
+    "weight_taluka": 0.2,
+    "weight_shape": 0.15,
+    "distance_reference_km": 20.0,
+    "taluka_reference_fragments": 8.0,
+    "link_islands_km": 0.2
+  }
+}

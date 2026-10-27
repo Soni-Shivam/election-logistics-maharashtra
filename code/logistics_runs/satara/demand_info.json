@@ -1,0 +1,16 @@
+{
+  "dense_share": 0.4,
+  "district": "satara",
+  "grid": "/home/shivam/Downloads/ie 301/data_raw/worldpop/ind_ppp_2011_UNadj.tif",
+  "cell_km": 0.088,
+  "units_populated": 1741,
+  "demand_points": 3372,
+  "electors_2024": 2654721,
+  "electors_2011_census_x0.70": 2102619,
+  "intra_km_weighted_mean": 0.516,
+  "intra_km_p90": 0.977,
+  "points_per_unit_max": 87,
+  "units_without_grid_cells": 0,
+  "settlements_per_village_median": 1.0,
+  "intra_km_village_median": 0.481
+}

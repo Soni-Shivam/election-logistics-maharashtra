@@ -1,0 +1,836 @@
+<meta charset="utf-8">
+<title>Maharashtra Delimitation Lab</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: a survey sheet. Method diagrams first (how a plan is made), then a district
+   switcher; under it each district reads summary -> map explorer -> comparison -> booth lab. */
+:root {
+  --bg: #f2f3f5; --surface: #fcfcfb; --ink: #15171c; --ink-2: #4b4f58; --muted: #747985;
+  --rule: #dcdee3; --rule-strong: #b9bcc4;
+  --accent: #5a3e9e; --accent-soft: #ece7f7;     /* indelible-ink violet */
+  --good: #0ca30c; --critical: #d03b3b; --critical-soft: #fbe9e9; --good-soft: #e5f5e5; --band: #e9edf2;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s5: #e87ba4; --s6: #008300; --s7: #6250d6; --s8: #e34948;
+  --font-display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Public Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --step--1: 0.8125rem; --step-0: 1rem; --step-1: 1.1875rem; --step-2: 1.5rem; --step-3: 2.125rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111215; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #8f9098;
+    --rule: #2e2f33; --rule-strong: #4a4b50; --accent: #a993ec; --accent-soft: #2a2440;
+    --critical-soft: #3a1f1f; --good-soft: #1c2f1c; --band: #24262b;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111215; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #8f9098;
+  --rule: #2e2f33; --rule-strong: #4a4b50; --accent: #a993ec; --accent-soft: #2a2440;
+  --critical-soft: #3a1f1f; --good-soft: #1c2f1c; --band: #24262b;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: var(--step-0); line-height: 1.55; }
+.wrap { max-width: 1200px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 2rem 4rem; display: grid; gap: 2.75rem; }
+h1, h2, h3 { font-family: var(--font-display); font-stretch: 85%; text-wrap: balance; margin: 0; line-height: 1.1; }
+h1 { font-size: clamp(2rem, 5vw, 3.1rem); font-weight: 800; letter-spacing: -0.01em; }
+h2 { font-size: var(--step-2); font-weight: 750; }
+h3 { font-size: var(--step-1); font-weight: 700; }
+p { margin: 0; max-width: 70ch; }
+.eyebrow { font-family: var(--font-data); font-size: var(--step--1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.lede { font-size: var(--step-1); color: var(--ink-2); max-width: 64ch; }
+.num, td.n, .mono { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+header { display: grid; gap: 0.9rem; }
+.stamp { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; font-family: var(--font-data); font-size: var(--step--1); color: var(--muted); }
+.section { display: grid; gap: 1.1rem; }
+.section > header { gap: 0.4rem; }
+.note { font-size: 0.9rem; color: var(--ink-2); max-width: 78ch; }
+.note b { color: var(--ink); }
+.panel { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 1rem; min-width: 0; }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem; }
+.two > * { min-width: 0; }
+
+/* method diagrams */
+figure { margin: 0; display: grid; gap: 0.6rem; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 0.88rem; color: var(--ink-2); max-width: 80ch; }
+.dg text { font-family: var(--font-body); font-size: 13px; fill: currentColor; }
+.dg .small { font-size: 11px; fill: var(--ink-2); }
+.dg .mono { font-family: var(--font-data); font-size: 11.5px; }
+.dg .box { fill: var(--surface); stroke: currentColor; stroke-width: 1.3; }
+.dg .box-soft { fill: var(--band); stroke: var(--rule-strong); }
+.dg .arrow { stroke: currentColor; stroke-width: 1.4; fill: none; }
+.dg .hl { stroke: var(--accent); }
+.dg .hlf { fill: var(--accent); }
+.steps3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+@media (max-width: 760px) { .steps3 { grid-template-columns: minmax(0, 1fr); } }
+
+/* district tabs */
+.tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 6; background: var(--bg); padding-block: 0.6rem; border-bottom: 1px solid var(--rule); }
+.tab { font: 600 0.95rem/1 var(--font-body); color: var(--ink); background: var(--surface); border: 1px solid var(--rule-strong); border-radius: 6px; padding: 0.6rem 0.9rem; cursor: pointer; display: grid; gap: 0.25rem; text-align: left; }
+.tab small { font: 400 0.75rem var(--font-data); color: var(--muted); }
+.tab[aria-selected="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.tab[aria-selected="true"] small { color: var(--surface); opacity: .85; }
+.tab:focus-visible, button:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.findings { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 1.25rem; border-top: 2px solid var(--ink); }
+@media (max-width: 1000px) { .findings { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 540px) { .findings { grid-template-columns: minmax(0, 1fr); } }
+.finding { padding: 1rem 0 1.1rem; border-bottom: 1px solid var(--rule); display: grid; gap: 0.35rem; align-content: start; min-width: 0; }
+.finding .k { font-family: var(--font-display); font-stretch: 80%; font-size: var(--step-3); font-weight: 800; line-height: 1; }
+.finding .k small { font-size: 0.5em; font-weight: 600; color: var(--muted); }
+.finding p { font-size: 0.93rem; color: var(--ink-2); }
+
+.explorer { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 1.25rem; align-items: start; }
+@media (max-width: 900px) { .explorer { grid-template-columns: minmax(0, 1fr); } }
+.controls { display: grid; gap: 0.6rem; }
+.seg { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+.seg .lbl { font-family: var(--font-data); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); min-width: 6.5rem; }
+button.chip { font: 500 0.85rem/1 var(--font-body); color: var(--ink); background: transparent; border: 1px solid var(--rule-strong); border-radius: 999px; padding: 0.45rem 0.75rem; cursor: pointer; }
+button.chip:hover { border-color: var(--accent); }
+button.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.toggles { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; font-size: 0.88rem; color: var(--ink-2); }
+.toggles label { display: inline-flex; gap: 0.4rem; align-items: center; cursor: pointer; }
+.toggles input { accent-color: var(--accent); width: 1rem; height: 1rem; }
+.mapbox { position: relative; }
+svg.map { width: 100%; height: auto; display: block; }
+.map .seat { stroke: var(--surface); stroke-width: 2.5; fill-opacity: 0.55; cursor: pointer; transition: fill-opacity .15s; }
+.map .seat.hot { fill-opacity: 0.85; stroke: var(--ink); stroke-width: 3.5; }
+.map .taluka { fill: none; stroke: var(--ink-2); stroke-width: 1.6; stroke-dasharray: 4 5; opacity: 0.85; pointer-events: none; }
+.map .official { fill: none; stroke: var(--ink); stroke-width: 4; stroke-dasharray: 12 7; pointer-events: none; }
+.map .district { fill: none; stroke: var(--ink); stroke-width: 2.4; pointer-events: none; }
+.map .booth { fill: var(--ink); fill-opacity: 0.7; pointer-events: none; }
+.map .depot { fill: var(--accent); stroke: var(--surface); stroke-width: 1.5; pointer-events: none; }
+.map .village { fill: var(--ink); fill-opacity: 0.35; pointer-events: none; }
+.map .sl circle { fill: var(--surface); stroke: var(--ink); stroke-width: 2; }
+.map .sl text { font: 700 22px var(--font-data); fill: var(--ink); text-anchor: middle; dominant-baseline: central; }
+.map .sl { pointer-events: none; }
+.map .tl { font: 600 18px var(--font-body); fill: var(--muted); text-anchor: middle; pointer-events: none; paint-order: stroke; stroke: var(--surface); stroke-width: 5px; }
+.legend { display: flex; flex-wrap: wrap; gap: 0.3rem 0.9rem; font-size: 0.8rem; color: var(--ink-2); margin-top: 0.5rem; }
+.legend span { display: inline-flex; align-items: center; gap: 0.35rem; }
+.sw { width: 0.8rem; height: 0.8rem; border-radius: 2px; display: inline-block; flex: none; }
+.line-sw { width: 1.4rem; height: 0; border-top: 2px dashed var(--ink); display: inline-block; }
+.dot-sw { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--ink); opacity: .7; display: inline-block; }
+.tip { position: absolute; pointer-events: none; background: var(--surface); color: var(--ink); border: 1px solid var(--rule-strong); border-radius: 6px; padding: 0.6rem 0.7rem; font-size: 0.82rem; line-height: 1.4; box-shadow: 0 6px 18px rgb(0 0 0 / 0.14); max-width: 260px; z-index: 5; }
+.tip b { font-family: var(--font-display); font-stretch: 85%; font-size: 1rem; }
+.tip .row { display: flex; justify-content: space-between; gap: 1rem; }
+.tip .row span:last-child { font-family: var(--font-data); }
+.plan-head { display: grid; gap: 0.3rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--rule); }
+.kv { display: grid; grid-template-columns: 1fr auto; gap: 0.35rem 1rem; padding-block: 0.8rem; border-bottom: 1px solid var(--rule); font-size: 0.9rem; margin: 0; }
+.kv dt { color: var(--ink-2); }
+.kv dd { margin: 0; font-family: var(--font-data); font-variant-numeric: tabular-nums; text-align: right; }
+.pill { display: inline-flex; align-items: center; gap: 0.3rem; font: 600 0.75rem/1 var(--font-body); padding: 0.3rem 0.55rem; border-radius: 999px; white-space: nowrap; }
+.pill.ok { background: var(--good-soft); color: var(--ink); }
+.pill.bad { background: var(--critical-soft); color: var(--ink); }
+.pill.ok::before { content: "✓"; color: var(--good); font-weight: 800; }
+.pill.bad::before { content: "!"; color: var(--critical); font-weight: 800; }
+.chart-title { font-family: var(--font-display); font-stretch: 85%; font-weight: 700; font-size: 1rem; margin: 0.4rem 0 0.2rem; }
+svg.chart text { fill: var(--ink-2); font-family: var(--font-data); font-size: 11px; }
+svg.chart .lbl-ink { fill: var(--ink); }
+svg.chart .grid line { stroke: var(--rule); }
+.tablebox { overflow-x: auto; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; }
+table { border-collapse: collapse; width: 100%; font-size: 0.86rem; }
+th, td { padding: 0.55rem 0.7rem; text-align: left; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font: 600 0.72rem/1.25 var(--font-body); text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); background: var(--surface); }
+td.n, th.n { text-align: right; white-space: nowrap; }
+tr.grp td { background: var(--band); font: 600 0.75rem var(--font-data); text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-2); padding-block: 0.4rem; }
+tbody tr.sel td { background: var(--accent-soft); }
+tbody tr[data-key] { cursor: pointer; }
+td .best { font-weight: 700; color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+
+/* booth lab */
+.lab { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 1.25rem; align-items: start; }
+@media (max-width: 900px) { .lab { grid-template-columns: minmax(0, 1fr); } }
+.lab-controls { display: flex; flex-wrap: wrap; gap: 0.6rem 1.2rem; align-items: center; margin-bottom: 0.6rem; font-size: 0.88rem; }
+.lab-controls label { display: inline-flex; align-items: center; gap: 0.45rem; color: var(--ink-2); }
+select { font: 500 0.88rem var(--font-body); color: var(--ink); background: var(--surface); border: 1px solid var(--rule-strong); border-radius: 6px; padding: 0.35rem 0.5rem; }
+.lab .seatpoly { fill: var(--band); stroke: var(--ink); stroke-width: 1.5; }
+.lab .walk { stroke: var(--critical); stroke-width: 1.6; opacity: 0.85; }
+.lab .evm { stroke: var(--accent); stroke-width: 0.8; opacity: 0.35; }
+.lab .v-own { fill: var(--s1); fill-opacity: .35; stroke: var(--s1); stroke-width: 1; }
+.lab .v-walk { fill: var(--critical); fill-opacity: .25; stroke: var(--critical); stroke-width: 1.2; }
+.lab .site { fill: var(--ink); stroke: var(--surface); stroke-width: 1.2; }
+.lab .dep { fill: var(--accent); stroke: var(--surface); stroke-width: 2; }
+.lab .ring { fill: none; stroke: var(--muted); stroke-dasharray: 3 4; }
+.labstats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem 1rem; margin-block: 0.6rem 0.9rem; }
+.labstats div { border-top: 1px solid var(--rule); padding-top: 0.4rem; display: grid; gap: 0.1rem; }
+.labstats .v { font: 700 1.35rem/1.1 var(--font-display); font-stretch: 85%; }
+.labstats .k { font-size: 0.78rem; color: var(--muted); }
+.story { font-size: 0.92rem; color: var(--ink-2); display: grid; gap: 0.5rem; }
+.story b { color: var(--ink); }
+
+.caveats { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem 1.5rem; }
+.caveats div { border-top: 1px solid var(--rule-strong); padding-top: 0.6rem; display: grid; gap: 0.3rem; }
+.caveats h3 { font-size: 1rem; }
+.caveats p { font-size: 0.9rem; color: var(--ink-2); }
+code { font-family: var(--font-data); font-size: 0.85em; background: var(--band); padding: 0.05rem 0.3rem; border-radius: 3px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">IE 301 · Election logistics · District pilots</div>
+    <h1>Maharashtra Delimitation Lab</h1>
+    <p class="lede">Assembly constituencies redrawn for four Maharashtra districts by a ReCom optimizer on 2011 Census villages and city cells, then checked on real OpenStreetMap road distances and an exact polling-booth model. Each district's official 2008 map is scored with exactly the same rules.</p>
+    <div class="stamp" id="stamp"></div>
+  </header>
+
+  <section class="section" aria-labelledby="sum-h">
+    <header><h2 id="sum-h">Four districts at a glance</h2>
+      <p class="note">One row per district. "Best plan" is the optimizer plan with the lowest common score (35 / 30 / 20 / 15 weights on population balance / road distance / taluka splits / shape; lower is better).</p></header>
+    <div class="tablebox"><table id="summary"></table></div>
+  </section>
+
+  <section class="section" aria-labelledby="how-h">
+    <header><h2 id="how-h">How a plan is made</h2></header>
+    <figure>
+      <svg class="dg" viewBox="0 0 1160 250" role="img" aria-label="Pipeline: Census and village maps become units; units, adjacency and road distances feed the ReCom search; each plan goes to the booth model and the scorer, alongside the official map.">
+        <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
+          <marker id="ahv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="hlf"/></marker></defs>
+        <g>
+          <rect class="box-soft" x="10" y="20" width="170" height="64" rx="6"/><text x="95" y="46" text-anchor="middle" font-weight="600">Census 2011 PCA</text><text x="95" y="66" text-anchor="middle" class="small">population per village/town</text>
+          <rect class="box-soft" x="10" y="100" width="170" height="64" rx="6"/><text x="95" y="126" text-anchor="middle" font-weight="600">SHRUG polygons</text><text x="95" y="146" text-anchor="middle" class="small">village & town shapes</text>
+          <rect class="box-soft" x="10" y="180" width="170" height="64" rx="6"/><text x="95" y="206" text-anchor="middle" font-weight="600">WorldPop 1 km grid</text><text x="95" y="226" text-anchor="middle" class="small">where people live in cities</text>
+        </g>
+        <path class="arrow" d="M180,52 L240,110" marker-end="url(#ah)"/><path class="arrow" d="M180,132 L240,132" marker-end="url(#ah)"/><path class="arrow" d="M180,212 L240,154" marker-end="url(#ah)"/>
+        <rect class="box" x="244" y="92" width="170" height="80" rx="6"/><text x="329" y="120" text-anchor="middle" font-weight="600">Assignment units</text><text x="329" y="140" text-anchor="middle" class="small">villages + city cells</text><text x="329" y="157" text-anchor="middle" class="small">sum = Census total</text>
+        <path class="arrow" d="M414,118 L470,72" marker-end="url(#ah)"/><text x="446" y="112" class="small">shared borders</text>
+        <path class="arrow" d="M414,148 L470,196" marker-end="url(#ah)"/><text x="446" y="160" class="small">snap to roads</text>
+        <rect class="box" x="474" y="34" width="160" height="64" rx="6"/><text x="554" y="60" text-anchor="middle" font-weight="600">Adjacency graph</text><text x="554" y="80" text-anchor="middle" class="small">who touches whom</text>
+        <rect class="box" x="474" y="166" width="160" height="64" rx="6"/><text x="554" y="192" text-anchor="middle" font-weight="600">Road-km matrix</text><text x="554" y="212" text-anchor="middle" class="small">OSM, Dijkstra</text>
+        <path class="arrow" d="M634,66 L692,112" marker-end="url(#ah)"/><path class="arrow" d="M634,198 L692,152" marker-end="url(#ah)"/>
+        <rect class="box" x="696" y="92" width="170" height="80" rx="6" stroke-width="2.2"/><text x="781" y="120" text-anchor="middle" font-weight="700">ReCom search</text><text x="781" y="140" text-anchor="middle" class="small">merge 2 seats, re-split,</text><text x="781" y="156" text-anchor="middle" class="small">keep if score improves</text>
+        <path class="arrow" d="M866,118 L924,72" marker-end="url(#ah)"/><text x="878" y="84" class="small">each plan</text>
+        <path class="arrow" d="M866,148 L924,196" marker-end="url(#ah)"/>
+        <rect class="box" x="928" y="34" width="222" height="64" rx="6"/><text x="1039" y="60" text-anchor="middle" font-weight="600">Scorer + rule checks</text><text x="1039" y="80" text-anchor="middle" class="small">±10%, contiguity, talukas, shape</text>
+        <rect class="box" x="928" y="166" width="222" height="64" rx="6"/><text x="1039" y="192" text-anchor="middle" font-weight="600">Booth MIP per seat</text><text x="1039" y="212" text-anchor="middle" class="small">booths, walking, EVM trips</text>
+        <path d="M1039,14 L1039,34" class="arrow hl" marker-end="url(#ahv)" stroke-width="2"/><text x="1039" y="10" text-anchor="middle" class="small" style="fill:var(--accent)">official 2008 map, same tests</text>
+      </svg>
+      <figcaption>Data flows left to right. Real road distances enter in two places: the optimizer uses them to judge how far people are from their seat's centre, and the booth model uses them for walking and EVM trips. The official map skips the search and goes straight to the same scorer and booth model.</figcaption>
+    </figure>
+
+    <div class="steps3">
+      <figure>
+        <svg class="dg" viewBox="0 0 330 230" role="img" aria-label="Step 1: pick two neighbouring seats and merge them into one region.">
+          <g id="grid-a"></g>
+          <text x="165" y="222" text-anchor="middle" class="small">Seat A (412k) + Seat B (296k) = 708k</text>
+        </svg>
+        <figcaption><b>1. Merge.</b> Pick two seats that share a border and pool their villages.</figcaption>
+      </figure>
+      <figure>
+        <svg class="dg" viewBox="0 0 330 230" role="img" aria-label="Step 2: draw a random spanning tree through the merged villages.">
+          <g id="grid-b"></g>
+          <text x="165" y="222" text-anchor="middle" class="small">tree links every village, no loops</text>
+        </svg>
+        <figcaption><b>2. Random tree.</b> Join the villages by a random tree of shared borders. Cutting any one edge splits it into two connected pieces.</figcaption>
+      </figure>
+      <figure>
+        <svg class="dg" viewBox="0 0 330 230" role="img" aria-label="Step 3: cut the one tree edge that leaves both halves within ten percent of the target.">
+          <g id="grid-c"></g>
+          <text x="165" y="222" text-anchor="middle" class="small">new A 351k · new B 357k (both within ±10%)</text>
+        </svg>
+        <figcaption><b>3. Cut and score.</b> Cut the edge that leaves both halves within ±10%. Keep the new map if its score improves (sometimes even if it gets a little worse, to escape dead ends).</figcaption>
+      </figure>
+    </div>
+
+    <figure>
+      <svg class="dg" viewBox="0 0 1160 300" role="img" aria-label="Booth model: isolated villages need their own booth, close villages can share, a village over 1,500 electors needs several booths, and every booth gets one EVM trip from the depot.">
+        <defs><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--critical)"/></marker></defs>
+        <rect class="box-soft" x="10" y="10" width="1140" height="280" rx="8"/>
+        <!-- depot -->
+        <path d="M580,150 l9,-22 9,22 -18,-13 h18z" transform="translate(-9,4)" class="hlf"/>
+        <text x="580" y="186" text-anchor="middle" font-weight="600" style="fill:var(--accent)">Depot</text><text x="580" y="202" text-anchor="middle" class="small">EVMs leave from here</text>
+        <!-- isolated village -->
+        <circle cx="150" cy="120" r="12" fill="var(--s1)" fill-opacity=".35" stroke="var(--s1)"/><rect x="143" y="113" width="14" height="14" fill="currentColor"/>
+        <circle cx="150" cy="120" r="70" fill="none" stroke="var(--muted)" stroke-dasharray="3 4"/>
+        <text x="150" y="215" text-anchor="middle" font-weight="600">Isolated village, 300 electors</text>
+        <text x="150" y="233" text-anchor="middle" class="small">nobody else within 2 km →</text>
+        <text x="150" y="249" text-anchor="middle" class="small">own booth, 80% empty</text>
+        <!-- sharing pair -->
+        <circle cx="330" cy="100" r="11" fill="var(--critical)" fill-opacity=".25" stroke="var(--critical)"/>
+        <circle cx="400" cy="125" r="14" fill="var(--s1)" fill-opacity=".35" stroke="var(--s1)"/><rect x="393" y="118" width="14" height="14" fill="currentColor"/>
+        <path d="M340,104 L386,120" stroke="var(--critical)" stroke-width="2" marker-end="url(#ahr)"/>
+        <text x="340" y="88" text-anchor="middle" class="small">450 electors walk 1.6 km</text>
+        <text x="365" y="215" text-anchor="middle" font-weight="600">Close neighbours share</text>
+        <text x="365" y="233" text-anchor="middle" class="small">450 + 900 = 1,350 ≤ 1,500 →</text>
+        <text x="365" y="249" text-anchor="middle" class="small">one booth instead of two</text>
+        <!-- big village -->
+        <circle cx="800" cy="115" r="26" fill="var(--s1)" fill-opacity=".35" stroke="var(--s1)"/>
+        <rect x="783" y="104" width="10" height="10" fill="currentColor"/><rect x="796" y="104" width="10" height="10" fill="currentColor"/><rect x="809" y="104" width="10" height="10" fill="currentColor"/>
+        <rect x="789" y="117" width="10" height="10" fill="currentColor"/><rect x="802" y="117" width="10" height="10" fill="currentColor"/>
+        <text x="800" y="215" text-anchor="middle" font-weight="600">Large village, 6,800 electors</text>
+        <text x="800" y="233" text-anchor="middle" class="small">⌈6,800 / 1,500⌉ = 5 booths</text>
+        <text x="800" y="249" text-anchor="middle" class="small">at the same site</text>
+        <!-- city cell -->
+        <rect x="990" y="88" width="60" height="60" fill="var(--s3)" fill-opacity=".3" stroke="var(--s3)"/>
+        <g fill="currentColor"><rect x="996" y="94" width="9" height="9"/><rect x="1008" y="94" width="9" height="9"/><rect x="1020" y="94" width="9" height="9"/><rect x="1032" y="94" width="9" height="9"/><rect x="996" y="106" width="9" height="9"/><rect x="1008" y="106" width="9" height="9"/><rect x="1020" y="106" width="9" height="9"/><rect x="1032" y="106" width="9" height="9"/><rect x="996" y="118" width="9" height="9"/><rect x="1008" y="118" width="9" height="9"/></g>
+        <text x="1020" y="215" text-anchor="middle" font-weight="600">City cell, 15,000 electors</text>
+        <text x="1020" y="233" text-anchor="middle" class="small">10 full booths, nobody walks</text>
+        <text x="1020" y="249" text-anchor="middle" class="small">far (all inside one cell)</text>
+        <!-- evm spokes -->
+        <g stroke="var(--accent)" stroke-width="1.2" stroke-dasharray="5 4" fill="none" opacity=".8">
+          <path d="M571,140 C420,60 250,70 160,112"/><path d="M571,142 C520,120 460,118 410,124"/><path d="M589,140 C650,100 740,100 778,110"/><path d="M589,142 C760,170 900,150 988,120"/>
+        </g>
+        <text x="690" y="88" text-anchor="middle" class="small" style="fill:var(--accent)">one EVM trip per booth</text>
+        <text x="30" y="40" class="small">Rules per seat: each booth ≤ 1,500 electors · nobody walks more than the limit (2 km here) by road · minimise booths + walking + EVM km</text>
+      </svg>
+      <figcaption>The booth model works village by village. Booth count is driven by how far apart villages are: an isolated hamlet needs its own half-empty booth whatever constituency it is in. Constituency lines only decide which depot a booth's EVMs come from, which is why boundaries barely change the booth plan.</figcaption>
+    </figure>
+  </section>
+
+  <nav class="tabs" id="tabs" role="tablist" aria-label="District"></nav>
+
+  <section class="section" aria-labelledby="f-h">
+    <header><div class="eyebrow" id="d-eyebrow"></div><h2 id="f-h">What the results say</h2><p class="note" id="d-note"></p></header>
+    <div class="findings" id="findings"></div>
+  </section>
+
+  <section class="section" aria-labelledby="m-h">
+    <header><h2 id="m-h">Map explorer</h2>
+      <p class="note">Pick a plan. Seat numbers are matched to the nearest official seat, so the same number means roughly the same area in every plan. Hover a seat for its numbers.</p></header>
+    <div class="explorer">
+      <div class="panel">
+        <div class="controls">
+          <div class="seg" id="seg-official"><span class="lbl">Official</span></div>
+          <div class="seg" id="seg-original"><span class="lbl">First runs</span></div>
+          <div class="seg" id="seg-road"><span class="lbl">Road runs</span></div>
+          <div class="toggles">
+            <label><input type="checkbox" id="t-official" checked><span>Official boundaries</span></label>
+            <label><input type="checkbox" id="t-taluka"><span>Taluka lines</span></label>
+            <label><input type="checkbox" id="t-booth"><span>Booth sites (2 km rule)</span></label>
+            <label><input type="checkbox" id="t-village"><span>Villages</span></label>
+          </div>
+        </div>
+        <div class="mapbox" id="mapbox"><svg id="map" class="map" role="img" aria-label="Constituency map"></svg><div class="tip" id="tip" hidden></div></div>
+        <div class="legend" id="map-legend"></div>
+      </div>
+      <aside class="panel" id="plan" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="t-h">
+    <header><h2 id="t-h">Every plan on one scale</h2>
+      <p class="note">All plans are scored with road distances and the common weights. Lower is better everywhere except the band check. Underlined values are the best in each column. Click a row to show it on the map.</p></header>
+    <div class="tablebox"><table id="cmp"></table></div>
+    <div class="two">
+      <div class="panel"><div class="chart-title">Taluka splits vs road distance</div><svg id="scatter" class="chart" role="img" aria-label="Scatter of extra taluka pieces against mean road distance"></svg><div class="legend" id="scatter-legend"></div></div>
+      <div class="panel"><div class="chart-title">Largest seat deviation from the target population</div><svg id="devbars" class="chart" role="img" aria-label="Largest seat deviation per plan"></svg></div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="b-h">
+    <header><h2 id="b-h">Booth lab</h2>
+      <p class="note">Zoom into one seat to see where its booths go. <b>Blue</b> villages vote at home; <b>red</b> villages send some electors to a neighbour's booth (red lines). Black squares are booth sites, sized by the number of booths. The violet star is the depot and the faint violet lines are EVM trips. Switch the walking limit to see booths being merged.</p></header>
+    <div class="lab">
+      <div class="panel">
+        <div class="lab-controls">
+          <label>Plan <select id="lab-plan"></select></label>
+          <label>Seat <select id="lab-seat"></select></label>
+          <span class="seg" id="lab-km" role="group" aria-label="Walking limit"></span>
+          <label><input type="checkbox" id="lab-evm" checked> EVM trips</label>
+        </div>
+        <svg id="labmap" class="map" role="img" aria-label="Booth plan for one seat"></svg>
+        <div class="legend"><span><i class="dot-sw" style="background:var(--s1)"></i>Votes in own village</span><span><i class="dot-sw" style="background:var(--critical)"></i>Some electors walk to a neighbour</span><span><i class="sw" style="background:var(--ink)"></i>Booth site</span><span><i class="sw" style="background:var(--accent);transform:rotate(45deg) scale(.8)"></i>Depot</span></div>
+      </div>
+      <aside class="panel">
+        <div class="chart-title" id="lab-title"></div>
+        <div class="labstats" id="labstats"></div>
+        <div class="story" id="labstory"></div>
+        <div class="chart-title">Booths in this seat by walking limit</div>
+        <svg id="lab-bars" class="chart" role="img" aria-label="Booths needed in this seat at each walking limit"></svg>
+      </aside>
+    </div>
+    <div class="two">
+      <div class="panel"><div class="chart-title">Why the walking limit decides the booth count</div>
+        <svg id="nn-hist" class="chart" role="img" aria-label="Histogram of road distance from each village to its nearest neighbour"></svg>
+        <p class="note" id="nn-note"></p></div>
+      <div class="panel"><div class="chart-title">Booths needed by plan and walking limit</div>
+        <svg id="booth-n" class="chart" role="img" aria-label="Booths needed per plan at 2, 3 and 5 km"></svg>
+        <p class="note" id="booth-note"></p></div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="r-h">
+    <header><h2 id="r-h">Search robustness</h2>
+      <p class="note">Each road-run profile was searched twice from different random seeds. Close scores mean the result is not luck; a large gap means the search needs more steps or restarts before a plan is trusted.</p></header>
+    <div class="tablebox"><table id="seeds"></table></div>
+  </section>
+
+  <section class="section" aria-labelledby="c-h">
+    <header><h2 id="c-h">Limits of these results</h2></header>
+    <div class="caveats">
+      <div><h3>Population, not electors</h3><p>Seats are balanced on 2011 Census population; the booth model assumes 70% are electors. Official seats were drawn on 2001 population, so part of their imbalance is a decade of growth.</p></div>
+      <div><h3>City cells and wards</h3><p>Big cities are cut into ~1 km WorldPop grid cells rescaled to the Census town total (Sangli uses 20 approximate wards). City totals are exact, but how people are spread inside a city is a model estimate. Official city seats then show implausible swings (Pune Cantonment +67%, Kothrud −45%), so treat any seat marked ≈ as an estimate. Census ward populations would fix this.</p></div>
+      <div><h3>Official map reconstruction</h3><p>Villages use SHRUG's village-to-seat key; city cells use the DataMeet seat shapes. The two agree on 98–99% of villages with no measurable offset, so the shapes are sound. A few official seats show a one-village stray piece where key and shapes disagree; that is reconstruction noise, not a real exclave.</p></div>
+      <div><h3>One point per village</h3><p>Each village or cell is one point, so walking inside it counts as zero. Booth and walking figures measure travel between villages only.</p></div>
+      <div><h3>Assumed costs</h3><p>Booth cost ₹25,000, walking ₹10 per elector-km and EVM transport ₹120 per booth-km are placeholders. The booth count depends mainly on the walking limit.</p></div>
+      <div><h3>Heuristic search, real seat counts</h3><p>ReCom finds good plans, not proven-best ones. Seat counts are the official ones (Sangli 8, Satara 8, Nashik 15, Pune 21); a 2011-based statewide reallocation would change some of them.</p></div>
+    </div>
+  </section>
+</div>
+
+<script id="data" type="application/json">/*DATA*/</script>
+<script>
+(() => {
+  const DATA = JSON.parse(document.getElementById("data").textContent);
+  const $ = (s) => document.querySelector(s);
+  const NS = "http://www.w3.org/2000/svg";
+  const fmt = (v, d = 0) => Number(v).toLocaleString("en-IN", { minimumFractionDigits: d, maximumFractionDigits: d });
+  const sgn = (v, d = 1) => (v > 0 ? "+" : "") + v.toFixed(d);
+  const seatColor = (s) => `var(--s${((s - 1) % 8) + 1})`;
+  const GROUPS = { official: "Official 2008", original: "First runs (straight-line search)", road: "Road runs (road-distance search)" };
+  const GCOL = { official: "var(--s1)", original: "var(--s2)", road: "var(--s3)" };
+  const el = (tag, attrs = {}, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; };
+  const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+  const bestRoad = (d) => d.plans.filter((p) => p.group !== "official").sort((a, b) => a.common_score - b.common_score)[0] || d.plans[0];
+  const bs = (p, km) => p.booth_summary && p.booth_summary[String(km)];
+
+  // ---------- stamp + cross-district summary ----------
+  const tot = DATA.districts.reduce((a, d) => ({ pop: a.pop + d.population, seats: a.seats + d.seats, units: a.units + d.units }), { pop: 0, seats: 0, units: 0 });
+  $("#stamp").innerHTML = [`${DATA.districts.length} districts`, `${tot.seats} seats`, `${fmt(tot.pop)} people (2011)`, `${fmt(tot.units)} assignment units`, `${DATA.districts.reduce((a, d) => a + d.plans.length, 0)} plans scored`]
+    .map((t) => `<span>${t}</span>`).join("");
+  (function summary() {
+    let h = `<thead><tr><th>District</th><th class="n">Seats</th><th class="n">Population</th><th class="n">Units (city cells)</th><th class="n">Official seats outside ±10%</th><th class="n">Official taluka pieces</th><th class="n">Best plan taluka pieces</th><th class="n">Official score</th><th class="n">Best plan score</th><th class="n">Booths at 2 km (official / best)</th></tr></thead><tbody>`;
+    DATA.districts.forEach((d) => {
+      const off = d.plans[0], b = bestRoad(d);
+      const fails = off.seats.filter((s) => Math.abs(s.dev_pct) > 10).length;
+      h += `<tr data-d="${d.key}" tabindex="0" style="cursor:pointer"><td><b>${d.name}</b></td><td class="n">${d.seats}</td><td class="n">${fmt(d.population)}</td><td class="n">${fmt(d.units)} (${fmt(d.city_units)})</td>
+        <td class="n"><span class="pill ${fails ? "bad" : "ok"}">${fails} of ${d.seats}</span></td><td class="n">${off.taluka_excess}</td><td class="n">${b.taluka_excess}</td>
+        <td class="n">${off.common_score.toFixed(3)}</td><td class="n"><b>${b.common_score.toFixed(3)}</b> <span class="muted">${b.label.replace(" (road)", "")}</span></td>
+        <td class="n">${bs(off, 2) ? fmt(bs(off, 2).booths) : "–"} / ${bs(b, 2) ? fmt(bs(b, 2).booths) : "–"}</td></tr>`;
+    });
+    $("#summary").innerHTML = h + "</tbody>";
+    document.querySelectorAll("#summary tr[data-d]").forEach((tr) => {
+      const go = () => { setDistrict(tr.dataset.d); $("#tabs").scrollIntoView({ behavior: "smooth" }); };
+      tr.addEventListener("click", go); tr.addEventListener("keydown", (e) => { if (e.key === "Enter") go(); });
+    });
+  })();
+
+  // ---------- ReCom step diagrams (a 6x5 toy grid) ----------
+  (function recom() {
+    const C = 6, R = 5, cs = 40, ox = 45, oy = 8;
+    const pops = [14, 30, 22, 12, 18, 26, 20, 41, 33, 16, 24, 15, 28, 19, 37, 22, 30, 11, 12, 25, 18, 27, 20, 33, 21, 14, 30, 23, 17, 29];
+    const seatA = (r, c) => c < 3 || (c === 3 && r < 2);
+    const cx = (c) => ox + c * cs + cs / 2, cy = (r) => oy + r * cs + cs / 2;
+    // a fixed "random" spanning tree: snake through rows plus verticals in column 0
+    const tree = [];
+    for (let r = 0; r < R; r++) for (let c = 0; c < C - 1; c++) tree.push([[r, c], [r, c + 1]]);
+    for (let r = 0; r < R - 1; r++) tree.push([[r, (r * 2 + 1) % C], [r + 1, (r * 2 + 1) % C]]);
+    const cut = [[2, (2 * 2 + 1) % C], [3, (2 * 2 + 1) % C]]; // vertical edge between rows 2 and 3
+    const newA = (r) => r <= 2;
+    [["#grid-a", 1], ["#grid-b", 2], ["#grid-c", 3]].forEach(([id, step]) => {
+      const g = document.querySelector(id);
+      for (let r = 0; r < R; r++) for (let c = 0; c < C; c++) {
+        const fill = step === 1 ? (seatA(r, c) ? "var(--s1)" : "var(--s2)") : step === 2 ? "var(--s7)" : (newA(r) ? "var(--s1)" : "var(--s2)");
+        el("rect", { x: ox + c * cs + 1, y: oy + r * cs + 1, width: cs - 2, height: cs - 2, rx: 3, fill, "fill-opacity": step === 2 ? 0.25 : 0.4 }, g);
+        const t = el("text", { x: cx(c), y: cy(r) + 4, "text-anchor": "middle", class: "mono" }, g); t.textContent = pops[r * C + c] + "k";
+      }
+      if (step === 1) {
+        el("path", { d: `M${ox + 3 * cs},${oy} V${oy + 2 * cs} H${ox + 4 * cs} V${oy + R * cs}`, stroke: "currentColor", "stroke-width": 3, fill: "none" }, g);
+        const a = el("text", { x: ox - 14, y: oy + 2 * cs, "font-weight": 700, "text-anchor": "middle" }, g); a.textContent = "A";
+        const b = el("text", { x: ox + C * cs + 14, y: oy + 3 * cs, "font-weight": 700, "text-anchor": "middle" }, g); b.textContent = "B";
+      } else {
+        tree.forEach(([p, q]) => {
+          const isCut = step === 3 && p[0] === cut[0][0] && p[1] === cut[0][1] && q[0] === cut[1][0];
+          if (step === 3 && isCut) return;
+          el("line", { x1: cx(p[1]), y1: cy(p[0]) - 10, x2: cx(q[1]), y2: cy(q[0]) - 10, stroke: "currentColor", "stroke-width": 1.6, opacity: step === 3 ? 0.35 : 0.9 }, g);
+        });
+        if (step === 3) {
+          const x = cx(cut[0][1]), y = (cy(cut[0][0]) + cy(cut[1][0])) / 2 - 10;
+          el("line", { x1: x, y1: y - 14, x2: x, y2: y + 14, stroke: "var(--critical)", "stroke-width": 2, "stroke-dasharray": "3 3" }, g);
+          el("path", { d: `M${x - 7},${y - 7} L${x + 7},${y + 7} M${x + 7},${y - 7} L${x - 7},${y + 7}`, stroke: "var(--critical)", "stroke-width": 3 }, g);
+          el("path", { d: `M${ox},${oy + 3 * cs} H${ox + C * cs}`, stroke: "currentColor", "stroke-width": 3 }, g);
+        }
+      }
+    });
+  })();
+
+  // ---------- district state ----------
+  let D = null, current = "official", proj = null;
+  const tabs = $("#tabs");
+  DATA.districts.forEach((d) => {
+    const b = document.createElement("button");
+    b.className = "tab"; b.type = "button"; b.setAttribute("role", "tab"); b.dataset.d = d.key;
+    b.innerHTML = `${d.name}<small>${d.seats} seats · ${fmt(d.population / 1e5, 1)} lakh</small>`;
+    b.addEventListener("click", () => setDistrict(d.key));
+    tabs.appendChild(b);
+  });
+
+  function makeProj(polys, W) {
+    let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    polys.forEach((poly) => poly[0].forEach(([x, y]) => { minX = Math.min(minX, x); maxX = Math.max(maxX, x); minY = Math.min(minY, y); maxY = Math.max(maxY, y); }));
+    const kx = Math.cos(((minY + maxY) / 2) * Math.PI / 180), pad = 14;
+    const sc = (W - 2 * pad) / ((maxX - minX) * kx);
+    const H = Math.round((maxY - minY) * sc + 2 * pad);
+    const px = (lon) => pad + (lon - minX) * kx * sc, py = (lat) => pad + (maxY - lat) * sc;
+    const path = (ps) => ps.map((poly) => poly.map((ring) => "M" + ring.map(([x, y]) => `${px(x).toFixed(1)},${py(y).toFixed(1)}`).join("L") + "Z").join("")).join("");
+    return { W, H, px, py, path, kmPx: sc / 111.32 };
+  }
+
+  function setDistrict(key) {
+    D = DATA.districts.find((d) => d.key === key) || DATA.districts[0];
+    store.set("mdl-district", D.key);
+    document.querySelectorAll(".tab").forEach((t) => t.setAttribute("aria-selected", t.dataset.d === D.key ? "true" : "false"));
+    $("#d-eyebrow").textContent = `${D.name} district · ${D.seats} seats · target ${fmt(D.target)} people per seat`;
+    $("#d-note").textContent = `${fmt(D.units)} assignment units (${fmt(D.populated_units)} populated). ${D.city_note} Median road detour ×${D.road_info.road_over_straight_median.toFixed(2)} over straight-line distance across ${fmt(D.road_info.road_nodes)} road nodes.`;
+    const saved = store.get(`mdl-plan-${D.key}`);
+    current = saved && D.plans.some((p) => p.key === saved) ? saved : "official";
+    findings(); buildMapBase(); buildSelectors(); table(); scatter(); devbars(); nnHist(); boothChart(); seeds(); labInit(); select(current);
+  }
+
+  // ---------- findings ----------
+  function findings() {
+    const off = D.plans[0], best = bestRoad(D), gen = D.plans.filter((p) => p.group !== "official");
+    const over = off.seats.filter((s) => Math.abs(s.dev_pct) > 10);
+    const cityOver = over.filter((s) => s.cell_share > 0.5), ruralOver = over.filter((s) => s.cell_share <= 0.5);
+    const b2 = D.plans.filter((p) => bs(p, 2)).map((p) => bs(p, 2));
+    const objs = b2.map((r) => r.objective), spread = objs.length > 1 ? (Math.max(...objs) / Math.min(...objs) - 1) * 100 : 0;
+    const minTal = Math.min(...gen.map((m) => m.taluka_excess));
+    const name = (s) => D.official_names[s.seat];
+    const f = [
+      { k: `${over.length}<small> of ${D.seats}</small>`, p: !over.length ? "official seats break the ±10% band on 2011 population. The official map still balances."
+          : `official seats break the ±10% band on 2011 population${ruralOver.length ? `: ${ruralOver.slice(0, 4).map((s) => `${name(s)} (${sgn(s.dev_pct)}%)`).join(", ")}${ruralOver.length > 4 ? ", …" : ""}` : ""}.`
+          + (cityOver.length ? ` ${cityOver.length} of them are city seats whose population comes from the 1 km grid, so their deviation is an estimate.` : "") },
+      { k: `${off.taluka_excess}<small> vs ${minTal}</small>`, p: `extra taluka pieces, official map vs the best optimized plan. ${off.taluka_excess <= minTal ? "The official map keeps talukas more intact." : "The optimizer keeps talukas more intact here."}` },
+      { k: `${spread.toFixed(2)}<small>%</small>`, p: `spread in booth-model cost across ${b2.length} plans at a 2 km walking limit (${fmt(Math.min(...b2.map((r) => r.booths)))}–${fmt(Math.max(...b2.map((r) => r.booths)))} booths). Boundaries barely change the booth plan.` },
+      { k: `${best.common_score.toFixed(3)}<small> vs ${off.common_score.toFixed(3)}</small>`, p: `common score of the best optimized plan (${best.label.replace(" (road)", " road run").replace(" (first run)", " first run")}) against the official map. Lower is better.` },
+    ];
+    $("#findings").innerHTML = f.map((x) => `<div class="finding"><div class="k num">${x.k}</div><p>${x.p}</p></div>`).join("");
+  }
+
+  // ---------- map explorer ----------
+  const svg = $("#map"), tip = $("#tip"), box = $("#mapbox");
+  let layers = {};
+  function buildMapBase() {
+    proj = makeProj(D.district, 1000);
+    svg.setAttribute("viewBox", `0 0 ${proj.W} ${proj.H}`); svg.replaceChildren();
+    layers = {}; ["seats", "tal", "off", "vil", "booth", "lab", "tallab"].forEach((k) => layers[k] = el("g", {}, svg));
+    el("path", { d: proj.path(D.district), class: "district" }, svg);
+    D.talukas.forEach((t) => { el("path", { d: proj.path(t.geom), class: "taluka" }, layers.tal); el("text", { x: proj.px(t.label[0]), y: proj.py(t.label[1]) + 36, class: "tl" }, layers.tallab).textContent = t.name; });
+    D.plans[0].seats.forEach((s) => el("path", { d: proj.path(s.geom), class: "official" }, layers.off));
+    D.points.forEach(([x, y, p]) => el("circle", { cx: proj.px(x), cy: proj.py(y), r: Math.max(1.4, Math.min(7, Math.sqrt(p) / 30)), class: "village" }, layers.vil));
+  }
+  function showTip(evt, s) {
+    tip.innerHTML = `<b>Seat ${s.seat} · nearest official: ${D.official_names[s.seat]}</b>
+      <div class="row"><span>Population</span><span>${fmt(s.population)}</span></div>
+      <div class="row"><span>Deviation</span><span>${sgn(s.dev_pct, 2)}%</span></div>
+      ${s.cell_share > 0.5 ? `<div class="row"><span>From city grid cells</span><span>${(100 * s.cell_share).toFixed(0)}% (estimate)</span></div>` : ""}
+      <div class="row"><span>Mean road km to centre</span><span>${s.road_km.toFixed(1)}</span></div>
+      <div class="row"><span>Area km²</span><span>${fmt(s.area_km2)}</span></div>
+      <div class="row"><span>Centre / depot</span><span>${s.centre}</span></div>
+      <div style="margin-top:.3rem;color:var(--ink-2)">${s.talukas.join(", ")}</div>`;
+    tip.hidden = false;
+    const r = box.getBoundingClientRect();
+    let x = evt.clientX - r.left + 14, y = evt.clientY - r.top + 14;
+    if (x + 270 > r.width) x = Math.max(4, evt.clientX - r.left - 274);
+    if (y + tip.offsetHeight > r.height) y = Math.max(4, evt.clientY - r.top - tip.offsetHeight - 10);
+    tip.style.left = x + "px"; tip.style.top = y + "px";
+  }
+  function drawMap() {
+    const m = D.plans.find((p) => p.key === current);
+    layers.seats.replaceChildren(); layers.lab.replaceChildren(); layers.booth.replaceChildren();
+    m.seats.forEach((s) => {
+      const p = el("path", { d: proj.path(s.geom), class: "seat", fill: seatColor(s.seat), tabindex: 0, "aria-label": `Seat ${s.seat}, population ${s.population}` }, layers.seats);
+      p.addEventListener("pointermove", (e) => { p.classList.add("hot"); showTip(e, s); });
+      p.addEventListener("pointerleave", () => { p.classList.remove("hot"); tip.hidden = true; });
+      p.addEventListener("focus", () => { p.classList.add("hot"); const bb = p.getBoundingClientRect(); showTip({ clientX: bb.left + bb.width / 2, clientY: bb.top + bb.height / 2 }, s); });
+      p.addEventListener("blur", () => { p.classList.remove("hot"); tip.hidden = true; });
+      p.addEventListener("click", () => { labSet(m.lab ? m.key : null, s.seat); });
+      const g = el("g", { class: "sl", transform: `translate(${proj.px(s.label[0]).toFixed(1)},${proj.py(s.label[1]).toFixed(1)})` }, layers.lab);
+      el("circle", { r: s.seat > 9 ? 22 : 19 }, g); el("text", {}, g).textContent = s.seat;
+    });
+    if (m.booths) m.booths.forEach(([x, y, n, seat, dep]) => {
+      if (dep) el("rect", { x: proj.px(x) - 9, y: proj.py(y) - 9, width: 18, height: 18, transform: `rotate(45 ${proj.px(x)} ${proj.py(y)})`, class: "depot" }, layers.booth);
+      else el("circle", { cx: proj.px(x), cy: proj.py(y), r: (1.4 + Math.sqrt(n) * 1.3).toFixed(2), class: "booth" }, layers.booth);
+    });
+    applyToggles(); drawPlan(); markRows();
+  }
+  function applyToggles() {
+    const m = D.plans.find((p) => p.key === current);
+    layers.off.style.display = $("#t-official").checked && current !== "official" ? "" : "none";
+    layers.tal.style.display = layers.tallab.style.display = $("#t-taluka").checked ? "" : "none";
+    layers.booth.style.display = $("#t-booth").checked ? "" : "none";
+    layers.vil.style.display = $("#t-village").checked ? "" : "none";
+    $("#map-legend").innerHTML = m.seats.map((s) => `<span><i class="sw" style="background:${seatColor(s.seat)};opacity:.75"></i>${s.seat} ${D.official_names[s.seat]}</span>`).join("")
+      + (layers.off.style.display === "" ? `<span><i class="line-sw"></i>Official 2008 lines</span>` : "")
+      + (layers.booth.style.display === "" ? `<span><i class="dot-sw"></i>Booth site (size = booths)</span><span><i class="sw" style="background:var(--accent);transform:rotate(45deg) scale(.8)"></i>Depot</span>` : "");
+  }
+  ["#t-official", "#t-taluka", "#t-booth", "#t-village"].forEach((id) => $(id).addEventListener("change", applyToggles));
+  function buildSelectors() {
+    ["official", "original", "road"].forEach((grp) => {
+      const seg = $(`#seg-${grp}`);
+      seg.querySelectorAll("button").forEach((b) => b.remove());
+      D.plans.filter((m) => m.group === grp).forEach((m) => {
+        const b = document.createElement("button");
+        b.className = "chip"; b.type = "button"; b.dataset.key = m.key;
+        b.textContent = m.label.replace(/ \((first run|road)\)/, "");
+        b.addEventListener("click", () => select(m.key));
+        seg.appendChild(b);
+      });
+      seg.hidden = !seg.querySelector("button");
+    });
+  }
+  function select(key) {
+    current = key; store.set(`mdl-plan-${D.key}`, key);
+    document.querySelectorAll("button.chip[data-key]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.key === key ? "true" : "false"));
+    drawMap();
+  }
+  function drawPlan() {
+    const m = D.plans.find((p) => p.key === current), b2 = bs(m, 2);
+    const desc = m.group === "official" ? "Drawn by the Delimitation Commission in 2008 on 2001 Census population, rebuilt here on the same units."
+      : m.group === "original" ? `Searched on straight-line distance (first run). Weights ${m.weights}.` : `Searched on road distance, seed ${m.seed}. Weights ${m.weights}.`;
+    $("#plan").innerHTML = `
+      <div class="plan-head"><div class="eyebrow">${GROUPS[m.group]}</div><h3>${m.label}</h3><p class="note">${desc}</p>
+        <div><span class="pill ${m.passes_band ? "ok" : "bad"}">${m.passes_band ? "All seats within ±10%" : "Breaks the ±10% band"}</span></div></div>
+      <dl class="kv">
+        <dt>Common score</dt><dd>${m.common_score.toFixed(3)}</dd>
+        <dt>Largest deviation</dt><dd>${m.max_dev_pct.toFixed(2)}%</dd>
+        <dt>Mean road km to seat centre</dt><dd>${m.road_km.toFixed(2)}</dd>
+        <dt>Extra taluka pieces</dt><dd>${m.taluka_excess}</dd>
+        <dt>Shape penalty</dt><dd>${m.terms.shape.toFixed(3)}</dd>
+        <dt>People in a different seat than official</dt><dd>${fmt(m.people_moved_vs_official)}</dd>
+        ${b2 ? `<dt>Booths at 2 km limit</dt><dd>${fmt(b2.booths)}</dd><dt>EVM km at 2 km limit</dt><dd>${fmt(b2.evm_km)}</dd>` : ""}
+      </dl>
+      <div class="chart-title">Seat population vs the ±10% band</div>
+      <svg id="seatdev" class="chart" role="img" aria-label="Population deviation of each seat"></svg>
+      ${m.lab ? `<p class="note" style="margin-top:.6rem">Click a seat on the map to open it in the booth lab.</p>` : ""}`;
+    const s = $("#seatdev"), w = 440, rowH = Math.max(16, Math.min(24, 200 / m.seats.length + 4)), top = 18, left = 34, right = 84, h = top + rowH * m.seats.length + 22;
+    s.setAttribute("viewBox", `0 0 ${w} ${h}`); s.style.width = "100%";
+    const lim = Math.max(20, Math.ceil(Math.max(...m.seats.map((x) => Math.abs(x.dev_pct))) / 5) * 5), x = (v) => left + ((v + lim) / (2 * lim)) * (w - left - right);
+    el("rect", { x: x(-10), y: top - 4, width: x(10) - x(-10), height: rowH * m.seats.length + 4, fill: "var(--band)" }, s);
+    [-lim, -10, 0, 10, lim].forEach((v) => { el("line", { x1: x(v), x2: x(v), y1: top - 4, y2: top + rowH * m.seats.length, stroke: v === 0 ? "var(--rule-strong)" : "var(--rule)" }, s); el("text", { x: x(v), y: h - 6, "text-anchor": "middle" }, s).textContent = (v > 0 ? "+" : "") + v + "%"; });
+    m.seats.forEach((st, i) => {
+      const y = top + i * rowH + 3, bh = rowH - 7, v = st.dev_pct, out = Math.abs(v) > 10, x0 = x(Math.min(0, v)), x1 = x(Math.max(0, v));
+      el("rect", { x: x0, y, width: Math.max(2, x1 - x0), height: bh, rx: 3, fill: seatColor(st.seat) }, s);
+      el("text", { x: left - 8, y: y + bh / 2, "text-anchor": "end", "dominant-baseline": "central", class: "lbl-ink" }, s).textContent = st.seat;
+      const vl = el("text", { x: v >= 0 ? x1 + 5 : x0 - 5, y: y + bh / 2, "text-anchor": v >= 0 ? "start" : "end", "dominant-baseline": "central", class: out ? "lbl-ink" : "" }, s);
+      vl.textContent = sgn(v) + "%" + (out ? " !" : "") + (st.cell_share > 0.5 ? " ≈" : ""); if (out) vl.setAttribute("font-weight", "700");
+    });
+    if (m.seats.some((x) => x.cell_share > 0.5)) {
+      const n = el("text", { x: left, y: 10 }, s); n.textContent = "≈ city seat: population is a 1 km grid estimate";
+    }
+  }
+
+  // ---------- comparison table ----------
+  function table() {
+    const cols = [
+      { h: "Plan", f: (m) => m.label },
+      { h: "±10% band", f: (m) => `<span class="pill ${m.passes_band ? "ok" : "bad"}">${m.passes_band ? "Pass" : "Fail"}</span>` },
+      { h: "Max dev.", n: 1, v: (m) => m.max_dev_pct, f: (m) => m.max_dev_pct.toFixed(2) + "%" },
+      { h: "Road km to centre", n: 1, v: (m) => m.road_km, f: (m) => m.road_km.toFixed(2) },
+      { h: "Extra taluka pieces", n: 1, v: (m) => m.taluka_excess, f: (m) => m.taluka_excess },
+      { h: "Shape penalty", n: 1, v: (m) => m.terms.shape, f: (m) => m.terms.shape.toFixed(3) },
+      { h: "Common score", n: 1, v: (m) => m.common_score, f: (m) => m.common_score.toFixed(3) },
+      { h: "Booths at 2 km", n: 1, v: (m) => bs(m, 2) ? bs(m, 2).booths : Infinity, f: (m) => bs(m, 2) ? fmt(bs(m, 2).booths) : "–" },
+      { h: "EVM km at 2 km", n: 1, v: (m) => bs(m, 2) ? bs(m, 2).evm_km : Infinity, f: (m) => bs(m, 2) ? fmt(bs(m, 2).evm_km) : "–" },
+      { h: "People moved vs official", n: 1, f: (m) => fmt(m.people_moved_vs_official) },
+    ];
+    const best = cols.map((c) => c.v ? Math.min(...D.plans.map(c.v)) : null);
+    let html = `<thead><tr>${cols.map((c) => `<th class="${c.n ? "n" : ""}" scope="col">${c.h}</th>`).join("")}</tr></thead><tbody>`;
+    ["official", "original", "road"].forEach((g) => {
+      const rows = D.plans.filter((m) => m.group === g); if (!rows.length) return;
+      html += `<tr class="grp"><td colspan="${cols.length}">${GROUPS[g]}</td></tr>`;
+      rows.forEach((m) => { html += `<tr data-key="${m.key}" tabindex="0">` + cols.map((c, i) => { let v = c.f(m); if (c.v && Math.abs(c.v(m) - best[i]) < 1e-9) v = `<span class="best">${v}</span>`; return `<td class="${c.n ? "n" : ""}">${v}</td>`; }).join("") + "</tr>"; });
+    });
+    $("#cmp").innerHTML = html + "</tbody>";
+    document.querySelectorAll("#cmp tr[data-key]").forEach((tr) => {
+      tr.addEventListener("click", () => { select(tr.dataset.key); $("#m-h").scrollIntoView({ behavior: "smooth", block: "start" }); });
+      tr.addEventListener("keydown", (e) => { if (e.key === "Enter") tr.click(); });
+    });
+  }
+  function markRows() { document.querySelectorAll("#cmp tr[data-key]").forEach((tr) => tr.classList.toggle("sel", tr.dataset.key === current)); }
+
+  // ---------- chart helpers ----------
+  function frame(s, w, h) { s.setAttribute("viewBox", `0 0 ${w} ${h}`); s.style.width = "100%"; s.replaceChildren(); }
+  function niceTicks(lo, hi, n = 5) {
+    const step0 = (hi - lo) / n, mag = Math.pow(10, Math.floor(Math.log10(step0))), r = step0 / mag;
+    const step = (r < 1.5 ? 1 : r < 3 ? 2 : r < 7 ? 5 : 10) * mag;
+    const out = []; for (let v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step) out.push(+v.toFixed(10)); return out;
+  }
+  function scatter() {
+    const s = $("#scatter"), w = 520, h = 330, L = 70, R = 18, T = 14, B = 44; frame(s, w, h);
+    const pts = D.plans.map((m) => ({ x: m.taluka_excess, y: m.road_km, m })), seedsP = D.runs.map((r) => ({ x: r.taluka_excess, y: r.road_km }));
+    const all = pts.concat(seedsP), xh = Math.max(...all.map((p) => p.x)) + 2;
+    const yl = Math.min(...all.map((p) => p.y)) - 0.15, yh = Math.max(...all.map((p) => p.y)) + 0.15;
+    const X = (v) => L + (v / xh) * (w - L - R), Y = (v) => h - B - ((v - yl) / (yh - yl)) * (h - B - T);
+    const gg = el("g", { class: "grid" }, s);
+    niceTicks(yl, yh, 5).forEach((v) => { el("line", { x1: L, x2: w - R, y1: Y(v), y2: Y(v) }, gg); el("text", { x: L - 6, y: Y(v), "text-anchor": "end", "dominant-baseline": "central" }, s).textContent = v.toFixed(1); });
+    niceTicks(0, xh, 6).forEach((v) => el("text", { x: X(v), y: h - B + 16, "text-anchor": "middle" }, s).textContent = v);
+    el("line", { x1: L, x2: w - R, y1: h - B, y2: h - B, stroke: "var(--rule-strong)" }, s);
+    el("text", { x: (L + w - R) / 2, y: h - 6, "text-anchor": "middle" }, s).textContent = "extra taluka pieces →  (fewer is better)";
+    el("text", { x: 14, y: (h - B + T) / 2, transform: `rotate(-90 14 ${(h - B + T) / 2})`, "text-anchor": "middle" }, s).textContent = "mean road km to seat centre";
+    seedsP.forEach((p) => el("circle", { cx: X(p.x), cy: Y(p.y), r: 5, fill: "var(--surface)", stroke: GCOL.road, "stroke-width": 2 }, s));
+    const placed = [];
+    pts.forEach((p) => {
+      const c = el("circle", { cx: X(p.x), cy: Y(p.y), r: 6.5, fill: GCOL[p.m.group], stroke: "var(--surface)", "stroke-width": 2, style: "cursor:pointer" }, s);
+      c.addEventListener("click", () => select(p.m.key));
+      el("title", {}, c).textContent = `${p.m.label}: ${p.x} extra pieces, ${p.y.toFixed(2)} km`;
+      const t = el("text", { x: X(p.x) + 9, y: Y(p.y) - 9, class: "lbl-ink" }, s);
+      t.textContent = p.m.label.replace(" (first run)", " · first").replace(" (road)", " · road");
+      let b = t.getBBox();
+      if (b.x + b.width > w - 4) { t.setAttribute("x", X(p.x) - 9); t.setAttribute("text-anchor", "end"); b = t.getBBox(); }
+      const hit = (bb) => placed.some((q) => bb.x < q.x + q.width && q.x < bb.x + bb.width && bb.y < q.y + q.height && q.y < bb.y + bb.height);
+      for (let k = 0; k < 8 && hit(b); k++) { t.setAttribute("y", +t.getAttribute("y") + (k % 2 ? -1 : 1) * 13 * (Math.floor(k / 2) + 1)); b = t.getBBox(); }
+      placed.push(b);
+    });
+    $("#scatter-legend").innerHTML = Object.entries(GROUPS).filter(([g]) => D.plans.some((p) => p.group === g)).map(([g, n]) => `<span><i class="sw" style="background:${GCOL[g]};border-radius:50%"></i>${n}</span>`).join("") + `<span><i class="sw" style="border:2px solid ${GCOL.road};border-radius:50%"></i>Each road-run seed</span>`;
+  }
+  function devbars() {
+    const s = $("#devbars"), w = 520, rowH = 30, top = 10, left = 150, right = 64, h = top + rowH * D.plans.length + 30; frame(s, w, h);
+    const xmax = Math.max(16, ...D.plans.map((m) => m.max_dev_pct)) * 1.05, X = (v) => left + (v / xmax) * (w - left - right);
+    el("rect", { x: X(0), y: top - 4, width: X(10) - X(0), height: rowH * D.plans.length + 4, fill: "var(--band)" }, s);
+    niceTicks(0, xmax, 4).forEach((v) => { el("line", { x1: X(v), x2: X(v), y1: top - 4, y2: top + rowH * D.plans.length, stroke: "var(--rule)" }, s); el("text", { x: X(v), y: h - 8, "text-anchor": "middle" }, s).textContent = v + "%"; });
+    el("line", { x1: X(10), x2: X(10), y1: top - 4, y2: top + rowH * D.plans.length, stroke: "var(--rule-strong)", "stroke-dasharray": "4 3" }, s);
+    el("text", { x: X(10) + 4, y: top + 6, class: "lbl-ink" }, s).textContent = "limit";
+    D.plans.forEach((m, i) => {
+      const y = top + i * rowH + 6, bad = m.max_dev_pct > 10;
+      el("rect", { x: X(0), y, width: Math.max(2, X(m.max_dev_pct) - X(0)), height: rowH - 14, rx: 3, fill: GCOL[m.group] }, s);
+      el("text", { x: left - 8, y: y + (rowH - 14) / 2, "text-anchor": "end", "dominant-baseline": "central", class: "lbl-ink" }, s).textContent = m.label;
+      const v = el("text", { x: X(m.max_dev_pct) + 6, y: y + (rowH - 14) / 2, "dominant-baseline": "central", class: bad ? "lbl-ink" : "" }, s);
+      v.textContent = m.max_dev_pct.toFixed(1) + "%" + (bad ? "  over" : ""); if (bad) v.setAttribute("font-weight", "700");
+    });
+  }
+  function nnHist() {
+    const s = $("#nn-hist"), w = 520, h = 260, L = 50, R = 14, T = 16, B = 44; frame(s, w, h);
+    const e = D.nearest_km_hist.edges, c = D.nearest_km_hist.counts, n = c.length, tot = c.reduce((a, b) => a + b, 0);
+    const ymax = Math.max(...c) * 1.12, bw = (w - L - R) / n, X = (i) => L + i * bw, Y = (v) => h - B - (v / ymax) * (h - B - T);
+    const gg = el("g", { class: "grid" }, s);
+    niceTicks(0, ymax, 4).forEach((v) => { el("line", { x1: L, x2: w - R, y1: Y(v), y2: Y(v) }, gg); el("text", { x: L - 6, y: Y(v), "text-anchor": "end", "dominant-baseline": "central" }, s).textContent = fmt(v); });
+    c.forEach((v, i) => {
+      const far = e[i] >= 2;
+      const r = el("rect", { x: X(i) + 1, y: Y(v), width: bw - 2, height: Math.max(0, h - B - Y(v)), rx: 3, fill: far ? "var(--s2)" : "var(--s1)" }, s);
+      el("title", {}, r).textContent = `${e[i]}–${e[i + 1]} km: ${v} villages (${(100 * v / tot).toFixed(1)}%)`;
+      el("text", { x: X(i) + bw / 2, y: h - B + 14, "text-anchor": "middle" }, s).textContent = i === n - 1 ? `${e[i]}+` : e[i];
+    });
+    el("text", { x: (L + w - R) / 2, y: h - 6, "text-anchor": "middle" }, s).textContent = "road km from each village to its nearest neighbour";
+    const x2 = X(e.indexOf(2));
+    el("line", { x1: x2, x2: x2, y1: T, y2: h - B, stroke: "var(--ink)", "stroke-dasharray": "4 3" }, s);
+    el("text", { x: x2 + 5, y: T + 10, class: "lbl-ink" }, s).textContent = "2 km limit";
+    const sh = D.share_neighbour_within;
+    $("#nn-note").innerHTML = `Only <b>${(100 * sh["2"]).toFixed(0)}%</b> of populated units have another village within 2 km by road (blue bars); the rest must get their own booth, however few electors they have. Within 3 km: ${(100 * sh["3"]).toFixed(0)}%; within 5 km: ${(100 * sh["5"]).toFixed(0)}%. ${(100 * D.share_over_capacity).toFixed(0)}% of units have more than 1,500 electors and need several booths. Median unit: ${fmt(D.elector_quantiles[2])} electors.`;
+  }
+  function boothChart() {
+    const s = $("#booth-n"), w = 540, h = 260, L = 64, R = 175, T = 14, B = 40; frame(s, w, h);
+    const kms = [2, 3, 5], plans = D.plans.filter((p) => p.booth_summary);
+    if (!plans.length) { $("#booth-note").textContent = "No booth results for this district yet."; return; }
+    const vals = plans.flatMap((p) => kms.map((k) => bs(p, k).booths));
+    const lo = Math.min(...vals), hi = Math.max(...vals), yl = lo - (hi - lo) * 0.12, yh = hi + (hi - lo) * 0.12;
+    const X = (k) => L + ((k - 2) / 3) * (w - L - R), Y = (v) => h - B - ((v - yl) / (yh - yl)) * (h - B - T);
+    const gg = el("g", { class: "grid" }, s);
+    niceTicks(yl, yh, 4).forEach((v) => { el("line", { x1: L, x2: w - R, y1: Y(v), y2: Y(v) }, gg); el("text", { x: L - 6, y: Y(v), "text-anchor": "end", "dominant-baseline": "central" }, s).textContent = fmt(v); });
+    kms.forEach((k) => el("text", { x: X(k), y: h - B + 18, "text-anchor": "middle" }, s).textContent = k + " km");
+    el("text", { x: (L + w - R) / 2, y: h - 4, "text-anchor": "middle" }, s).textContent = "maximum road distance to booth";
+    const rng = kms.map((k) => [Math.min(...plans.map((p) => bs(p, k).booths)), Math.max(...plans.map((p) => bs(p, k).booths))]);
+    el("polygon", { points: kms.map((k, i) => `${X(k)},${Y(rng[i][1]) - 2}`).concat(kms.slice().reverse().map((k, j) => `${X(k)},${Y(rng[2 - j][0]) + 2}`)).join(" "), fill: GCOL.road, "fill-opacity": 0.25 }, s);
+    const off = plans.find((p) => p.key === "official");
+    if (off) {
+      el("polyline", { points: kms.map((k) => `${X(k)},${Y(bs(off, k).booths)}`).join(" "), fill: "none", stroke: GCOL.official, "stroke-width": 2 }, s);
+      kms.forEach((k) => { const c = el("circle", { cx: X(k), cy: Y(bs(off, k).booths), r: 5, fill: GCOL.official, stroke: "var(--surface)", "stroke-width": 2 }, s); el("title", {}, c).textContent = `Official, ${k} km: ${fmt(bs(off, k).booths)} booths`; });
+      el("text", { x: X(5) + 9, y: Y(bs(off, 5).booths), "dominant-baseline": "central", class: "lbl-ink" }, s).textContent = "Official " + fmt(bs(off, 5).booths);
+      el("text", { x: X(5) + 9, y: Y(bs(off, 5).booths) + 16, "dominant-baseline": "central" }, s).textContent = `range ${fmt(rng[2][0])}–${fmt(rng[2][1])}`;
+    }
+    const minB = bs(plans[0], 2).min_booths;
+    $("#booth-note").innerHTML = `Line: official map. Band: range across ${plans.length} plans, barely wider than the line. The bare minimum is ${fmt(minB)} booths (electors ÷ 1,500); the 2 km rule adds ${fmt(bs(plans[0], 2).booths - minB)} more because so many villages are isolated. Going from 2 to 5 km saves ${fmt(bs(plans[0], 2).booths - bs(plans[0], 5).booths)} booths but makes some electors walk up to 5 km.`
+      + (() => { const all = plans.flatMap((p) => kms.map((k) => bs(p, k))), opt = all.reduce((a, r) => a + r.seats_optimal, 0), n = all.reduce((a, r) => a + r.seats, 0);
+                 return ` Solver: ${fmt(opt)} of ${fmt(n)} seat problems proven optimal${opt < n ? "; the rest are the best solution found within the time limit" : ""}.`; })();
+  }
+  function seeds() {
+    const sec = $("#r-h").closest("section");
+    if (!D.runs.length) { sec.hidden = true; return; } sec.hidden = false;
+    $("#seeds").innerHTML = `<thead><tr><th>Profile</th><th class="n">Seed</th><th class="n">Proposals</th><th class="n">Accepted</th><th class="n">Own-weights score</th><th class="n">Common score</th><th class="n">Max dev.</th><th class="n">Road km</th><th class="n">Extra taluka pieces</th></tr></thead><tbody>`
+      + D.runs.map((r) => `<tr><td>${r.profile}</td><td class="n">${r.seed}</td><td class="n">${fmt(r.proposals)}</td><td class="n">${fmt(r.accepted)}</td><td class="n">${r.own_score.toFixed(3)}</td><td class="n">${r.common_score.toFixed(3)}</td><td class="n">${r.max_dev_pct.toFixed(2)}%</td><td class="n">${r.road_km.toFixed(2)}</td><td class="n">${r.taluka_excess}</td></tr>`).join("") + "</tbody>";
+  }
+
+  // ---------- booth lab ----------
+  let lab = { plan: null, seat: 1, km: "2" };
+  function labPlans() { return D.plans.filter((p) => p.lab); }
+  function labInit() {
+    const ps = labPlans(), sec = $("#b-h").closest("section");
+    const selP = $("#lab-plan"), selS = $("#lab-seat"), kmSeg = $("#lab-km");
+    selP.replaceChildren(); selS.replaceChildren(); kmSeg.replaceChildren();
+    if (!ps.length) { document.querySelector(".lab").hidden = true; return; } document.querySelector(".lab").hidden = false;
+    ps.forEach((p) => { const o = document.createElement("option"); o.value = p.key; o.textContent = p.label; selP.appendChild(o); });
+    ["2", "3", "5"].forEach((k) => { const b = document.createElement("button"); b.className = "chip"; b.type = "button"; b.dataset.km = k; b.textContent = `${k} km`; b.addEventListener("click", () => { lab.km = k; labDraw(); }); kmSeg.appendChild(b); });
+    // default seat: the one with most walking at 2 km in the official plan (most to see)
+    const p0 = ps[0], seatsInfo = p0.lab["2"].seats;
+    const busiest = Object.entries(seatsInfo).sort((a, b) => (b[1].voter_km) - (a[1].voter_km))[0][0];
+    lab = { plan: p0.key, seat: +busiest, km: "2" };
+    labFillSeats();
+    selP.onchange = () => { lab.plan = selP.value; labFillSeats(); labDraw(); };
+    selS.onchange = () => { lab.seat = +selS.value; labDraw(); };
+    $("#lab-evm").onchange = labDraw;
+    labDraw();
+  }
+  function labFillSeats() {
+    const p = D.plans.find((x) => x.key === lab.plan), selS = $("#lab-seat");
+    selS.replaceChildren();
+    p.seats.forEach((s) => { const o = document.createElement("option"); o.value = s.seat; o.textContent = `${s.seat} · ${D.official_names[s.seat]}`; selS.appendChild(o); });
+    selS.value = lab.seat; $("#lab-plan").value = lab.plan;
+  }
+  function labSet(planKey, seat) {
+    if (planKey) lab.plan = planKey; lab.seat = seat;
+    if (!D.plans.find((x) => x.key === lab.plan)?.lab) lab.plan = labPlans()[0].key;
+    labFillSeats(); labDraw(); $("#b-h").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  function labDraw() {
+    const p = D.plans.find((x) => x.key === lab.plan), seat = p.seats.find((s) => s.seat === lab.seat), L = p.lab[lab.km];
+    document.querySelectorAll("#lab-km button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.km === lab.km ? "true" : "false"));
+    const svgL = $("#labmap"), pr = makeProj(seat.geom, 800);
+    svgL.setAttribute("viewBox", `0 0 ${pr.W} ${pr.H}`); svgL.replaceChildren();
+    el("path", { d: pr.path(seat.geom), class: "seatpoly" }, svgL);
+    const units = new Set(); p.unit_seat.forEach((s, i) => { if (s === lab.seat) units.add(i); });
+    const rows = L.rows.filter((r) => units.has(r[0]));
+    const walkers = new Set(rows.filter((r) => r[0] !== r[1]).map((r) => r[0]));
+    const sites = L.sites.filter(([u]) => units.has(u));
+    const info = L.seats[lab.seat];
+    const P = (u) => [pr.px(D.points[u][0]), pr.py(D.points[u][1])];
+    const gE = el("g", {}, svgL), gW = el("g", {}, svgL), gV = el("g", {}, svgL), gS = el("g", {}, svgL);
+    if ($("#lab-evm").checked && info.depot != null) { const [dx, dy] = P(info.depot); sites.forEach(([u]) => { const [x, y] = P(u); el("line", { x1: dx, y1: dy, x2: x, y2: y, class: "evm" }, gE); }); }
+    rows.filter((r) => r[0] !== r[1]).forEach(([u, s, e, km]) => { const [x1, y1] = P(u), [x2, y2] = P(s); const l = el("line", { x1, y1, x2, y2, class: "walk" }, gW); el("title", {}, l).textContent = `${fmt(e)} electors of ${D.points[u][3]} walk ${km.toFixed(2)} km to ${D.points[s][3]}`; });
+    const electorsOf = {}; rows.forEach(([u, , e]) => electorsOf[u] = (electorsOf[u] || 0) + e);
+    [...units].forEach((u) => {
+      const [x, y] = P(u), e = electorsOf[u] || D.points[u][2] * 0.7;
+      const c = el("circle", { cx: x, cy: y, r: Math.max(2.5, Math.min(16, Math.sqrt(e) / 7)), class: walkers.has(u) ? "v-walk" : "v-own" }, gV);
+      el("title", {}, c).textContent = `${D.points[u][3]}: ${fmt(e)} electors${walkers.has(u) ? " (some walk to a neighbour)" : ""}`;
+    });
+    sites.forEach(([u, n]) => { const [x, y] = P(u), sz = 3 + Math.sqrt(n) * 2.2; const r = el("rect", { x: x - sz / 2, y: y - sz / 2, width: sz, height: sz, class: "site" }, gS); el("title", {}, r).textContent = `${D.points[u][3]}: ${n} booth${n > 1 ? "s" : ""}`; });
+    if (info.depot != null) { const [x, y] = P(info.depot); el("rect", { x: x - 10, y: y - 10, width: 20, height: 20, transform: `rotate(45 ${x} ${y})`, class: "dep" }, gS); }
+    // scale bar
+    const kmLen = +lab.km * pr.kmPx, bx = 20, by = pr.H - 18;
+    el("line", { x1: bx, x2: bx + kmLen, y1: by, y2: by, stroke: "var(--ink)", "stroke-width": 3 }, svgL);
+    el("text", { x: bx, y: by - 8, class: "tl", style: "text-anchor:start;font-size:15px" }, svgL).textContent = `${lab.km} km`;
+
+    const walkersE = rows.filter((r) => r[0] !== r[1]).reduce((a, r) => a + r[2], 0);
+    $("#lab-title").textContent = `Seat ${lab.seat} · ${D.official_names[lab.seat]} · ${p.label} · ${lab.km} km limit`;
+    $("#labstats").innerHTML = [
+      [fmt(info.booths), `booths (bare minimum ${fmt(info.min_booths)})`],
+      [`${(100 * info.util).toFixed(0)}%`, "average booth fill"],
+      [`${fmt(info.isolated)} of ${fmt(info.units)}`, `units with no neighbour within ${lab.km} km`],
+      [fmt(walkersE), "electors who vote outside their village"],
+      [fmt(info.evm_km), "EVM road km from the depot"],
+      [info.depot_name, "depot (road-best village)"],
+    ].map(([v, k]) => `<div><span class="v num">${v}</span><span class="k">${k}</span></div>`).join("");
+    const extra = info.booths - info.min_booths;
+    $("#labstory").innerHTML = `<p>This seat has <b>${fmt(info.electors)}</b> electors, so at least <b>${fmt(info.min_booths)}</b> booths are needed if every booth were full. The model opens <b>${fmt(info.booths)}</b>: ${extra > 0 ? `<b>${fmt(extra)}</b> extra, because ${fmt(info.isolated)} of ${fmt(info.units)} villages have nobody else within ${lab.km} km by road and must vote in their own, part-empty booth.` : "every booth can be filled."}</p>
+      <p>${walkersE > 0 ? `Only <b>${fmt(walkersE)}</b> electors (${(100 * walkersE / info.electors).toFixed(1)}%) walk to a neighbouring village; joining a nearby booth is cheaper than opening another one there.` : "Nobody needs to leave their village at this limit."} Each booth then gets one EVM trip from the depot at <b>${info.depot_name}</b>.</p>`;
+    // per-seat booths by limit
+    const s = $("#lab-bars"), w = 420, h = 120, left = 54, right = 70; frame(s, w, h);
+    const vals = ["2", "3", "5"].map((k) => p.lab[k].seats[lab.seat].booths), mx = Math.max(...vals) * 1.05, X = (v) => left + (v / mx) * (w - left - right);
+    ["2", "3", "5"].forEach((k, i) => {
+      const y = 8 + i * 36, v = vals[i];
+      el("rect", { x: left, y, width: Math.max(2, X(v) - left), height: 22, rx: 3, fill: k === lab.km ? "var(--accent)" : "var(--rule-strong)" }, s);
+      el("text", { x: left - 8, y: y + 11, "text-anchor": "end", "dominant-baseline": "central", class: "lbl-ink" }, s).textContent = k + " km";
+      el("text", { x: X(v) + 6, y: y + 11, "dominant-baseline": "central", class: "lbl-ink" }, s).textContent = fmt(v);
+    });
+  }
+
+  const start = store.get("mdl-district");
+  setDistrict(start && DATA.districts.some((d) => d.key === start) ? start : DATA.districts[0].key);
+})();
+</script>

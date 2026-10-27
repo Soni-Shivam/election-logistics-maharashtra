@@ -1,0 +1,129 @@
+{
+  "score": 0.8154118118629736,
+  "distance_source": {
+    "type": "road_km_matrix",
+    "path": "pilots\\satara\\road_distances.npz",
+    "matrix_points": 1741,
+    "matched_units": 1741
+  },
+  "terms": {
+    "population": 0.19502846616935327,
+    "distance": 0.9124257373367529,
+    "taluka_fragmentation": 2.375,
+    "shape": 0.7254112680708587
+  },
+  "raw": {
+    "population_target": 375467.625,
+    "population_bounds": [
+      337921,
+      413014
+    ],
+    "population_weighted_mean_distance_km": 18.248514746735058,
+    "evm_km_estimate": 36542.541289248475,
+    "taluka_excess_fragments": 19,
+    "taluka_fragments": {
+      "Jaoli": 4,
+      "Karad": 3,
+      "Khandala": 1,
+      "Khatav": 4,
+      "Koregaon": 5,
+      "Mahabaleshwar": 1,
+      "Man": 2,
+      "Patan": 2,
+      "Phaltan": 2,
+      "Satara": 4,
+      "Wai": 4
+    },
+    "units_using_polygon_interior_for_distance": 0
+  },
+  "seats": [
+    {
+      "population": 371995,
+      "mean_distance_km": 23.79231180662408,
+      "centre_unit_id": "04256-563137",
+      "compactness_loss": 0.7983657366113728,
+      "area_km2": 1809.405097402259,
+      "evm_km_estimate": 5900.41402033675
+    },
+    {
+      "population": 369754,
+      "mean_distance_km": 21.882289503889453,
+      "centre_unit_id": "04257-563200",
+      "compactness_loss": 0.7691094639713242,
+      "area_km2": 1344.0307145313514,
+      "evm_km_estimate": 5394.04271548076
+    },
+    {
+      "population": 402927,
+      "mean_distance_km": 21.72687680472897,
+      "centre_unit_id": "04264-564277",
+      "compactness_loss": 0.6899161249555554,
+      "area_km2": 1674.6241615938548,
+      "evm_km_estimate": 5836.230193532687
+    },
+    {
+      "population": 368164,
+      "mean_distance_km": 9.654197440700534,
+      "centre_unit_id": "04265-802871",
+      "compactness_loss": 0.600581851099261,
+      "area_km2": 506.5446372604832,
+      "evm_km_estimate": 2369.5519643720477
+    },
+    {
+      "population": 372820,
+      "mean_distance_km": 17.61713181130146,
+      "centre_unit_id": "04258-802866",
+      "compactness_loss": 0.7723209062311964,
+      "area_km2": 1527.5746610480537,
+      "evm_km_estimate": 4378.679387926273
+    },
+    {
+      "population": 377299,
+      "mean_distance_km": 23.74529458050217,
+      "centre_unit_id": "04260-563552",
+      "compactness_loss": 0.6247952367071805,
+      "area_km2": 2164.795723694395,
+      "evm_km_estimate": 5972.717266619259
+    },
+    {
+      "population": 370645,
+      "mean_distance_km": 6.819916836697335,
+      "centre_unit_id": "04262-802869",
+      "compactness_loss": 0.7619655638788041,
+      "area_km2": 463.1492725332144,
+      "evm_km_estimate": 1685.178717291789
+    },
+    {
+      "population": 370137,
+      "mean_distance_km": 20.285976639820824,
+      "centre_unit_id": "04261-563728",
+      "compactness_loss": 0.7862352611121753,
+      "area_km2": 1182.4396158598151,
+      "evm_km_estimate": 5005.727023688907
+    }
+  ],
+  "search": {
+    "seed": 714,
+    "steps_per_restart": 2000,
+    "restarts": 3,
+    "successful_starts": 1,
+    "initial_search_budget_per_start": 5000,
+    "initial_seconds_per_start": 30.0,
+    "proposals": 1998,
+    "accepted": 1253
+  },
+  "settings": {
+    "seats": 8,
+    "balance": 0.1,
+    "split_share": 0.25,
+    "min_neck_km": 0.5,
+    "neck_lobe_fraction": 0.1,
+    "weight_population": 0.3,
+    "weight_distance": 0.45,
+    "weight_taluka": 0.1,
+    "weight_shape": 0.15,
+    "distance_reference_km": 20.0,
+    "taluka_reference_fragments": 8.0,
+    "link_islands_km": 0.0
+  }
+}

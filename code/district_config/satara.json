@@ -1,0 +1,14 @@
+{
+  "name": "Satara",
+  "pc11_state_id": "27",
+  "pc11_district_id": "527",
+  "seats": 8,
+  "sources": "Sources: Census 2011 PCA, SHRUG PC11 polygons. Research map only.",
+  "towns": {
+    "04262-802869": {
+      "name": "Satara",
+      "keep_whole": true
+    }
+  },
+  "merge_gap_units": true
+}

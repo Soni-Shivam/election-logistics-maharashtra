@@ -1,0 +1,53 @@
+[
+  {
+    "name": "map_balanced",
+    "passed": true,
+    "units": 756,
+    "population": 2822143,
+    "max_deviation_pct": 2.45,
+    "mean_distance_km": 12.73,
+    "taluka_excess_fragments": 12,
+    "mean_shape_penalty": 0.743,
+    "own_weighted_score": 0.629,
+    "common_baseline_score": 0.629,
+    "geographic_discrepancy_km2": 0.0,
+    "proposals": 600,
+    "accepted": 314,
+    "units_changed_vs_balanced": 0,
+    "people_changed_vs_balanced": 0
+  },
+  {
+    "name": "map_locality",
+    "passed": true,
+    "units": 756,
+    "population": 2822143,
+    "max_deviation_pct": 4.61,
+    "mean_distance_km": 12.63,
+    "taluka_excess_fragments": 13,
+    "mean_shape_penalty": 0.726,
+    "own_weighted_score": 0.61,
+    "common_baseline_score": 0.687,
+    "geographic_discrepancy_km2": 0.0,
+    "proposals": 600,
+    "accepted": 378,
+    "units_changed_vs_balanced": 111,
+    "people_changed_vs_balanced": 380913
+  },
+  {
+    "name": "map_taluka",
+    "passed": true,
+    "units": 756,
+    "population": 2822143,
+    "max_deviation_pct": 1.24,
+    "mean_distance_km": 12.68,
+    "taluka_excess_fragments": 11,
+    "mean_shape_penalty": 0.756,
+    "own_weighted_score": 0.742,
+    "common_baseline_score": 0.602,
+    "geographic_discrepancy_km2": 0.0,
+    "proposals": 300,
+    "accepted": 165,
+    "units_changed_vs_balanced": 199,
+    "people_changed_vs_balanced": 823886
+  }
+]

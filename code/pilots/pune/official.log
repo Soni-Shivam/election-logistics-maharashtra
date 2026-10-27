@@ -1,0 +1,30 @@
+{
+  "district": "PUNE",
+  "seats": 21,
+  "rules": {
+    "shrug_key": 1853,
+    "shape_overlap_village": 53,
+    "shape_overlap_town": 1,
+    "shape_overlap_grid_cell": 648
+  },
+  "score": 1.4713295729191511,
+  "taluka_excess": 18,
+  "fail_band": [
+    "Junnar",
+    "Ambegaon",
+    "Daund",
+    "Indapur",
+    "Purandar",
+    "Bhor",
+    "Maval",
+    "Pimpri (SC)",
+    "Bhosari",
+    "Vadgaon Sheri",
+    "Shivajinagar",
+    "Kothrud",
+    "Khadakwasala",
+    "Pune Cantonment (SC)",
+    "Kasba Peth"
+  ],
+  "not_contiguous": []
+}

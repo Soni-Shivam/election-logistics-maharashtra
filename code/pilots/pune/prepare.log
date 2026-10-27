@@ -1,0 +1,49 @@
+{
+  "population": 9429408,
+  "unit_count": 2555,
+  "village_town_count": 1912,
+  "approx_city_wards": 0,
+  "zero_population_gap_parts": 0,
+  "gap_area_degree2": 0.012495367821153132,
+  "location_method": "polygon interior, not verified habitation centroid",
+  "district_name": "Pune",
+  "pc11_state_id": "27",
+  "pc11_district_id": "521",
+  "subdistricts": [
+    "04187",
+    "04188",
+    "04189",
+    "04190",
+    "04191",
+    "04192",
+    "04193",
+    "04194",
+    "04195",
+    "04196",
+    "04197",
+    "04198",
+    "04199",
+    "04200"
+  ],
+  "seats": 21,
+  "census_total": 9429408,
+  "split_share": 0.25,
+  "split_threshold": 112255,
+  "split_towns": {
+    "04194-802814": 334,
+    "04193-802811": 314
+  },
+  "absorbed_into_split_towns": {
+    "04194-802813": "04194-802814",
+    "04194-802815": "04194-802814",
+    "04193-802812": "04193-802811"
+  },
+  "merged_gap_parts": 5,
+  "kept_whole_large_towns": [],
+  "gap_talukas": [],
+  "outputs": {
+    "units.geojson": "pune_units.geojson",
+    "locations.csv": "pune_locations.csv",
+    "district.geojson": "pune_district.geojson"
+  }
+}

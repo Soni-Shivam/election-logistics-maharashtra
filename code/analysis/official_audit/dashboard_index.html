@@ -1,0 +1,642 @@
+<style>
+.ma { display: flex; flex-direction: column; gap: var(--cds-gap-xl); font-family: var(--font-anthropic-sans); color: var(--color-fg); }
+.ma h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); line-height: 1.2; margin: 0; text-wrap: balance; }
+.ma h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; text-wrap: balance; }
+.ma h3 { font-size: var(--cds-font-size-body); font-weight: var(--cds-font-weight-medium); margin: 0; }
+.ma p { margin: 0; line-height: 1.5; }
+.ma-lede { font-size: var(--cds-font-size-body); color: var(--color-fg); max-width: 72ch; margin-top: var(--cds-gap-sm); }
+.ma-muted { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.ma-section { display: flex; flex-direction: column; gap: var(--cds-gap-md); }
+.ma-section > header { display: flex; flex-direction: column; gap: var(--cds-gap-xs); max-width: 80ch; }
+.ma-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: var(--cds-gap-md); }
+.ma-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: var(--cds-gap-md); }
+.ma-wide { grid-column: 1 / -1; }
+.ma-card, .ma-tile { position: relative; background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; display: flex; flex-direction: column; gap: var(--cds-gap-sm); }
+.ma-tile { gap: var(--cds-gap-xs); }
+.ma-big { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: calc(var(--cds-font-size-title) * 1.35); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.ma-big .unit { font-size: var(--cds-font-size-heading); color: var(--color-fg-muted); }
+.ma-num { font-variant-numeric: tabular-nums; }
+.ma b, .ma .ma-num-strong { font-weight: var(--cds-font-weight-medium); }
+.ma-chart { width: 100%; min-height: 220px; }
+.ma-chart svg { display: block; overflow: visible; }
+.ma-chart text { fill: var(--color-fg-muted); font-size: var(--cds-font-size-caption); font-family: var(--font-anthropic-sans); }
+.ma-chart .lbl-strong { fill: var(--color-fg); }
+.ma-chart .grid line { stroke: var(--cds-chart-grid); }
+.ma-chart .axis path, .ma-chart .axis line { stroke: var(--cds-chart-axis); }
+.ma-legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm) var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.ma-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.ma-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; }
+.ma-legend i.bar { border-radius: 2px; }
+.ma-legend i.ring { background: transparent; border: 2px solid currentColor; width: 8px; height: 8px; }
+.ma-controls { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm); align-items: center; }
+.ma-seg { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); overflow: hidden; }
+.ma-seg button { font: inherit; font-size: var(--cds-font-size-caption); padding: var(--cds-pad-xs) var(--cds-pad-sm); background: transparent; color: var(--color-fg-muted); border: 0; border-right: 1px solid var(--color-border-line); cursor: pointer; }
+.ma-seg button:last-child { border-right: 0; }
+.ma-seg button[aria-pressed="true"] { background: var(--color-bg); color: var(--color-fg); font-weight: var(--cds-font-weight-medium); }
+.ma-seg button:focus-visible, .ma select:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 1px; }
+.ma select { font: inherit; font-size: var(--cds-font-size-caption); padding: var(--cds-pad-xs) var(--cds-pad-sm); background: var(--color-bg); color: var(--color-fg); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); }
+.ma-tablebox { overflow: auto; max-height: 28rem; }
+.ma table { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+.ma th, .ma td { padding: 6px 10px; text-align: right; border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+.ma th:first-child, .ma td:first-child, .ma th.l, .ma td.l { text-align: left; }
+.ma th { position: sticky; top: 0; background: var(--color-panel); color: var(--color-fg-muted); font-weight: var(--cds-font-weight-medium); }
+.ma tr.is-official td { color: var(--color-fg); font-weight: var(--cds-font-weight-medium); }
+.ma td.bad { color: var(--color-bad); }
+.ma-tip { position: absolute; z-index: 5; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); min-width: 10rem; max-width: 16rem; }
+.ma-tip .h { color: var(--cds-text-secondary); margin-bottom: 2px; }
+.ma-tip .r { display: flex; align-items: center; gap: 6px; }
+.ma-tip .r b { margin-left: auto; font-variant-numeric: tabular-nums; }
+.ma-tip .sw { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.ma-fail { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: inherit; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.ma-fail .dot { width: 0.375rem; height: 0.375rem; border-radius: 50%; background: var(--color-bad); }
+.ma-notes { display: grid; gap: var(--cds-gap-sm); padding-left: 1.1em; margin: 0; max-width: 85ch; line-height: 1.5; font-size: var(--cds-font-size-body); }
+.ma [data-dash-source-state=empty] { color: transparent; }
+.ma [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+</style>
+
+<div class="ma">
+  <header class="ma-section" id="top">
+    <h1>Maharashtra 2008 map audit</h1>
+    <p class="ma-lede">Across all 288 Assembly seats, the number more than 10% away from their district's average seat grew from
+      <b class="ma-num dash-skeleton" data-source="electors_statewide" data-field="outside_10pct_of_district_avg" data-where="year=2009">—</b> in 2009 to
+      <b class="ma-num dash-skeleton" data-source="electors_statewide" data-field="outside_10pct_of_district_avg" data-where="year=2024">—</b> in 2024.
+      Our optimized maps for Sangli, Pune, Nashik and Satara put every seat within ±10%, but split
+      <b class="ma-num dash-skeleton" data-source="taluka_totals" data-field="optimized_min" data-row="0">—</b>–<b class="ma-num dash-skeleton" data-source="taluka_totals" data-field="optimized_max" data-row="0">—</b>
+      talukas where the official map splits
+      <b class="ma-num dash-skeleton" data-source="taluka_totals" data-field="official_talukas_split" data-row="0">—</b>.</p>
+  </header>
+
+  <div class="ma-tiles">
+    <div class="ma-tile">
+      <span class="ma-muted">Seats more than 10% off their district average, 2024</span>
+      <span class="ma-big"><span class="dash-skeleton" data-source="electors_statewide" data-field="outside_10pct_of_district_avg" data-where="year=2024">—</span><span class="unit"> of 288</span></span>
+      <span class="ma-muted">Up from <span class="ma-num" data-source="electors_statewide" data-field="outside_10pct_of_district_avg" data-where="year=2009">—</span> in 2009 · registered electors</span>
+    </div>
+    <div class="ma-tile">
+      <span class="ma-muted">Largest seat vs smallest seat, statewide, 2024</span>
+      <span class="ma-big"><span class="dash-skeleton" data-source="electors_statewide" data-field="largest_over_smallest" data-where="year=2024">—</span><span class="unit">×</span></span>
+      <span class="ma-muted"><span data-source="electors_statewide" data-field="largest_seat" data-where="year=2024">—</span> <span class="ma-num" data-source="electors_statewide" data-field="largest" data-where="year=2024">—</span> vs <span data-source="electors_statewide" data-field="smallest_seat" data-where="year=2024">—</span> <span class="ma-num" data-source="electors_statewide" data-field="smallest" data-where="year=2024">—</span> electors</span>
+    </div>
+    <div class="ma-tile">
+      <span class="ma-muted">Pune: largest seat vs smallest seat, 2024</span>
+      <span class="ma-big"><span class="dash-skeleton" data-source="electors_by_district_year" data-field="size_ratio" data-where="district=Pune&amp;year=2024">—</span><span class="unit">×</span></span>
+      <span class="ma-muted">Was <span class="ma-num" data-source="electors_by_district_year" data-field="size_ratio" data-where="district=Pune&amp;year=2009">—</span>× in 2009 · <span class="ma-num" data-source="electors_by_district_year" data-field="seats_outside_10pct" data-where="district=Pune&amp;year=2024">—</span> of 21 seats out of band</span>
+    </div>
+    <div class="ma-tile">
+      <span class="ma-muted">Talukas split, four districts together</span>
+      <span class="ma-big"><span class="dash-skeleton" data-source="taluka_totals" data-field="official_talukas_split" data-row="0">—</span><span class="unit"> official</span></span>
+      <span class="ma-muted"><span class="ma-num" data-source="taluka_totals" data-field="optimized_min" data-row="0">—</span>–<span class="ma-num" data-source="taluka_totals" data-field="optimized_max" data-row="0">—</span> in our optimized maps · Census 2011 units</span>
+    </div>
+  </div>
+
+  <section class="ma-section" id="drift">
+    <header>
+      <h2>The official map has drifted on real voter rolls</h2>
+      <p class="ma-muted">Registered electors per seat at each Assembly election held on the 2008 boundaries. A seat's target is its district's average seat, the basis the Delimitation Act uses.</p>
+    </header>
+    <div class="ma-grid">
+      <div class="ma-card" id="card-outside">
+        <h3>Seats out of band, all 288</h3>
+        <p class="ma-muted">Seats more than 10% and more than 20% away from their district's average.</p>
+        <div class="ma-legend"><span><i class="bar" style="background: var(--ma-c0)"></i>More than 10% off</span><span><i class="bar" style="background: var(--ma-c1)"></i>More than 20% off</span></div>
+        <div class="ma-chart dash-skeleton" id="ch-outside" data-source="electors_statewide"></div>
+      </div>
+      <div class="ma-card" id="card-ratio">
+        <h3>Largest seat ÷ smallest seat, four districts</h3>
+        <p class="ma-muted">1.0 means equal seats. Pune's spread widens at every election; Satara stays flat.</p>
+        <div class="ma-legend" id="lg-ratio"></div>
+        <div class="ma-chart dash-skeleton" id="ch-ratio" data-source="electors_by_district_year"></div>
+      </div>
+      <div class="ma-card ma-wide" id="card-seats">
+        <div class="ma-controls">
+          <h3 style="margin-right:auto">Each seat's distance from its district average, 2009 and 2024</h3>
+          <label class="ma-muted" for="sel-district">District</label>
+          <select id="sel-district"></select>
+        </div>
+        <p class="ma-muted">The shaded band is ±10%. A seat to the right is bigger than average, so each of its votes counts for less.</p>
+        <div class="ma-legend"><span><i class="ring" style="color: var(--cds-chart-muted)"></i>2009</span><span><i style="background: var(--ma-c0)"></i>2024, within ±10%</span><span><i style="background: var(--cds-chart-status-critical)"></i>2024, more than 10% off</span></div>
+        <div class="ma-chart dash-skeleton" id="ch-seats" data-source="electors_by_seat"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ma-section" id="compare">
+    <header>
+      <h2>Our optimized maps against the official map</h2>
+      <p class="ma-muted">Census 2011 population on the same village and ward units, scored the same way. Six optimizer runs per district: three weight profiles, two random seeds each.</p>
+    </header>
+    <div class="ma-controls"><span class="ma-muted">District</span><div class="ma-seg" id="seg-district" role="group" aria-label="District"></div></div>
+    <div class="ma-grid">
+      <div class="ma-card" id="card-strip">
+        <h3>Seat sizes, every map</h3>
+        <p class="ma-muted">One dot per seat, as % away from the district target. Hollow official dots are city seats whose size we could only estimate.</p>
+        <div class="ma-legend"><span><i style="background: var(--ma-c0)"></i>Official, verified seat</span><span><i class="ring" style="color: var(--ma-c0)"></i>Official, city seat (estimate)</span><span><i style="background: var(--cds-chart-muted)"></i>Optimized run</span></div>
+        <div class="ma-chart dash-skeleton" id="ch-strip" data-source="seat_deviations_all_maps"></div>
+      </div>
+      <div class="ma-card" id="card-trade">
+        <h3>The trade-off: equal seats vs whole talukas</h3>
+        <p class="ma-muted">Lower-left is better on both. Balancing seats costs taluka splits.</p>
+        <div class="ma-legend" id="lg-trade"></div>
+        <div class="ma-chart dash-skeleton" id="ch-trade" data-source="map_comparison"></div>
+      </div>
+      <div class="ma-card ma-wide" id="card-table">
+        <h3>Scorecard</h3>
+        <p class="ma-muted">Score is the common 35/30/20/15 weighting of population, distance, taluka and shape terms; lower is better. Distance is population-weighted road km to the seat's central village.</p>
+        <div class="ma-tablebox">
+          <table id="tb-maps" data-source="map_comparison" data-row-key="district,map">
+            <thead><tr>
+              <th data-field="map">Map</th>
+              <th data-field="seats_outside_10pct">Seats off ±10%</th>
+              <th data-field="size_ratio">Largest ÷ smallest</th>
+              <th data-field="mean_abs_dev_pct">Mean |dev| %</th>
+              <th data-field="talukas_split">Talukas split</th>
+              <th data-field="taluka_excess_cuts">Extra taluka cuts</th>
+              <th data-field="mean_polsby_popper">Compactness</th>
+              <th data-field="mean_km_to_centre">Km to centre</th>
+              <th data-field="evm_km">EVM km</th>
+              <th data-field="common_score">Score</th>
+            </tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ma-section" id="drawn">
+    <header>
+      <h2>Was it balanced when it was drawn?</h2>
+      <p class="ma-muted">The 2008 map was drawn on Census 2001. For the
+        <b class="ma-num" data-source="verified_drift" data-field="verified_seats" data-row="0">—</b> of
+        <span class="ma-num" data-source="verified_drift" data-field="total_seats" data-row="0">—</span> seats whose population two independent rebuilds agree on,
+        <b class="ma-num" data-source="verified_drift" data-field="outside_2001" data-row="0">—</b> were more than 10% off in 2001 and
+        <b class="ma-num" data-source="verified_drift" data-field="outside_2011" data-row="0">—</b> by 2011.</p>
+    </header>
+    <div class="ma-card" id="card-drawn">
+      <h3>Verified seats, Census 2001 and 2011</h3>
+      <p class="ma-muted">Rural seats mostly sat inside the band in 2001. Faster growth in the cities raised each district's average, which pushed rural seats below it.</p>
+      <div class="ma-legend"><span><i class="ring" style="color: var(--cds-chart-muted)"></i>2001</span><span><i style="background: var(--ma-c0)"></i>2011, within ±10%</span><span><i style="background: var(--cds-chart-status-critical)"></i>2011, more than 10% off</span></div>
+      <div class="ma-chart dash-skeleton" id="ch-drawn" data-source="official_seats"></div>
+    </div>
+  </section>
+
+  <section class="ma-section" id="trust">
+    <header>
+      <h2>How far to trust these numbers</h2>
+    </header>
+    <div class="ma-grid">
+      <div class="ma-card" id="card-city">
+        <h3>City seats we could not rebuild reliably</h3>
+        <p class="ma-muted">Our rebuild spreads city population over 1 km grid cells; SHRUG splits towns by area. Where they disagree by more than 2%, neither is trusted, and the real elector counts above are the better guide.</p>
+        <div class="ma-tablebox">
+          <table id="tb-city" data-source="official_seats" data-row-key="district,name">
+            <thead><tr>
+              <th data-field="name">Seat</th>
+              <th class="l" data-field="district">District</th>
+              <th data-field="pop_2011">Our rebuild, 2011</th>
+              <th data-field="shrug_pop_2011">SHRUG, 2011</th>
+              <th data-field="rebuild_vs_shrug_2011_pct">Gap %</th>
+            </tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="ma-card">
+        <h3>Method and caveats</h3>
+        <ul class="ma-notes">
+          <li>Elector counts come from Wikipedia constituency pages, which cite ECI results. Spot checks match published figures, but check against ECI statistical reports before quoting.</li>
+          <li>Electors and Census population are different measures. The voter-roll charts show drift on real rolls; the comparison with our maps uses Census 2011, since that is what the optimizer balances.</li>
+          <li>Our maps are balanced on 2011 population. They would drift too by 2024, so the fair claim is that they fix the 2011 imbalance, not today's.</li>
+          <li>In Nashik, five official seats come out non-contiguous on our units, which inflates the official taluka count there.</li>
+          <li>Taluka splits count talukas cut at all. Extra cuts count pieces beyond the minimum a taluka's population forces.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function () {
+  const root = document.querySelector('.ma');
+  const C = dash.colors;
+  root.style.setProperty('--ma-c0', C[0]);
+  root.style.setProperty('--ma-c1', C[1]);
+  const fmtInt = d3.format(',');
+  const fmtSigned = d3.format('+.1f');
+  const num = (v) => (v === '' || v == null ? NaN : Number(v));
+  let distA = 'Pune';
+  let distB = 'Pune';
+
+  dash.calc('taluka_totals', {
+    inputs: ['map_comparison'],
+    title: 'Talukas split, four districts',
+    description: 'Talukas cut by the official map, and the fewest and most cut by any optimized run, summed over the four districts.',
+    fn: (map_comparison) => {
+      const districts = [...new Set(map_comparison.map((r) => r.district))];
+      let official = 0, lo = 0, hi = 0;
+      for (const d of districts) {
+        const rows = map_comparison.filter((r) => r.district === d);
+        const opt = rows.filter((r) => r.kind !== 'official').map((r) => Number(r.talukas_split));
+        official += Number(rows.find((r) => r.kind === 'official').talukas_split);
+        lo += Math.min(...opt);
+        hi += Math.max(...opt);
+      }
+      return [{ official_talukas_split: official, optimized_min: lo, optimized_max: hi }];
+    },
+  });
+
+  dash.calc('verified_drift', {
+    inputs: ['official_seats'],
+    title: 'Verified seats out of band',
+    description: 'Official seats whose 2011 population our rebuild and SHRUG agree on within 2%, and how many sit more than 10% from the district average in 2001 and 2011.',
+    fn: (official_seats) => {
+      const v = official_seats.filter((r) => r.verified === 'True');
+      return [{
+        verified_seats: v.length,
+        total_seats: official_seats.length,
+        outside_2001: v.filter((r) => Math.abs(Number(r.shrug_dev_2001_pct)) > 10).length,
+        outside_2011: v.filter((r) => Math.abs(Number(r.dev_2011_pct)) > 10).length,
+      }];
+    },
+  });
+
+  // ---------- helpers ----------
+  function ready(el, ids) {
+    const st = ids.map((id) => dash.data(id).status);
+    if (st.every((s) => s === 'ok')) { el.classList.remove('dash-skeleton'); return true; }
+    el.replaceChildren();
+    if (st.some((s) => s === 'error')) {
+      el.classList.remove('dash-skeleton');
+      const f = document.createElement('div');
+      f.className = 'ma-fail';
+      const dot = document.createElement('span');
+      dot.className = 'dot';
+      f.append(dot, 'Failed to load');
+      el.appendChild(f);
+    } else {
+      el.classList.add('dash-skeleton');
+    }
+    return false;
+  }
+
+  function rows(id) { return dash.data(id).data || []; }
+
+  function fillMarks() {
+    root.querySelectorAll('[data-source][data-field]').forEach((el) => {
+      if (el.tagName === 'TH' || el.closest('table')) return;
+      const id = el.getAttribute('data-source');
+      const d = dash.data(id);
+      if (d.status !== 'ok') { if (d.status === 'error') el.classList.remove('dash-skeleton'); return; }
+      const data = d.data || [];
+      let row;
+      if (el.hasAttribute('data-row')) row = data[Number(el.getAttribute('data-row'))];
+      else {
+        const where = new URLSearchParams(el.getAttribute('data-where') || '');
+        row = data.find((r) => [...where].every(([k, v]) => String(r[k]) === v));
+      }
+      el.classList.remove('dash-skeleton');
+      if (!row) { el.textContent = '—'; return; }
+      const v = row[el.getAttribute('data-field')];
+      const n = Number(v);
+      if (v === '' || v == null) el.textContent = '—';
+      else if (!Number.isNaN(n) && Number.isFinite(n)) el.textContent = Number.isInteger(n) ? fmtInt(n) : String(+n.toFixed(2));
+      else el.textContent = String(v);
+    });
+  }
+
+  function svgFor(el, w, h) {
+    el.replaceChildren();
+    el.style.minHeight = h + 'px';
+    return d3.select(el).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${w} ${h}`).attr('role', 'img');
+  }
+
+  function textWidth(svg, strings) {
+    const t = svg.append('text').attr('visibility', 'hidden');
+    let m = 0;
+    for (const s of strings) { t.text(s); m = Math.max(m, t.node().getComputedTextLength()); }
+    t.remove();
+    return m;
+  }
+
+  function cleanAxis(g) { g.attr('font-size', null).attr('font-family', null); }
+
+  function showTip(box, ev, head, lines) {
+    let t = box.querySelector(':scope > .ma-tip');
+    if (!t) { t = document.createElement('div'); t.className = 'ma-tip'; box.appendChild(t); }
+    t.replaceChildren();
+    const h = document.createElement('div');
+    h.className = 'h';
+    h.textContent = head;
+    t.appendChild(h);
+    for (const [color, label, value] of lines) {
+      const r = document.createElement('div');
+      r.className = 'r';
+      if (color) { const s = document.createElement('span'); s.className = 'sw'; s.style.background = color; r.appendChild(s); }
+      const l = document.createElement('span');
+      l.textContent = label;
+      const v = document.createElement('b');
+      v.textContent = value;
+      r.append(l, v);
+      t.appendChild(r);
+    }
+    t.hidden = false;
+    const bb = box.getBoundingClientRect();
+    let x = ev.clientX - bb.left + 14, y = ev.clientY - bb.top + 14;
+    if (x + t.offsetWidth > bb.width) x = ev.clientX - bb.left - t.offsetWidth - 14;
+    if (y + t.offsetHeight > bb.height) y = ev.clientY - bb.top - t.offsetHeight - 14;
+    t.style.left = Math.max(4, x) + 'px';
+    t.style.top = Math.max(4, y) + 'px';
+  }
+  function hideTip(box) { const t = box.querySelector(':scope > .ma-tip'); if (t) t.hidden = true; }
+
+  // ---------- chart: seats out of band by year ----------
+  function drawOutside() {
+    const el = document.getElementById('ch-outside');
+    const box = document.getElementById('card-outside');
+    if (!ready(el, ['electors_statewide'])) return;
+    const data = rows('electors_statewide').map((r) => ({ year: String(r.year), a: num(r.outside_10pct_of_district_avg), b: num(r.outside_20pct_of_district_avg) }));
+    const w = Math.max(280, el.clientWidth), h = 240;
+    const svg = svgFor(el, w, h);
+    const yMax = d3.max(data, (d) => d.a);
+    const y = d3.scaleLinear([0, yMax * 1.15], [h - 24, 18]).nice();
+    const lw = textWidth(svg, y.ticks(4).map(String));
+    const m = { l: lw + 10, r: 4 };
+    const x0 = d3.scaleBand(data.map((d) => d.year), [m.l, w - m.r]).paddingInner(0.3).paddingOuter(0.15);
+    const x1 = d3.scaleBand(['a', 'b'], [0, x0.bandwidth()]).padding(0.08);
+    svg.append('g').attr('class', 'grid').selectAll('line').data(y.ticks(4)).join('line').attr('x1', m.l).attr('x2', w - m.r).attr('y1', (d) => y(d)).attr('y2', (d) => y(d));
+    svg.append('g').selectAll('text').data(y.ticks(4)).join('text').attr('x', m.l - 6).attr('y', (d) => y(d)).attr('dy', '0.32em').attr('text-anchor', 'end').text((d) => d);
+    svg.append('g').selectAll('text').data(data).join('text').attr('x', (d) => x0(d.year) + x0.bandwidth() / 2).attr('y', h - 6).attr('text-anchor', 'middle').text((d) => d.year);
+    const bw = Math.min(32, x1.bandwidth());
+    const g = svg.append('g').selectAll('g').data(data).join('g').attr('transform', (d) => `translate(${x0(d.year)},0)`);
+    for (const [k, color] of [['a', C[0]], ['b', C[1]]]) {
+      const cx = x1(k) + (x1.bandwidth() - bw) / 2;
+      g.append('path').attr('fill', color).attr('d', (d) => {
+        const top = y(d[k]), base = y(0), r = Math.min(4, bw / 2, base - top);
+        return `M${cx},${base}V${top + r}Q${cx},${top} ${cx + r},${top}H${cx + bw - r}Q${cx + bw},${top} ${cx + bw},${top + r}V${base}Z`;
+      });
+      g.append('text').attr('class', 'lbl-strong').attr('x', cx + bw / 2).attr('y', (d) => y(d[k]) - 5).attr('text-anchor', 'middle').text((d) => d[k]);
+    }
+    g.append('rect').attr('x', 0).attr('y', 0).attr('width', x0.bandwidth()).attr('height', h - 24).attr('fill', 'transparent')
+      .on('mousemove', (ev, d) => showTip(box, ev, `${d.year} election`, [[C[0], 'More than 10% off', d.a], [C[1], 'More than 20% off', d.b]]))
+      .on('mouseleave', () => hideTip(box));
+  }
+
+  // ---------- chart: largest/smallest ratio over time ----------
+  function drawRatio() {
+    const el = document.getElementById('ch-ratio');
+    const box = document.getElementById('card-ratio');
+    const lg = document.getElementById('lg-ratio');
+    if (!ready(el, ['electors_by_district_year', 'map_comparison'])) return;
+    const four = [...new Set(rows('map_comparison').map((r) => r.district))];
+    const all = rows('electors_by_district_year').filter((r) => four.includes(r.district));
+    const series = four.map((d, i) => ({ name: d, color: C[i], pts: all.filter((r) => r.district === d).map((r) => ({ year: num(r.year), v: num(r.size_ratio) })).sort((a, b) => a.year - b.year) }));
+    series.sort((a, b) => b.pts[b.pts.length - 1].v - a.pts[a.pts.length - 1].v);
+    lg.replaceChildren(...series.map((s) => { const sp = document.createElement('span'); const i = document.createElement('i'); i.style.background = s.color; sp.append(i, s.name); return sp; }));
+    const w = Math.max(280, el.clientWidth), h = 240;
+    const svg = svgFor(el, w, h);
+    const years = series[0].pts.map((p) => p.year);
+    const vmax = d3.max(series, (s) => d3.max(s.pts, (p) => p.v));
+    const y = d3.scaleLinear([1, vmax * 1.05], [h - 24, 12]).nice();
+    const ticks = y.ticks(4);
+    const lw = textWidth(svg, ticks.map((t) => t.toFixed(1) + '×'));
+    const endLabels = series.map((s) => `${s.name} ${s.pts[s.pts.length - 1].v.toFixed(2)}×`);
+    const rw = textWidth(svg, endLabels);
+    const m = { l: lw + 10, r: rw + 12 };
+    const x = d3.scaleLinear([years[0], years[years.length - 1]], [m.l + 6, w - m.r]);
+    svg.append('g').attr('class', 'grid').selectAll('line').data(ticks).join('line').attr('x1', m.l).attr('x2', w - m.r).attr('y1', (d) => y(d)).attr('y2', (d) => y(d));
+    svg.append('g').selectAll('text').data(ticks).join('text').attr('x', m.l - 6).attr('y', (d) => y(d)).attr('dy', '0.32em').attr('text-anchor', 'end').text((d) => d.toFixed(1) + '×');
+    svg.append('g').selectAll('text').data(years).join('text').attr('x', (d) => x(d)).attr('y', h - 6).attr('text-anchor', 'middle').text((d) => d);
+    const line = d3.line().x((p) => x(p.year)).y((p) => y(p.v));
+    for (const s of series) {
+      svg.append('path').attr('d', line(s.pts)).attr('fill', 'none').attr('stroke', s.color).attr('stroke-width', 2).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round');
+      svg.append('g').selectAll('circle').data(s.pts).join('circle').attr('cx', (p) => x(p.year)).attr('cy', (p) => y(p.v)).attr('r', 4).attr('fill', s.color).attr('stroke', 'var(--color-panel)').attr('stroke-width', 2);
+    }
+    // end labels, nudged apart
+    const labs = series.map((s, i) => ({ text: endLabels[i], y: y(s.pts[s.pts.length - 1].v) })).sort((a, b) => a.y - b.y);
+    for (let i = 1; i < labs.length; i++) if (labs[i].y - labs[i - 1].y < 14) labs[i].y = labs[i - 1].y + 14;
+    svg.append('g').selectAll('text').data(labs).join('text').attr('class', 'lbl-strong').attr('x', w - m.r + 8).attr('y', (d) => d.y).attr('dy', '0.32em').text((d) => d.text);
+    const rule = svg.append('line').attr('y1', 12).attr('y2', h - 24).attr('stroke', 'var(--cds-chart-reference)').attr('visibility', 'hidden');
+    svg.append('rect').attr('x', m.l).attr('y', 0).attr('width', w - m.l - m.r).attr('height', h - 24).attr('fill', 'transparent')
+      .on('mousemove', (ev) => {
+        const [mx] = d3.pointer(ev);
+        const yr = years.reduce((a, b) => (Math.abs(x(b) - mx) < Math.abs(x(a) - mx) ? b : a));
+        rule.attr('x1', x(yr)).attr('x2', x(yr)).attr('visibility', 'visible');
+        showTip(box, ev, `${yr} election`, series.map((s) => [s.color, s.name, s.pts.find((p) => p.year === yr).v.toFixed(2) + '×']));
+      })
+      .on('mouseleave', () => { rule.attr('visibility', 'hidden'); hideTip(box); });
+  }
+
+  // ---------- dumbbell: a seat's deviation at two dates ----------
+  function dumbbell(el, box, items, labA, labB) {
+    // items: {label, group?, a, b, tipHead, extra:[[label,value]]}
+    const rowH = 22, headH = 26;
+    const w = Math.max(300, el.clientWidth);
+    let yPos = 8;
+    const laid = [];
+    let lastGroup = null;
+    for (const it of items) {
+      if (it.group && it.group !== lastGroup) { laid.push({ head: it.group, y: yPos + 16 }); yPos += headH; lastGroup = it.group; }
+      laid.push({ ...it, y: yPos + rowH / 2 });
+      yPos += rowH;
+    }
+    const h = yPos + 30;
+    const svg = svgFor(el, w, h);
+    const lw = Math.min(w * 0.38, textWidth(svg, items.map((d) => d.label)) + 12);
+    const ext = d3.max(items, (d) => Math.max(Math.abs(d.a), Math.abs(d.b)));
+    const lim = Math.max(15, Math.ceil(ext / 10) * 10);
+    const x = d3.scaleLinear([-lim, lim], [lw + 8, w - 12]);
+    svg.append('rect').attr('x', x(-10)).attr('width', x(10) - x(-10)).attr('y', 0).attr('height', h - 30).attr('fill', 'var(--cds-chart-reference)').attr('opacity', 0.12);
+    const ticks = x.ticks(Math.max(3, Math.floor((w - lw) / 70)));
+    svg.append('g').attr('class', 'grid').selectAll('line').data(ticks).join('line').attr('x1', (d) => x(d)).attr('x2', (d) => x(d)).attr('y1', 0).attr('y2', h - 30);
+    svg.append('line').attr('x1', x(0)).attr('x2', x(0)).attr('y1', 0).attr('y2', h - 30).attr('stroke', 'var(--cds-chart-axis)');
+    svg.append('g').selectAll('text').data(ticks).join('text').attr('x', (d) => x(d)).attr('y', h - 12).attr('text-anchor', 'middle').text((d) => (d > 0 ? '+' : '') + d + '%');
+    const heads = laid.filter((d) => d.head);
+    svg.append('g').selectAll('text').data(heads).join('text').attr('class', 'lbl-strong').attr('x', 0).attr('y', (d) => d.y).text((d) => d.head);
+    const seats = laid.filter((d) => !d.head);
+    const g = svg.append('g').selectAll('g').data(seats).join('g').attr('transform', (d) => `translate(0,${d.y})`);
+    g.append('text').attr('x', lw).attr('dy', '0.32em').attr('text-anchor', 'end').text((d) => d.label);
+    g.append('line').attr('x1', (d) => x(d.a)).attr('x2', (d) => x(d.b)).attr('stroke', 'var(--cds-chart-muted)').attr('stroke-width', 2).attr('stroke-linecap', 'round');
+    g.append('circle').attr('cx', (d) => x(d.a)).attr('r', 4).attr('fill', 'var(--color-panel)').attr('stroke', 'var(--cds-chart-muted)').attr('stroke-width', 2);
+    g.append('circle').attr('cx', (d) => x(d.b)).attr('r', 5).attr('fill', (d) => (Math.abs(d.b) > 10 ? 'var(--cds-chart-status-critical)' : C[0])).attr('stroke', 'var(--color-panel)').attr('stroke-width', 2);
+    g.append('rect').attr('x', 0).attr('y', -rowH / 2).attr('width', w).attr('height', rowH).attr('fill', 'transparent')
+      .on('mousemove', (ev, d) => showTip(box, ev, d.tipHead, [[null, labA, fmtSigned(d.a) + '%'], [null, labB, fmtSigned(d.b) + '%'], ...d.extra.map(([l, v]) => [null, l, v])]))
+      .on('mouseleave', () => hideTip(box));
+  }
+
+  function drawSeats() {
+    const el = document.getElementById('ch-seats');
+    const box = document.getElementById('card-seats');
+    const sel = document.getElementById('sel-district');
+    if (!ready(el, ['electors_by_seat'])) return;
+    const data = rows('electors_by_seat');
+    if (!sel.options.length) {
+      const names = [...new Set(data.map((r) => r.district_2008))];
+      for (const n of names) { const o = document.createElement('option'); o.value = n; o.textContent = n; sel.appendChild(o); }
+      sel.value = names.includes(distA) ? distA : names[0];
+      sel.addEventListener('change', () => { distA = sel.value; drawSeats(); });
+    }
+    const items = data.filter((r) => r.district_2008 === distA)
+      .map((r) => ({
+        label: r.reserved ? `${r.name} (${r.reserved})` : r.name,
+        a: num(r.dev_2009_pct), b: num(r.dev_2024_pct),
+        tipHead: `${r.name} · seat ${r.ac_no}`,
+        extra: [['Electors 2009', fmtInt(num(r.electors_2009))], ['Electors 2024', fmtInt(num(r.electors_2024))], ['Growth', fmtSigned(num(r.growth_2009_2024_pct)) + '%']],
+      }))
+      .sort((p, q) => q.b - p.b);
+    dumbbell(el, box, items, '2009 vs district avg', '2024 vs district avg');
+  }
+
+  function drawDrawn() {
+    const el = document.getElementById('ch-drawn');
+    const box = document.getElementById('card-drawn');
+    if (!ready(el, ['official_seats'])) return;
+    const items = rows('official_seats').filter((r) => r.verified === 'True')
+      .map((r) => ({
+        group: r.district, label: r.name,
+        a: num(r.shrug_dev_2001_pct), b: num(r.dev_2011_pct),
+        tipHead: `${r.name} · ${r.district}`,
+        extra: [['Population 2001', fmtInt(num(r.shrug_pop_2001))], ['Population 2011', fmtInt(num(r.pop_2011))], ['Growth', fmtSigned(num(r.shrug_growth_pct)) + '%']],
+      }))
+      .sort((p, q) => d3.ascending(p.group, q.group) || q.b - p.b);
+    dumbbell(el, box, items, '2001 vs district avg', '2011 vs district avg');
+  }
+
+  // ---------- section B ----------
+  function buildSeg() {
+    const seg = document.getElementById('seg-district');
+    if (seg.childElementCount || dash.data('map_comparison').status !== 'ok') return;
+    const names = [...new Set(rows('map_comparison').map((r) => r.district))];
+    for (const n of names) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = n;
+      b.id = 'seg-' + n.toLowerCase();
+      b.setAttribute('aria-pressed', String(n === distB));
+      b.addEventListener('click', () => {
+        distB = n;
+        seg.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x.textContent === n)));
+        drawStrip(); drawTrade(); drawTable();
+      });
+      seg.appendChild(b);
+    }
+  }
+
+  const mapLabel = (m) => (m === 'official_2008' ? 'Official 2008' : m.replace(/_s(\d+)$/, ' · seed $1'));
+
+  function drawStrip() {
+    const el = document.getElementById('ch-strip');
+    const box = document.getElementById('card-strip');
+    if (!ready(el, ['seat_deviations_all_maps'])) return;
+    const data = rows('seat_deviations_all_maps').filter((r) => r.district === distB);
+    const maps = [...new Set(data.map((r) => r.map))].sort((a, b) => (a === 'official_2008' ? -1 : b === 'official_2008' ? 1 : a.localeCompare(b)));
+    const rowH = 30;
+    const h = maps.length * rowH + 34;
+    const w = Math.max(300, el.clientWidth);
+    const svg = svgFor(el, w, h);
+    const lw = textWidth(svg, maps.map(mapLabel)) + 10;
+    const ext = d3.max(data, (d) => Math.abs(num(d.dev_pct)));
+    const lim = Math.max(15, Math.ceil(ext / 10) * 10);
+    const x = d3.scaleLinear([-lim, lim], [lw + 8, w - 10]);
+    const y = d3.scaleBand(maps, [6, h - 28]).padding(0.2);
+    svg.append('rect').attr('x', x(-10)).attr('width', x(10) - x(-10)).attr('y', 0).attr('height', h - 28).attr('fill', 'var(--cds-chart-reference)').attr('opacity', 0.12);
+    const ticks = x.ticks(Math.max(3, Math.floor((w - lw) / 70)));
+    svg.append('g').attr('class', 'grid').selectAll('line').data(ticks).join('line').attr('x1', (d) => x(d)).attr('x2', (d) => x(d)).attr('y1', 0).attr('y2', h - 28);
+    svg.append('line').attr('x1', x(0)).attr('x2', x(0)).attr('y1', 0).attr('y2', h - 28).attr('stroke', 'var(--cds-chart-axis)');
+    svg.append('g').selectAll('text').data(ticks).join('text').attr('x', (d) => x(d)).attr('y', h - 10).attr('text-anchor', 'middle').text((d) => (d > 0 ? '+' : '') + d + '%');
+    svg.append('g').selectAll('text').data(maps).join('text').attr('class', (d) => (d === 'official_2008' ? 'lbl-strong' : null)).attr('x', lw).attr('y', (d) => y(d) + y.bandwidth() / 2).attr('dy', '0.32em').attr('text-anchor', 'end').text(mapLabel);
+    svg.append('g').selectAll('circle').data(data).join('circle')
+      .attr('cx', (d) => x(num(d.dev_pct))).attr('cy', (d) => y(d.map) + y.bandwidth() / 2).attr('r', 5)
+      .attr('fill', (d) => (d.map !== 'official_2008' ? 'var(--cds-chart-muted)' : d.verified === 'True' ? C[0] : 'var(--color-panel)'))
+      .attr('stroke', (d) => (d.map === 'official_2008' && d.verified !== 'True' ? C[0] : 'var(--color-panel)'))
+      .attr('stroke-width', 2)
+      .on('mousemove', (ev, d) => showTip(box, ev, mapLabel(d.map), [[null, d.map === 'official_2008' ? d.seat : 'Seat', fmtSigned(num(d.dev_pct)) + '%'], ...(d.map === 'official_2008' && d.verified !== 'True' ? [[null, 'City seat', 'estimate']] : [])]))
+      .on('mouseleave', () => hideTip(box));
+  }
+
+  function drawTrade() {
+    const el = document.getElementById('ch-trade');
+    const box = document.getElementById('card-trade');
+    const lg = document.getElementById('lg-trade');
+    if (!ready(el, ['map_comparison'])) return;
+    const kinds = ['official', 'balanced', 'locality', 'taluka'];
+    const names = { official: 'Official 2008', balanced: 'Balanced weights', locality: 'Locality weights', taluka: 'Taluka weights' };
+    const color = (k) => C[kinds.indexOf(k)];
+    lg.replaceChildren(...kinds.map((k) => { const sp = document.createElement('span'); const i = document.createElement('i'); i.style.background = color(k); sp.append(i, names[k]); return sp; }));
+    const data = rows('map_comparison').filter((r) => r.district === distB).map((r) => ({ map: r.map, kind: r.kind, x: num(r.mean_abs_dev_pct), y: num(r.talukas_split) }));
+    const w = Math.max(280, el.clientWidth), h = 260;
+    const svg = svgFor(el, w, h);
+    const y = d3.scaleLinear([0, d3.max(data, (d) => d.y) * 1.15], [h - 40, 10]).nice();
+    const lw = textWidth(svg, y.ticks(5).map(String)) + 22;
+    const x = d3.scaleLinear([0, d3.max(data, (d) => d.x) * 1.12], [lw + 6, w - 12]).nice();
+    svg.append('g').attr('class', 'grid').selectAll('line').data(y.ticks(5)).join('line').attr('x1', lw).attr('x2', w - 12).attr('y1', (d) => y(d)).attr('y2', (d) => y(d));
+    svg.append('g').selectAll('text').data(y.ticks(5)).join('text').attr('x', lw - 6).attr('y', (d) => y(d)).attr('dy', '0.32em').attr('text-anchor', 'end').text((d) => d);
+    const xt = x.ticks(Math.max(3, Math.floor((w - lw) / 70)));
+    svg.append('g').selectAll('text').data(xt).join('text').attr('x', (d) => x(d)).attr('y', h - 24).attr('text-anchor', 'middle').text((d) => d + '%');
+    svg.append('text').attr('x', (lw + w) / 2).attr('y', h - 4).attr('text-anchor', 'middle').text('Mean seat-size deviation');
+    svg.append('text').attr('transform', `translate(10,${(h - 40) / 2}) rotate(-90)`).attr('text-anchor', 'middle').text('Talukas split');
+    svg.append('g').selectAll('circle').data(data.sort((a, b) => (a.kind === 'official') - (b.kind === 'official'))).join('circle')
+      .attr('cx', (d) => x(d.x)).attr('cy', (d) => y(d.y)).attr('r', (d) => (d.kind === 'official' ? 7 : 5.5))
+      .attr('fill', (d) => color(d.kind)).attr('stroke', 'var(--color-panel)').attr('stroke-width', 2)
+      .on('mousemove', (ev, d) => showTip(box, ev, mapLabel(d.map), [[color(d.kind), 'Mean deviation', d.x.toFixed(2) + '%'], [null, 'Talukas split', String(d.y)]]))
+      .on('mouseleave', () => hideTip(box));
+    const off = data.find((d) => d.kind === 'official');
+    if (off) {
+      const right = x(off.x) > w * 0.7;
+      svg.append('text').attr('class', 'lbl-strong').attr('x', x(off.x) + (right ? -11 : 11)).attr('y', y(off.y)).attr('dy', '0.32em').attr('text-anchor', right ? 'end' : 'start').text('Official 2008');
+    }
+  }
+
+  function drawTable() {
+    const tb = document.querySelector('#tb-maps tbody');
+    if (dash.data('map_comparison').status !== 'ok') { tb.replaceChildren(); return; }
+    const data = rows('map_comparison').filter((r) => r.district === distB)
+      .sort((a, b) => (a.kind === 'official' ? -1 : b.kind === 'official' ? 1 : num(a.common_score) - num(b.common_score)));
+    tb.replaceChildren(...data.map((r) => {
+      const tr = document.createElement('tr');
+      tr.setAttribute('data-key', `${encodeURIComponent(r.district)},${encodeURIComponent(r.map)}`);
+      if (r.kind === 'official') tr.className = 'is-official';
+      const cells = [
+        [r.map, null],
+        [fmtInt(num(r.seats_outside_10pct)), num(r.seats_outside_10pct) > 0 ? 'bad' : null],
+        [num(r.size_ratio).toFixed(2), null],
+        [num(r.mean_abs_dev_pct).toFixed(2), null],
+        [fmtInt(num(r.talukas_split)), null],
+        [fmtInt(num(r.taluka_excess_cuts)), null],
+        [num(r.mean_polsby_popper).toFixed(3), null],
+        [num(r.mean_km_to_centre).toFixed(2), null],
+        [fmtInt(num(r.evm_km)), null],
+        [num(r.common_score).toFixed(3), null],
+      ];
+      for (const [t, cls] of cells) { const td = document.createElement('td'); td.textContent = t; if (cls) td.className = cls; tr.appendChild(td); }
+      return tr;
+    }));
+  }
+
+  function drawCity() {
+    const tb = document.querySelector('#tb-city tbody');
+    if (dash.data('official_seats').status !== 'ok') { tb.replaceChildren(); return; }
+    const data = rows('official_seats').filter((r) => r.verified !== 'True')
+      .sort((a, b) => Math.abs(num(b.rebuild_vs_shrug_2011_pct)) - Math.abs(num(a.rebuild_vs_shrug_2011_pct)));
+    tb.replaceChildren(...data.map((r) => {
+      const tr = document.createElement('tr');
+      tr.setAttribute('data-key', `${encodeURIComponent(r.district)},${encodeURIComponent(r.name)}`);
+      const cells = [[r.name, 'l'], [r.district, 'l'], [fmtInt(num(r.pop_2011)), null], [fmtInt(num(r.shrug_pop_2011)), null], [fmtSigned(num(r.rebuild_vs_shrug_2011_pct)), null]];
+      for (const [t, cls] of cells) { const td = document.createElement('td'); td.textContent = t; if (cls) td.className = cls; tr.appendChild(td); }
+      return tr;
+    }));
+  }
+
+  dash.onData(() => {
+    fillMarks();
+    drawOutside();
+    drawRatio();
+    drawSeats();
+    buildSeg();
+    drawStrip();
+    drawTrade();
+    drawTable();
+    drawDrawn();
+    drawCity();
+  });
+})();
+</script>

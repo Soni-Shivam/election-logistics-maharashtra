@@ -1,0 +1,217 @@
+{
+  "score": 0.9011730389667733,
+  "distance_source": {
+    "type": "road_km_matrix",
+    "path": "pilots\\satara\\road_distances.npz",
+    "matrix_points": 1741,
+    "matched_units": 1741
+  },
+  "terms": {
+    "population": 0.5687299604060404,
+    "distance": 0.8958069335995683,
+    "taluka_fragmentation": 1.625,
+    "shape": 0.7225031516319242
+  },
+  "raw": {
+    "population_target": 375467.625,
+    "population_bounds": [
+      337921,
+      413014
+    ],
+    "population_weighted_mean_distance_km": 17.916138671991366,
+    "evm_km_estimate": 35876.96019383068,
+    "taluka_excess_fragments": 13,
+    "taluka_fragments": {
+      "Jaoli": 4,
+      "Karad": 3,
+      "Khandala": 1,
+      "Khatav": 3,
+      "Koregaon": 3,
+      "Mahabaleshwar": 5,
+      "Man": 1,
+      "Patan": 1,
+      "Phaltan": 1,
+      "Satara": 3,
+      "Wai": 1
+    },
+    "units_using_polygon_interior_for_distance": 0
+  },
+  "seats": [
+    {
+      "population": 391230,
+      "mean_distance_km": 17.312329196674586,
+      "centre_unit_id": "04258-802866",
+      "compactness_loss": 0.7354620622679603,
+      "area_km2": 1383.3022151823468,
+      "evm_km_estimate": 4515.401701076666
+    },
+    {
+      "population": 396277,
+      "mean_distance_km": 21.79739609791956,
+      "centre_unit_id": "04256-563092",
+      "compactness_loss": 0.8324327155121362,
+      "area_km2": 1362.401990968865,
+      "evm_km_estimate": 5758.53782233018
+    },
+    {
+      "population": 387492,
+      "mean_distance_km": 16.337971206497226,
+      "centre_unit_id": "04261-563744",
+      "compactness_loss": 0.6835056991673302,
+      "area_km2": 1057.965269029041,
+      "evm_km_estimate": 4220.555425832016
+    },
+    {
+      "population": 391297,
+      "mean_distance_km": 24.050542925615567,
+      "centre_unit_id": "04259-563419",
+      "compactness_loss": 0.7333438950533522,
+      "area_km2": 2440.6046783799534,
+      "evm_km_estimate": 6273.936863443063
+    },
+    {
+      "population": 333928,
+      "mean_distance_km": 16.656893763108748,
+      "centre_unit_id": "04265-564487",
+      "compactness_loss": 0.7491174807774524,
+      "area_km2": 980.9342732396666,
+      "evm_km_estimate": 3708.135480351585
+    },
+    {
+      "population": 369897,
+      "mean_distance_km": 8.97733156668932,
+      "centre_unit_id": "04265-802870",
+      "compactness_loss": 0.6923742439083622,
+      "area_km2": 482.28609024379347,
+      "evm_km_estimate": 2213.7920096824528
+    },
+    {
+      "population": 337162,
+      "mean_distance_km": 24.018767672686188,
+      "centre_unit_id": "04264-564364",
+      "compactness_loss": 0.6301833319318205,
+      "area_km2": 1599.1282824959862,
+      "evm_km_estimate": 5398.8104973721465
+    },
+    {
+      "population": 396458,
+      "mean_distance_km": 14.331116008792495,
+      "centre_unit_id": "04262-802869",
+      "compactness_loss": 0.7236057844369806,
+      "area_km2": 1365.941084383771,
+      "evm_km_estimate": 3787.79039374257
+    }
+  ],
+  "official_checks": [
+    {
+      "constituency": 1,
+      "ac08_no": 255,
+      "name": "Phaltan (SC)",
+      "pc_name": "MADHA",
+      "population_2011": 391230,
+      "deviation_pct": 4.2,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 2,
+      "ac08_no": 256,
+      "name": "Wai",
+      "pc_name": "SATARA",
+      "population_2011": 396277,
+      "deviation_pct": 5.54,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 3,
+      "ac08_no": 257,
+      "name": "Koregaon",
+      "pc_name": "SATARA",
+      "population_2011": 387492,
+      "deviation_pct": 3.2,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 4,
+      "ac08_no": 258,
+      "name": "Man",
+      "pc_name": "MADHA",
+      "population_2011": 391297,
+      "deviation_pct": 4.22,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 5,
+      "ac08_no": 259,
+      "name": "Karad North",
+      "pc_name": "SATARA",
+      "population_2011": 333928,
+      "deviation_pct": -11.06,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 6,
+      "ac08_no": 260,
+      "name": "Karad South",
+      "pc_name": "SATARA",
+      "population_2011": 369897,
+      "deviation_pct": -1.48,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    },
+    {
+      "constituency": 7,
+      "ac08_no": 261,
+      "name": "Patan",
+      "pc_name": "SATARA",
+      "population_2011": 337162,
+      "deviation_pct": -10.2,
+      "within_10pct": false,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": false
+    },
+    {
+      "constituency": 8,
+      "ac08_no": 262,
+      "name": "Satara",
+      "pc_name": "SATARA",
+      "population_2011": 396458,
+      "deviation_pct": 5.59,
+      "within_10pct": true,
+      "connected": true,
+      "single_polygon": true,
+      "passes_all_rules_incl_neck": true
+    }
+  ],
+  "settings": {
+    "seats": 8,
+    "balance": 0.1,
+    "split_share": 0.25,
+    "min_neck_km": 0.5,
+    "neck_lobe_fraction": 0.1,
+    "weight_population": 0.35,
+    "weight_distance": 0.3,
+    "weight_taluka": 0.2,
+    "weight_shape": 0.15,
+    "distance_reference_km": 20.0,
+    "taluka_reference_fragments": 8.0,
+    "link_islands_km": 0.0
+  }
+}
