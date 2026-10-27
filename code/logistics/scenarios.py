@@ -10,6 +10,7 @@ Location scenarios (all on 2024 electors, ECI cap 1,200, 2 km walk, joint centre
   village_rule   ⌈electors/1,200⌉ stations at each village's main hamlet (rule of thumb)
   no_intra       planned as if the walk inside a hamlet were 0 (old model), measured truly
   census2011     demand = Census 2011 × 0.70 instead of 2024 rolls
+  ac_calibrated  every official seat scaled to its own 2024 roll (city seats included)
   best_map       our best optimised Assembly map instead of the official seats
 
 Simulation variants run on ``base`` (and ``cap1500`` for the queue comparison).
@@ -41,6 +42,7 @@ LOCATION = {
     "village_rule": {"strategy": "village"},
     "no_intra": {"plan_intra": False},
     "census2011": {"electors": "electors_2011"},
+    "ac_calibrated": {"electors": "electors_2024_ac"},
     "best_map": {"map": None},
 }
 SIMULATION = {

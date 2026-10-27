@@ -72,6 +72,8 @@ def elector_factors(district: str, units: pd.DataFrame) -> pd.DataFrame:
     pooled = f.loc[~f["verified"], "electors_2024"].sum() / max(1, f.loc[~f["verified"], "pop_2011"].sum())
     f["factor"] = np.where(f["verified"], f["electors_2024"] / f["pop_2011"], pooled)
     f["pooled"] = ~f["verified"]
+    # every AC scaled to its own 2024 roll, city ACs included: right seat totals, rougher geography
+    f["factor_ac"] = f["electors_2024"] / f["pop_2011"]
     return f
 
 
@@ -148,8 +150,9 @@ def pieces_for_unit(xy, w, electors, link_km=LINK_KM):
 def build(district: str, grid=WORLDPOP_100M, dense_share: float = DENSE_SHARE, write: bool = True) -> dict:
     units, geoms = load_units(district)
     fac = elector_factors(district, units)
-    units = units.merge(fac[["ac08_no", "factor"]], on="ac08_no")
+    units = units.merge(fac[["ac08_no", "factor", "factor_ac"]], on="ac08_no")
     units["electors_2024"] = units["population"] * units["factor"]
+    units["electors_2024_ac"] = units["population"] * units["factor_ac"]
     units["electors_2011"] = units["population"] * CENSUS_ELECTOR_RATIO
 
     glon, glat, gpop, cell_km = read_grid(district, grid)
@@ -187,9 +190,9 @@ def build(district: str, grid=WORLDPOP_100M, dense_share: float = DENSE_SHARE, w
                          "share": float(ww.sum() / w.sum()),
                          "intra_km": round((float(d @ ww / ww.sum()) + half_cell) * DETOUR, 3), "cells": int(len(idx))})
     pts = pd.DataFrame(rows)
-    keep = ["id", "name", "kind", "taluka", "ac08_no", "ac08_name", "population", "electors_2024", "electors_2011"]
+    keep = ["id", "name", "kind", "taluka", "ac08_no", "ac08_name", "population", "electors_2024", "electors_2024_ac", "electors_2011"]
     pts = pts.merge(units[keep].rename(columns={"id": "unit_id", "population": "unit_population"}), on="unit_id")
-    for col in ("electors_2024", "electors_2011"):
+    for col in ("electors_2024", "electors_2024_ac", "electors_2011"):
         pts[col] = pts[col] * pts["share"]
     pts.insert(0, "pid", [f"{a}#{b}" for a, b in zip(pts["unit_id"], pts["piece"])])
     out = run_dir(district)

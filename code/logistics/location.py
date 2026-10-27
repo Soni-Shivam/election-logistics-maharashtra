@@ -299,7 +299,7 @@ def main() -> None:
     ap.add_argument("--strategy", default="joint", choices=["joint", "hq", "median", "village"])
     ap.add_argument("--cap", type=int, default=1200)
     ap.add_argument("--max-walk-km", type=float, default=2.0)
-    ap.add_argument("--electors", default="electors_2024", choices=["electors_2024", "electors_2011"])
+    ap.add_argument("--electors", default="electors_2024", choices=["electors_2024", "electors_2024_ac", "electors_2011"])
     ap.add_argument("--tag")
     ap.add_argument("--time-limit", type=float, default=120)
     ap.add_argument("--gap", type=float, default=0.005)
