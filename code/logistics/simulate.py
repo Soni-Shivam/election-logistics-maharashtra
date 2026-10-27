@@ -76,8 +76,13 @@ def station_table(district: str, tag: str) -> pd.DataFrame:
     e["turnout_2024"] = e["votes_2024"] / e["electors_2024"]
     assign = assign.merge(pts.rename(columns={"pid": "from"}), on="from").merge(
         e[["ac_no", "turnout_2024"]].rename(columns={"ac_no": "ac08_no"}), on="ac08_no")
-    t = assign.groupby("to").apply(lambda g: np.average(g["turnout_2024"], weights=g["electors"]), include_groups=False)
-    sites["turnout"] = sites["pid"].map(t)
+    # electors-weighted turnout of the seats each station's voters come from (plain mean if all
+    # its assigned flows rounded to 0 electors)
+    assign["w"] = assign["turnout_2024"] * assign["electors"]
+    g = assign.groupby("to")
+    num, den, plain = g["w"].sum(), g["electors"].sum(), g["turnout_2024"].mean()
+    t = (num / den.where(den > 0)).fillna(plain)
+    sites["turnout"] = sites["pid"].map(t).fillna(float(assign["turnout_2024"].mean()))
     sec = pd.read_csv(loc / "routing" / "sectors.csv")[["pid", "sector_base", "response_min"]]
     sites = sites.merge(sec, on="pid", how="left")
     rows = []

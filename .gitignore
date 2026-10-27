@@ -20,3 +20,6 @@ code/pilots/*/runs/*/assigned_units.geojson
 code/sangli_road/runs/*/assigned_units.geojson
 code/sangli_road/rescored/
 code/runs/
+
+# per-run solver outputs are large; the summary tables are kept
+code/logistics_runs/*/location/

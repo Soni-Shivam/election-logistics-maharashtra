@@ -1,0 +1,28 @@
+check,scope,actual_2024,model_2024_rolls,error_pct,model_census_2011,census_error_pct,note
+polling stations,Pune district,8462.0,8712.0,3.0,6911.0,-18.3,
+electors per station,Pune district,1046.0,1016.0,-2.9,,,actual = 2024 electors / actual stations
+polling stations,Nashik district,4922.0,5538.0,12.5,4898.0,-0.5,
+electors per station,Nashik district,1030.0,915.0,-11.2,,,actual = 2024 electors / actual stations
+polling stations,Nashik East AC,331.0,284.0,-14.2,227.0,-31.4,
+polling stations,Hadapsar AC (roll parts),525.0,339.0,-35.4,256.0,-51.2,
+"buses, 11 urban Pune ACs",PMPML lent for PMC + PCMC seats,968.0,636.0,-34.3,,,model also uses 354 jeeps; PMPML is one of several fleets
+share of day's votes cast by 09:00,Sangli (sim) vs Maharashtra (reported),10.0,10.6,6.0,,,
+share of day's votes cast by 11:00,Sangli (sim) vs Maharashtra (reported),27.5,28.1,2.2,,,
+share of day's votes cast by 13:00,Sangli (sim) vs Maharashtra (reported),48.7,47.4,-2.7,,,
+share of day's votes cast by 15:00,Sangli (sim) vs Maharashtra (reported),68.9,66.7,-3.2,,,
+share of day's votes cast by 17:00,Sangli (sim) vs Maharashtra (reported),88.1,85.8,-2.6,,,
+share of day's votes cast by 09:00,Satara (sim) vs Maharashtra (reported),10.0,10.4,4.0,,,
+share of day's votes cast by 11:00,Satara (sim) vs Maharashtra (reported),27.5,27.9,1.5,,,
+share of day's votes cast by 13:00,Satara (sim) vs Maharashtra (reported),48.7,47.6,-2.3,,,
+share of day's votes cast by 15:00,Satara (sim) vs Maharashtra (reported),68.9,67.1,-2.6,,,
+share of day's votes cast by 17:00,Satara (sim) vs Maharashtra (reported),88.1,86.2,-2.2,,,
+share of day's votes cast by 09:00,Nashik (sim) vs Maharashtra (reported),10.0,10.3,3.0,,,
+share of day's votes cast by 11:00,Nashik (sim) vs Maharashtra (reported),27.5,27.8,1.1,,,
+share of day's votes cast by 13:00,Nashik (sim) vs Maharashtra (reported),48.7,47.4,-2.7,,,
+share of day's votes cast by 15:00,Nashik (sim) vs Maharashtra (reported),68.9,67.0,-2.8,,,
+share of day's votes cast by 17:00,Nashik (sim) vs Maharashtra (reported),88.1,86.3,-2.0,,,
+share of day's votes cast by 09:00,Pune (sim) vs Maharashtra (reported),10.0,10.2,2.0,,,
+share of day's votes cast by 11:00,Pune (sim) vs Maharashtra (reported),27.5,27.5,0.0,,,
+share of day's votes cast by 13:00,Pune (sim) vs Maharashtra (reported),48.7,47.4,-2.7,,,
+share of day's votes cast by 15:00,Pune (sim) vs Maharashtra (reported),68.9,67.3,-2.3,,,
+share of day's votes cast by 17:00,Pune (sim) vs Maharashtra (reported),88.1,86.7,-1.6,,,
