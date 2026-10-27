@@ -55,17 +55,21 @@ def main() -> None:
                 note="actual = 2024 electors / actual stations")
     for d, ac, scope, metric in (("nashik", 124, "Nashik East AC", "polling_stations"),
                                  ("pune", 213, "Hadapsar AC (roll parts)", "polling_stations")):
-        b, c = seats(d, "base"), seats(d, "census2011")
+        b, c, k = seats(d, "base"), seats(d, "census2011"), seats(d, "ac_calibrated")
         if len(b) and (b["seat"] == ac).any():
             add("polling stations", scope, val(metric, scope), int(b.loc[b["seat"] == ac, "stations"].iloc[0]),
                 int(c.loc[c["seat"] == ac, "stations"].iloc[0]) if len(c) and (c["seat"] == ac).any() else None)
-    r = routing("pune", "base")
-    if len(r):
+        if len(k) and (k["seat"] == ac).any():
+            add("polling stations, seat-calibrated rolls", scope, val(metric, scope), int(k.loc[k["seat"] == ac, "stations"].iloc[0]))
+    for scen, label in (("base", "buses, 11 urban Pune ACs"), ("ac_calibrated", "buses, 11 urban Pune ACs, seat-calibrated rolls")):
+        r = routing("pune", scen)
+        if not len(r):
+            continue
         u = r[r["seat"].isin(PUNE_URBAN_ACS)]
-        add("buses, 11 urban Pune ACs", "PMPML lent for PMC + PCMC seats", val("buses_lent", "PMPML for 11 urban Pune ACs"),
+        add(label, "PMPML lent for PMC + PCMC seats", val("buses_lent", "PMPML for 11 urban Pune ACs"),
             int(u["buses"].sum()), note=f"model also uses {int(u['jeeps'].sum())} jeeps; PMPML is one of several fleets")
     for d in ("sangli", "satara", "nashik", "pune"):
-        f = run_dir(d) / "location" / "base" / "simulation" / "summary_svc50.json"
+        f = run_dir(d) / "location" / "base" / "simulation" / "summary_svc40.json"
         if not f.exists():
             continue
         j = json.loads(f.read_text())
